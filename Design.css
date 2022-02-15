@@ -1,0 +1,62 @@
+/*
+*{
+border : thin black solid;	
+} 
+*/
+
+body
+{
+	margin : 0px;	
+}
+
+#menu
+{
+	padding-bottom : 71px; /* placement du trait bas de la barre d'onglet */
+	border-bottom : 1px solid; /* trait bas de la barre d'onglet*/
+}
+
+#onglets
+{
+	font-size : 45px; /* taille nom onglet*/
+	list-style-type : none; /* enlève les puces de la liste */ 
+	margin-right : 5px; /*distance des onglets du bord droit de l'écran */
+}
+
+#onglets li
+{
+    float : right; /* placement à droite des onglets */
+    height : 60px; /* hauteur des onglets */
+    background-color: #F4F9FD;
+    border : 1px solid #9EA0A1;
+	border-top-left-radius : 25px;
+	border-top-right-radius : 25px;
+	padding : 5px;
+}
+
+#onglets li.active
+{
+    border-bottom: 1px solid #fff;
+    background-color: #fff;
+}
+
+#onglets li:hover 
+{
+	background-color : #fff; /* couleur de fond quand on passe la souris sur un onglet */
+}
+
+#onglets a
+{
+    display : block;
+    color : #666;
+    text-decoration : none;
+	padding : 4px;
+}
+
+#onglets li.titre 
+{
+	font-size : 70px;
+	float : left;
+	background-color : white;
+	border-bottom : black;
+	border-color : white;
+}
