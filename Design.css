@@ -4,6 +4,7 @@ border : thin black solid;
 } 
 */
 
+
 body
 {
 	margin : 0px;	
@@ -11,26 +12,29 @@ body
 
 #menu
 {
-	padding-bottom : 71px; /* placement du trait bas de la barre d'onglet */
-	border-bottom : 1px solid; /* trait bas de la barre d'onglet*/
+	padding-bottom : 61px; /* placement du trait bas de la barre d'onglet */
+	border-bottom : 3px solid; /* trait bas de la barre d'onglet*/
 }
 
 #onglets
 {
 	font-size : 45px; /* taille nom onglet*/
 	list-style-type : none; /* enlève les puces de la liste */ 
-	margin-right : 5px; /*distance des onglets du bord droit de l'écran */
+	margin-right : 5px; /*distance des onglets du bord droit de l'écran */ 
 }
 
 #onglets li
 {
     float : right; /* placement à droite des onglets */
-    height : 60px; /* hauteur des onglets */
+    height : 50px; /* hauteur des onglets */
     background-color: #F4F9FD;
     border : 1px solid #9EA0A1;
 	border-top-left-radius : 25px;
 	border-top-right-radius : 25px;
 	padding : 5px;
+	box-shadow: 1px 1px 2px #000 inset, /* ombre interne des onglets */
+             1px 1px 5px black,
+             0px -1px 1px white;
 }
 
 #onglets li.active
@@ -54,9 +58,46 @@ body
 
 #onglets li.titre 
 {
-	font-size : 70px;
+	font-size : 55px;
 	float : left;
 	background-color : white;
 	border-bottom : black;
 	border-color : white;
+}
+
+#MAP
+{
+	background: url("images/map.svg");
+	background-position : top center;
+}
+
+#BODY_CLASS
+{
+	background:  url("images/uni.svg");
+}
+
+#BODY_CORR
+{
+	background:  url("images/uni.svg");
+}
+
+#BODY_EXP
+{
+	background:  url("images/uni.svg");
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
 }
