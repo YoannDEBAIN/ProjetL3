@@ -203,30 +203,32 @@ body
     background: #777555;
 }
 
-
-form {
-    width: 400px;
-    margin-left: 350px;
+  
+#BarreDeRecherche{
+	width: 400px;
+    margin-left: 450px;
 	margin-right: auto;
     margin-top: 315px;
-  }
+}
 
-.search {
-    width: 600px;
-	height : 20px;
-	border-radius : 200px;
-	opacity : 0.8;
-	border-color : white;
-  }
-
-.submit {
-    width: auto;
+.champ{
+    width: 350px;
     background-color: white;
     color: grey;
 	border-radius : 200px;
-	/*float : right;*/
-	
-  }
+	height: 20px;
+	border:none;
+
+ 
+}
+.bouton{
+    /*background-image: url(images/loupe1.png);*/
+	width: 35px;
+	height : 25px;
+	border-radius : 200px;
+	opacity : 0.8;
+	border: none;
+}
 
 
 
