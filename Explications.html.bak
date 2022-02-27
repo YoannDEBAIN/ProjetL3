@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>TITRE</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link rel="stylesheet" href="Design.css" type="text/css" media="screen" />
+	</head>
+	
+	<body id ="BODY_EXP">
+		<div id="menu">
+			<ul id="onglets">
+				<li class="active"><a href="Explications.html"> Explications </a></li>
+				<li><a href="Classement.html"> Classement </a></li>
+				<li><a href="Correlation.html"> Correlation </a></li>
+				<li><a href="Accueil.html"> Accueil </a></li>
+				<li class="titre">TITRE</li>
+			</ul>
+		</div>
+		
+		<h2>INDICE DE PAIX</h2>
+			<p>Explication de l'indice de paix。</p>
+
+				<div class="dropdown">
+					<span>Cliquez ici！</span>
+				<div class="dropdown-content">
+					<p>FORMULE DETAILLEE</p>
+					<p>Formule détaillée</p>
+				</div>
+				
+		</div>
+		
+	</body>
+</html>

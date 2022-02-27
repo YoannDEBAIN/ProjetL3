@@ -86,9 +86,9 @@ body
 }
 
 
-#ClasInd li
+#ClasInd p
 {
-    display : inline-block;
+    display : block;
 }
 
 

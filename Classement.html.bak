@@ -22,7 +22,7 @@
 			<ul id = "ClasInd">
 				<form action=".......php" method="get" autocomplete="off">
 					<li><p>Indice 1 <input type="number" id = "ClasInd1" min = 1 max=7 step=1 /></p></li>
-					<li><p>Indice 2 <input type="number" id = "ClasInd2" min = 1 max=7 step=1 /></p></li>
+					<li><p>Indice 2 <input type="number" id = "ClasInd2" min = 1 max=7 step=1 /></p>/li>
 					<li><p> <input type="submit" value="Envoyer"> </p></li>
 				</form>
 			</ul>
