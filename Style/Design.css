@@ -76,6 +76,31 @@ body
 	background:  url("../images/uni.svg");
 }
 
+/* Fixation de l'entete du tableau */
+
+tbody, thead{
+  display: block;
+}
+tbody{
+  height:500px;
+  overflow-y: scroll;
+}
+th, td {
+  width:150px;
+  text-align : center;
+  border : thin black solid;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 .custom-dropdown--large {
     font-size: 1.5em;
@@ -223,7 +248,7 @@ body
  
 }
 .bouton{
-    /*background-image: url(images/loupe1.png);*/
+    /* background-image: url(../images/loupe1.jpg);*/
 	width: 35px;
 	height : 25px;
 	border-radius : 200px;
