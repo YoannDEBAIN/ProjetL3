@@ -207,7 +207,7 @@ body
   
 #BarreDeRecherche{
 	width: 400px;
-    margin-left: 450px;
+    margin-left: auto;
 	margin-right: auto;
     margin-top: 315px;
 }

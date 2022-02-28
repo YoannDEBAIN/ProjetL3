@@ -29,6 +29,27 @@
 		</div>
 		
 
+
+
+
+		
+		<? $bdd = new PDO('mysql:host=localhost;dbname=projetl3;charset=utf8','root', 'root'); ?>
+		<table>
+		<tr>
+			<th>Nom pays</th>
+			<th>Indice démo 2020</th>
+		</tr>
+		<? $rep = $bdd->query('SELECT pays.NomPaysFR, indicedemocratie.Valeur FROM pays, indicedemocratie WHERE pays.IdPays=indicedemocratie.IdPays AND indicedemocratie.Annee=2020');
+		while ($ligne = $rep->fetch()){ ?>
+		<tr>
+			<td><? echo $ligne["pays.NomPaysFR"]; ?></td>
+			<td><? echo $ligne["indicedemocratie.Valeur"]; ?></td>
+
+		</tr>
+		
+		<?  } $rep->closeCursor();?>
+		</table>
+
 		
 	</body>
 </html>
