@@ -66,14 +66,14 @@ body
 
 #MAP
 {
-	background: url("images/map.svg");
+	background: url("../images/map.svg");
 	background-repeat : no-repeat;
 	background-position : top center;
 }
 
 #BODY_FondUni
 {
-	background:  url("images/uni.svg");
+	background:  url("../images/uni.svg");
 }
 
 
