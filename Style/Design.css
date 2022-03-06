@@ -65,14 +65,14 @@ body
 
 #MAP
 {
-	background: url("images/map.svg");
+	background: url("../images/map.svg");
 	background-repeat : no-repeat;
 	background-position : top center;
 }
 
 #BODY_FondUni
 {
-	background:  url("images/uni.svg");
+	background:  url("../images/uni.svg");
 }
 
 
@@ -223,7 +223,7 @@ body
  
 }
 .bouton{
-    background-image: url(images/loupe.jpg);
+    background-image: url(../images/loupe1.jpg);
 	background-size: 40px 30px;
 	background-repeat: no-repeat;
 	width: 45px;
