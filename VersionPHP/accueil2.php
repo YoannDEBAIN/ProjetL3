@@ -8,7 +8,7 @@
 		
 	
 	</head>
-	<body id="MAP">
+	<body id="BODY_FondUni">
 		<div id="menu">
 			<ul id="onglets">
 				<li><a href="Explications.html"> Explications </a></li>
@@ -19,14 +19,24 @@
 			</ul>
 		</div>
 		
+			<? $bdd = new PDO('mysql:host=localhost;dbname=projetl3;charset=utf8','root', 'root'); ?>
 		
-<div id="BarreDeRecherche">
-    <form action="../VersionPHP/accueil2.php" method="get" autocomplete="off">
-        <input class="Champs" name="Pays" type="text" placeholder="                            Veuillez saisir un pays..."/>
 		
-		<input class="bouton" type="submit" value=" "/>
-		<!--<button type="submit" class="bouton">Q</button>-->
-    </form>
-</div>
+		<? 
+		$rep = $bdd->query("SELECT pays.NomPaysFR, pays.UrlDrapeau
+		FROM pays
+		WHERE pays.NomPaysFR='".$_GET['Pays']."' ");
+		while ($ligne = $rep->fetch()){ ?>
+		
+			<? echo $ligne['NomPaysFR']; ?>
+			<? echo $ligne['UrlDrapeau']; ?>
+			<? echo "<img src='".$ligne['UrlDrapeau']."' />"; ?>
+		
+		
+		<?  } $rep->closeCursor();?>
+		
+		
+
 	</body>
 </html>
+
