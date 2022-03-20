@@ -21,6 +21,14 @@
 		
 			<? $bdd = new PDO('mysql:host=localhost;dbname=projetl3;charset=utf8','root', 'root'); ?>
 		
+<div id="BarreDeRecherche2">
+    <form action="../VersionPHP/accueil2.php" method="get" autocomplete="off">
+        <input class="Champs" name="Pays" type="text" placeholder="                            Veuillez saisir un pays..."/>
+		
+		<input class="bouton" type="submit" value=" "/>
+		<!--<button type="submit" class="bouton">Q</button>-->
+    </form>
+</div>
 		
 		<? 
 		$rep = $bdd->query("SELECT pays.NomPaysFR, pays.UrlDrapeau
@@ -28,9 +36,8 @@
 		WHERE pays.NomPaysFR='".$_GET['Pays']."' ");
 		while ($ligne = $rep->fetch()){ ?>
 		
-			<? echo $ligne['NomPaysFR']; ?>
-			<? echo $ligne['UrlDrapeau']; ?>
-			<? echo "<img src='".$ligne['UrlDrapeau']."' />"; ?>
+			<? echo "<h1 id='NomPays'>".$ligne['NomPaysFR']."<h1>"; ?>
+			<? echo "<img id='Drapeau' src='".$ligne['UrlDrapeau']."' />"; ?>
 		
 		
 		<?  } $rep->closeCursor();?>
