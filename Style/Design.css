@@ -204,10 +204,20 @@ body
 }
 
   
-#BarreDeRecherche{
-    margin-left: 450px;
-	margin-right: auto;
-    margin-top: 315px;
+#BarreDeRecherche1{
+    margin-left:auto;
+	margin-right:auto;
+	margin-top:315px;
+	width:350px;
+	
+}
+
+#BarreDeRecherche2{
+    margin-left:auto;
+	margin-right:auto;
+	margin-top:20px;
+	width:350px;
+	
 }
 
 .Champs{
@@ -218,6 +228,7 @@ body
 	border-radius : 200px;
 	height: 35px;
 	border:none;
+
 
 
  
@@ -231,15 +242,20 @@ body
 	border-radius : 200px;
 	opacity : 0.8;
 	border: none;
+	margin-left:385px;
+	margin-top:-10px;
 }
 
 #NomPays{
-color: red;
+	margin-top:5px;
 text-decoration:underline;
+text-align:center;
+font-size:50px;
 }
 
-#drapeau{
-	width:50px;
+#Drapeau{
+	float:right;
+	width:550px;
 	
 }
 
