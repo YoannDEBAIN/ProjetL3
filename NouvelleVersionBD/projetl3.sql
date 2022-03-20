@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 14, 2022 at 01:26 PM
+-- Generation Time: Mar 20, 2022 at 03:17 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.4.16
 
@@ -17186,14 +17186,14 @@ CREATE TABLE `indlibermorale` (
   `IdPays` int(3) DEFAULT NULL,
   `Valeur` varchar(5) DEFAULT NULL,
   `Annee` int(4) DEFAULT NULL,
-  `IdParite` int(4) NOT NULL
+  `IdLibMorale` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `indlibermorale`
 --
 
-INSERT INTO `indlibermorale` (`IdPays`, `Valeur`, `Annee`, `IdParite`) VALUES
+INSERT INTO `indlibermorale` (`IdPays`, `Valeur`, `Annee`, `IdLibMorale`) VALUES
 (1, NULL, 2000, 1),
 (2, NULL, 2000, 2),
 (3, NULL, 2000, 3),
@@ -19466,7 +19466,7 @@ INSERT INTO `indlibermorale` (`IdPays`, `Valeur`, `Annee`, `IdParite`) VALUES
 (37, NULL, 2011, 2270),
 (38, NULL, 2011, 2271),
 (39, NULL, 2011, 2272);
-INSERT INTO `indlibermorale` (`IdPays`, `Valeur`, `Annee`, `IdParite`) VALUES
+INSERT INTO `indlibermorale` (`IdPays`, `Valeur`, `Annee`, `IdLibMorale`) VALUES
 (40, NULL, 2011, 2273),
 (41, NULL, 2011, 2274),
 (42, NULL, 2011, 2275),
@@ -30303,7 +30303,7 @@ ALTER TABLE `indlibercivile`
 -- Indexes for table `indlibermorale`
 --
 ALTER TABLE `indlibermorale`
-  ADD PRIMARY KEY (`IdParite`),
+  ADD PRIMARY KEY (`IdLibMorale`),
   ADD KEY `IdPays` (`IdPays`);
 
 --
