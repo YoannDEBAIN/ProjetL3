@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 20, 2022 at 03:17 PM
+-- Generation Time: Mar 21, 2022 at 04:53 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.4.16
 
@@ -30034,9 +30034,46 @@ INSERT INTO `indparite` (`IdPays`, `Valeur`, `Annee`, `IdParite`) VALUES
 --
 
 CREATE TABLE `lesaviezvous` (
-  `IdAnecdote` int(11) NOT NULL,
-  `Anecdote` text NOT NULL
+  `IdPays` int(3) DEFAULT NULL,
+  `Anecdote` varchar(451) DEFAULT NULL,
+  `IdAnecdote` int(2) NOT NULL,
+  `Source` varchar(79) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `lesaviezvous`
+--
+
+INSERT INTO `lesaviezvous` (`IdPays`, `Anecdote`, `IdAnecdote`, `Source`) VALUES
+(157, 'En Angleterre au Moyen-Âge, les animaux n’avaient pas de statuts privilégiés ! En effet, ils pouvaient être soumis et condamnés aux procès dans les tribunaux royaux pour des dégâts causés aux personnes ou à leurs propriétés.', 1, 'https://www.nacel.fr/actualites/anecdotes-surprenantes-insolites-monde'),
+(5, 'Les droits de l\'homme sont très importants pour les allemands, à tel point qu\'il n\'est pas illégal de s\'évader de prison ! En effet, le fait de vouloir retrouver sa liberté est considéré comme un instinct de survie fondamental, qui n\'est pas condamnable. Les fugitifs ne sont pas libres pour autant et restent recherchés, leur peine étant toujours d\'actualité et à purger. Elle n\'est en revanche pas allongée par leur évasion, contrairement en France.', 2, 'https://www.nacel.fr/actualites/anecdotes-surprenantes-insolites-monde'),
+(13, 'La superficie totale de l\'Autriche est couverte à 62% par les Alpes autrichiennes. Le ski a toujours eu une place importante au sein de la culture autrichienne, son apprentissage à l’école a même été obligatoire jusqu’au milieu des années 90.', 3, 'https://www.nacel.fr/actualites/anecdotes-surprenantes-insolites-monde'),
+(37, 'Le Chili est reconnu pour la diversité de ses paysages et son climat. Vous pouvez traverser l’endroit le plus sec au monde, le désert d’Atacama et aussi bien découvrir les glaces de l’Antarctique.', 4, 'https://www.nacel.fr/actualites/anecdotes-surprenantes-insolites-monde'),
+(48, 'La Cravate est croate ! Accessoire indispensable pour toute tenue chic, elle tire son nom des soldats croates, qui portaient un foulard autour du cou pendant la guerre de 30 ans. Si vous êtes un féru de cet objet, vous pouvez participer à la journée nationale de la cravate, le 18 octobre !', 5, 'https://www.nacel.fr/actualites/anecdotes-surprenantes-insolites-monde'),
+(59, 'Les plus anciennes peintures rupestres ont été découvertes en Espagne : dans la grotte  au nord du pays. Les dessins ont plus de 40.000 ans.', 6, 'https://www.nacel.fr/actualites/anecdotes-surprenantes-insolites-monde'),
+(73, 'En grec, le mot signifiant le pain est le même que pour le siège des toilettes ainsi que pour une bouée de sauvetage. Attention donc à ne pas demander du pain si vous êtes en train de vous noyer.', 7, 'https://www.nacel.fr/actualites/anecdotes-surprenantes-insolites-monde'),
+(93, 'Les Italiens adorent les chats. Ils font partie du patrimoine et sont considérés comme un atout bio-culturel dans les villes. Lorsque que vous êtes à Rome, il est impossible que vous ne croisiez pas un félin, ils sont environ 300 000 et possèdent un privilège particulier : ils sont les seuls autorisés à se promener dans les ruines. Une loi condamne d’ailleurs toute personne qui tue un chat à une amende de 10.000 € et jusqu\'à 3 ans de prison.', 8, 'https://www.nacel.fr/actualites/anecdotes-surprenantes-insolites-monde'),
+(90, 'Arthur Guinness, maitre brasseur et créateur de la bière portant son nom en 1759, voulut s\'assurer de garder durant un petit moment sa brasserie nouvellement créée. Pour cela, il signa un bail de 9 000 ans pour l\'usine à Dublin. Cette usine produit toujours de la bière, mais a depuis été rachetée et agrandie', 9, 'http://blogs.silc.fr/index.php?post/2013/10/16/Anecdotes-sur-les-pays-du-monde'),
+(91, 'Si vous voulez vous déplacer en Islande, ne cherchez pas de gare ferroviaire : c\'est le seul pays européen à ne pas avoir de train.', 10, 'http://blogs.silc.fr/index.php?post/2013/10/16/Anecdotes-sur-les-pays-du-monde'),
+(157, ' Si les anglais roulent à gauche, c\'est parce qu\'au Moyen-Age, les chevaliers, souvent droitiers, portaient leur arme à gauche, et se croisaient par la gauche, plus simple en cas de combat ou pour ne pas entrechoquer les armes. Pour des raisons tactiques, Napoléon changea ce sens en débutant le combat par la droite et l\'imposa aux pays conquis, ce qui n\'était pas le cas de l\'Angleterre', 11, 'http://blogs.silc.fr/index.php?post/2013/10/16/Anecdotes-sur-les-pays-du-monde'),
+(62, 'Un flat daddy (\"papa plat\") est la photographie d\'un soldat de l\'armée américaine parti en mission et reproduite à taille réelle. Offert par l\'armée américaine ou achetée par les familles, le but est que les jeunes enfants gardent un contact physique avec leur père. On estime que 6000 \"flat daddy\" sont actuellement dans des familles de soldats américains.', 12, 'http://blogs.silc.fr/index.php?post/2013/10/16/Anecdotes-sur-les-pays-du-monde'),
+(36, ' Le Canada est vu comme un pays nordique voire polaire. Pourtant, Montréal est plus proche de l\'Equateur que Paris, et est presque à la même latitude que Lyon. La différence de climat est moins une question de latitude que de vents dominants et courants marins, dont le Gulf Stream qui contribue à réchauffer l\'Europe', 13, 'http://blogs.silc.fr/index.php?post/2013/10/16/Anecdotes-sur-les-pays-du-monde'),
+(2, 'L’afrique du Sud est le seul pays à avoir 3 capitales.', 14, NULL),
+(158, 'La Russie compte 11 fuseaux horaires, soit un de moins que… la France!', 15, NULL),
+(24, 'Le Bouthan est le seul pays du monde avec un bilan carbone négatif.', 16, NULL),
+(135, 'Le Nigeria a la plus haute population (154.7 millions d\'habitants) d\'Afrique. Cela représente 18% de la popuation Africaine.', 17, NULL),
+(138, 'L\'endroit sur Terre qui possède le nom le plus long se trouve en Nouvelle-Zélande et est, prenez votre respiration, Taumatawhakatangi­hangakoauauotamatea­turipukakapikimaunga­horonukupokaiwhen­uakitanatahu.', 18, NULL),
+(38, 'En Chine, le chiffre 4 est mal considéré car il se prononce \"Si\", tout comme le mot \"mort\". Ainsi, il n\'y a pas de numéro 4 dans les rues, les plaques d\'immatriculation et les numéros de téléphone se terminent rarement par un 4 etc.. Dans les immeubles, on passe directement du 3e au 5e étage', 19, 'http://blogs.silc.fr/index.php?post/2013/10/16/Anecdotes-sur-les-pays-du-monde'),
+(67, 'La star des desserts dans les réfrigérateurs ce sont les Yaourts ! Mais d’où viennent-ils ? C\'est au XVIe siècle que le premier Yaourt arrive en France suite aux maux d\'estomac du roi François 1er. Celui-ci rencontre un médecin turc conseillé par le sultan Soliman le Magnifique qui lui prescrit un yaourt au lait de brebis pour le soulager.', 20, 'https://www.partir.com/ou-partir/saviez-vous/france.html'),
+(95, 'Le village de Nagoro est un village peuplé d\'habitants un peu particuliers. En effet il abrite 350 poupées grandeur nature, qui sont mises en scène pour remplacer les habitants décédés ou ceux qui ont quitté Nagoro. Depuis, on l\'appelle le village des poupées, c\'est l\'une des habitantes du village qui est à l\'origine de cette tradition farfelue !', 21, 'https://www.partir.com/ou-partir/saviez-vous/japon.html'),
+(180, 'Après 17 ans de construction et 28,2 millions de tonnes de roches, le plus grand tunnel du monde a vu le jour le 1er juin 2016 en Suisse au Saint- Gothard. Ce tunnel permet de traverser les Alpes sur plus 57 km de long !', 22, 'https://www.partir.com/ou-partir/saviez-vous/suisse.html'),
+(86, 'En Inde, la ville d’Auroville est expérimentale : elle compte environ 2000 habitants originaires de 51 pays, mais ici ils sont sans nationalité, religion, politique ou encore sans propriété. Cette ville a été fondée par Mira Alfassa, une Française soutenue par L’UNESCO.', 23, 'https://www.partir.com/ou-partir/saviez-vous/inde.html'),
+(54, 'Le Caire, capitale de l’Egypte depuis plus de 1000 ans, devrait prochainement céder sa place. Le gouvernement local est en effet en train de  à une petite cinquantaine de kilomètres à l’Est du Caire. L’objectif ? Désengorger Le Caire, qui fait en effet partie des villes les plus polluées au monde.', 24, 'https://www.liligo.fr/magazine-voyage/un-pays-une-anecdote-insolite-172223.html'),
+(148, 'Dans la petite ville de Geldrop, aux Pays-Bas, tout un quartier rend hommage à la Terre du Milieu. Les fans de la saga de J. R. R. Tolkien adoreront se promener dans les rues nommées en l’honneur des différents personnages : , …', 25, 'https://www.liligo.fr/magazine-voyage/un-pays-une-anecdote-insolite-172223.html'),
+(50, 'Le drapeau du Danemark est le plus ancien au monde encore utilisé par une nation indépendante. En effet, il remonte à 1219.', 26, 'https://www.skyscanner.fr/actualites/choisissez-un-pays-pour-une-anecdote'),
+(127, 'Le Monténégro possède l’un des plus vieux oliviers du monde. Stara Maslina aurait plus de 2 000 ans.', 27, 'https://www.skyscanner.fr/actualites/choisissez-un-pays-pour-une-anecdote'),
+(10, 'L’Argentine a eu deux femmes présidentes. La première femme présidente à être officiellement élue dans le pays a été Cristina Fernández de Kirchner. Cependant, en 1974, Isabel Martínez de Perón a été la première femme présidente de l’Argentine, pendant deux ans après la mort soudaine de son mari, Juan Domingo Perón.', 28, 'https://www.skyscanner.fr/actualites/choisissez-un-pays-pour-une-anecdote'),
+(4, 'L\'Algérie est le plus grand pays d\'Afrique.', 29, NULL);
 
 -- --------------------------------------------------------
 
@@ -30324,7 +30361,8 @@ ALTER TABLE `indparite`
 -- Indexes for table `lesaviezvous`
 --
 ALTER TABLE `lesaviezvous`
-  ADD PRIMARY KEY (`IdAnecdote`);
+  ADD PRIMARY KEY (`IdAnecdote`),
+  ADD KEY `IdPays` (`IdPays`);
 
 --
 -- Indexes for table `pays`
@@ -30378,6 +30416,12 @@ ALTER TABLE `indpaixglobale`
 --
 ALTER TABLE `indparite`
   ADD CONSTRAINT `indparite_ibfk_1` FOREIGN KEY (`IdPays`) REFERENCES `pays` (`IdPays`);
+
+--
+-- Constraints for table `lesaviezvous`
+--
+ALTER TABLE `lesaviezvous`
+  ADD CONSTRAINT `lesaviezvous_ibfk_1` FOREIGN KEY (`IdPays`) REFERENCES `pays` (`IdPays`);
 
 --
 -- Constraints for table `pays`
