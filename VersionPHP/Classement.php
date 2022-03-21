@@ -36,6 +36,10 @@
 			<option value="indlibercivile" <? if ($_GET['ClaInd1']=="indlibercivile"){echo 'selected';}?>>liberte civile</option>
 			<option value="indpaixglobale" <? if ($_GET['ClaInd1']=="indpaixglobale"){echo 'selected';}?>>paix globale</option>
         </select>
+		<select name = "Ordre1">
+            <option value="ASC" <? if ($_GET['Ordre1']=="ASC"){echo 'selected';}?>>Croissant</option>
+            <option value="DESC" <? if ($_GET['Ordre1']=="DESC"){echo 'selected';}?>>Decroissant</option>
+        </select>
 		<select name = "ClaInd2">
             <option value="inddemocratie" <? if ($_GET['ClaInd2']=="inddemocratie"){echo 'selected';}?>>Democratie</option>
             <option value="indcorruption" <? if ($_GET['ClaInd2']=="indcorruption"){echo 'selected';}?>>corruption</option>
@@ -44,6 +48,10 @@
 			<option value="indlibermorale" <? if ($_GET['ClaInd2']=="indlibermorale"){echo 'selected';}?>>liberte morale</option>
 			<option value="indlibercivile" <? if ($_GET['ClaInd2']=="indlibercivile"){echo 'selected';}?>>liberte civile</option>
 			<option value="indpaixglobale" <? if ($_GET['ClaInd2']=="indpaixglobale"){echo 'selected';}?>>paix globale</option>
+        </select>
+		<select name = "Ordre2">
+            <option value="ASC" <? if ($_GET['Ordre2']=="ASC"){echo 'selected';}?>>Croissant</option>
+            <option value="DESC" <? if ($_GET['Ordre2']=="DESC"){echo 'selected';}?>>Decroissant</option>
         </select>
 		<select name = "ClaInd3">
             <option value="inddemocratie" <? if ($_GET['ClaInd3']=="inddemocratie"){echo 'selected';}?>>Democratie</option>
@@ -54,6 +62,10 @@
 			<option value="indlibercivile" <? if ($_GET['ClaInd3']=="indlibercivile"){echo 'selected';}?>>liberte civile</option>
 			<option value="indpaixglobale" <? if ($_GET['ClaInd3']=="indpaixglobale"){echo 'selected';}?>>paix globale</option>
         </select>
+		<select name = "Ordre3">
+            <option value="ASC" <? if ($_GET['Ordre3']=="ASC"){echo 'selected';}?>>Croissant</option>
+            <option value="DESC" <? if ($_GET['Ordre3']=="DESC"){echo 'selected';}?>>Decroissant</option>
+        </select>
 		<select name = "ClaInd4">
             <option value="inddemocratie" <? if ($_GET['ClaInd4']=="inddemocratie"){echo 'selected';}?>>Democratie</option>
             <option value="indcorruption" <? if ($_GET['ClaInd4']=="indcorruption"){echo 'selected';}?>>corruption</option>
@@ -62,6 +74,10 @@
 			<option value="indlibermorale" <? if ($_GET['ClaInd4']=="indlibermorale"){echo 'selected';}?>>liberte morale</option>
 			<option value="indlibercivile" <? if ($_GET['ClaInd4']=="indlibercivile"){echo 'selected';}?>>liberte civile</option>
 			<option value="indpaixglobale" <? if ($_GET['ClaInd4']=="indpaixglobale"){echo 'selected';}?>>paix globale</option>
+        </select>
+		<select name = "Ordre4">
+            <option value="ASC" <? if ($_GET['Ordre4']=="ASC"){echo 'selected';}?>>Croissant</option>
+            <option value="DESC" <? if ($_GET['Ordre4']=="DESC"){echo 'selected';}?>>Decroissant</option>
         </select>
 		<select name = "ClaInd5">
             <option value="inddemocratie" <? if ($_GET['ClaInd5']=="inddemocratie"){echo 'selected';}?>>Democratie</option>
@@ -72,6 +88,10 @@
 			<option value="indlibercivile" <? if ($_GET['ClaInd5']=="indlibercivile"){echo 'selected';}?>>liberte civile</option>
 			<option value="indpaixglobale" <? if ($_GET['ClaInd5']=="indpaixglobale"){echo 'selected';}?>>paix globale</option>
         </select>
+		<select name = "Ordre5">
+            <option value="ASC" <? if ($_GET['Ordre5']=="ASC"){echo 'selected';}?>>Croissant</option>
+            <option value="DESC" <? if ($_GET['Ordre5']=="DESC"){echo 'selected';}?>>Decroissant</option>
+        </select>
 		<select name = "ClaInd6">
             <option value="inddemocratie" <? if ($_GET['ClaInd6']=="inddemocratie"){echo 'selected';}?>>Democratie</option>
             <option value="indcorruption" <? if ($_GET['ClaInd6']=="indcorruption"){echo 'selected';}?>>corruption</option>
@@ -80,6 +100,10 @@
 			<option value="indlibermorale" <? if ($_GET['ClaInd6']=="indlibermorale"){echo 'selected';}?>>liberte morale</option>
 			<option value="indlibercivile" <? if ($_GET['ClaInd6']=="indlibercivile"){echo 'selected';}?>>liberte civile</option>
 			<option value="indpaixglobale" <? if ($_GET['ClaInd6']=="indpaixglobale"){echo 'selected';}?>>paix globale</option>
+        </select>
+		<select name = "Ordre6">
+            <option value="ASC" <? if ($_GET['Ordre6']=="ASC"){echo 'selected';}?>>Croissant</option>
+            <option value="DESC" <? if ($_GET['Ordre6']=="DESC"){echo 'selected';}?>>Decroissant</option>
         </select>
 		<select name = "ClaInd7">
             <option value="inddemocratie" <? if ($_GET['ClaInd7']=="inddemocratie"){echo 'selected';}?>>Democratie</option>
@@ -90,9 +114,9 @@
 			<option value="indlibercivile" <? if ($_GET['ClaInd7']=="indlibercivile"){echo 'selected';}?>>liberte civile</option>
 			<option value="indpaixglobale" <? if ($_GET['ClaInd7']=="indpaixglobale"){echo 'selected';}?>>paix globale</option>
         </select>
-		<select name = "Ordre">
-            <option value="ASC" <? if ($_GET['Ordre']=="ASC"){echo 'selected';}?>>Croissant</option>
-            <option value="DESC" <? if ($_GET['Ordre']=="DESC"){echo 'selected';}?>>Decroissant</option>
+		<select name = "Ordre7">
+            <option value="ASC" <? if ($_GET['Ordre7']=="ASC"){echo 'selected';}?>>Croissant</option>
+            <option value="DESC" <? if ($_GET['Ordre7']=="DESC"){echo 'selected';}?>>Decroissant</option>
         </select>
 		<input name="annee" type="number" value="<? echo $_GET['annee'];?>" min="2000" max ="2020" step="1">
 		<input type="submit" value="Envoyer">
@@ -138,7 +162,7 @@
 		FROM pays, inddemocratie, indcorruption, indbonheur, indparite, indlibermorale, indlibercivile, indpaixglobale
 		WHERE pays.IdPays=inddemocratie.IdPays AND pays.IdPays=indcorruption.IdPays AND pays.IdPays=indbonheur.IdPays AND pays.IdPays=indparite.IdPays AND pays.IdPays=indlibermorale.IdPays AND pays.IdPays=indlibercivile.IdPays AND pays.IdPays=indpaixglobale.IdPays 
 		AND inddemocratie.Annee=".$_GET['annee']." AND indcorruption.Annee=".$_GET['annee']." AND indbonheur.Annee=".$_GET['annee']." AND indparite.Annee=".$_GET['annee']." AND indlibermorale.Annee=".$_GET['annee']." AND indlibercivile.Annee=".$_GET['annee']." AND indpaixglobale.Annee=".$_GET['annee']." 
-		ORDER BY Indice1 ".$_GET['Ordre']." , Indice2 ".$_GET['Ordre']." , Indice3 ".$_GET['Ordre']." , Indice4 ".$_GET['Ordre']." , Indice5 ".$_GET['Ordre']." , Indice6 ".$_GET['Ordre']." , Indice7 ".$_GET['Ordre']);
+		ORDER BY Indice1 ".$_GET['Ordre1']." , Indice2 ".$_GET['Ordre2']." , Indice3 ".$_GET['Ordre3']." , Indice4 ".$_GET['Ordre4']." , Indice5 ".$_GET['Ordre5']." , Indice6 ".$_GET['Ordre6']." , Indice7 ".$_GET['Ordre7']);
 		
 		while ($ligne = $rep->fetch()){ ?>
 		<tr>
@@ -217,7 +241,7 @@
 		WHERE pays.IdContinent=continent.IdContinent AND pays.IdPays=inddemocratie.IdPays AND pays.IdPays=indcorruption.IdPays AND pays.IdPays=indbonheur.IdPays AND pays.IdPays=indparite.IdPays AND pays.IdPays=indlibermorale.IdPays AND pays.IdPays=indlibercivile.IdPays AND pays.IdPays=indpaixglobale.IdPays 
 		AND inddemocratie.Annee=".$_GET['annee']." AND indcorruption.Annee=".$_GET['annee']." AND indbonheur.Annee=".$_GET['annee']." AND indparite.Annee=".$_GET['annee']." AND indlibermorale.Annee=".$_GET['annee']." AND indlibercivile.Annee=".$_GET['annee']." AND indpaixglobale.Annee=".$_GET['annee']." 
 		GROUP BY continent.IdContinent 
-		ORDER BY Indice1 ".$_GET['Ordre']." , Indice2 ".$_GET['Ordre']." , Indice3 ".$_GET['Ordre']." , Indice4 ".$_GET['Ordre']." , Indice5 ".$_GET['Ordre']." , Indice6 ".$_GET['Ordre']." , Indice7 ".$_GET['Ordre']);
+		ORDER BY Indice1 ".$_GET['Ordre1']." , Indice2 ".$_GET['Ordre2']." , Indice3 ".$_GET['Ordre3']." , Indice4 ".$_GET['Ordre4']." , Indice5 ".$_GET['Ordre5']." , Indice6 ".$_GET['Ordre6']." , Indice7 ".$_GET['Ordre7']);
 		$tab = $rep->fetchAll();
 		
 		for ($i=0; $i<count($tab); $i++){ ?>
@@ -233,7 +257,7 @@
 			<td>
 			
 			<? $temp='Classement.php?ClaInd1='.$_GET['ClaInd1'].'&ClaInd2='.$_GET['ClaInd2'].'&ClaInd3='.$_GET['ClaInd3'].'&ClaInd4='.$_GET['ClaInd4'].'&ClaInd5='.$_GET['ClaInd5'].'&
-			ClaInd6='.$_GET['ClaInd6'].'&ClaInd7='.$_GET['ClaInd7'].'&Ordre='.$_GET['Ordre'].'&annee='.$_GET['annee'];
+			ClaInd6='.$_GET['ClaInd6'].'&ClaInd7='.$_GET['ClaInd7'].'&Ordre1='.$_GET['Ordre1'].'&Ordre2='.$_GET['Ordre2'].'&Ordre3='.$_GET['Ordre3'].'&Ordre4='.$_GET['Ordre4'].'&Ordre5='.$_GET['Ordre5'].'&Ordre6='.$_GET['Ordre6'].'&Ordre7='.$_GET['Ordre7'].'&annee='.$_GET['annee'];
 			for ($j=0; $j<count($tab); $j++){
 				if ($i==$j){
 					if($_GET['Cont'.$i]!="ok"){
@@ -261,7 +285,7 @@
 		FROM pays, inddemocratie, indcorruption, indbonheur, indparite, indlibermorale, indlibercivile, indpaixglobale, continent
 		WHERE  continent.NomContinentFR='".$tab[$i]['NomContinentFR']."' AND pays.IdContinent=continent.IdContinent AND pays.IdPays=inddemocratie.IdPays AND pays.IdPays=indcorruption.IdPays AND pays.IdPays=indbonheur.IdPays AND pays.IdPays=indparite.IdPays AND pays.IdPays=indlibermorale.IdPays AND pays.IdPays=indlibercivile.IdPays AND pays.IdPays=indpaixglobale.IdPays 
 		AND inddemocratie.Annee=".$_GET['annee']." AND indcorruption.Annee=".$_GET['annee']." AND indbonheur.Annee=".$_GET['annee']." AND indparite.Annee=".$_GET['annee']." AND indlibermorale.Annee=".$_GET['annee']." AND indlibercivile.Annee=".$_GET['annee']." AND indpaixglobale.Annee=".$_GET['annee']." 
-		ORDER BY Indice1 ".$_GET['Ordre']." , Indice2 ".$_GET['Ordre']." , Indice3 ".$_GET['Ordre']." , Indice4 ".$_GET['Ordre']." , Indice5 ".$_GET['Ordre']." , Indice6 ".$_GET['Ordre']." , Indice7 ".$_GET['Ordre']);
+		ORDER BY Indice1 ".$_GET['Ordre1']." , Indice2 ".$_GET['Ordre2']." , Indice3 ".$_GET['Ordre3']." , Indice4 ".$_GET['Ordre4']." , Indice5 ".$_GET['Ordre5']." , Indice6 ".$_GET['Ordre6']." , Indice7 ".$_GET['Ordre7']);
 		
 		while ($ligne2 = $rep2->fetch()){ ?>
 		<tr>
