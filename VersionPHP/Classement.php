@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html>
 
 	<head>
@@ -299,80 +299,37 @@
 			<td><? echo $ligne2['Indice7']; ?></td>
 		</tr>
 		
-		<?  } $rep2->closeCursor();}?>
+		<?  } $rep2->closeCursor();
+		
+	
+		
+		$rep3 = $bdd->query("SELECT SUM(CASE WHEN ".$_GET['ClaInd1'].".Valeur IS NULL THEN 1 ELSE 0 END) AS 'Indice1',  SUM(CASE WHEN ".$_GET['ClaInd2'].".Valeur IS NULL THEN 1 ELSE 0 END) AS 'Indice2', 
+		SUM(CASE WHEN ".$_GET['ClaInd3'].".Valeur IS NULL THEN 1 ELSE 0 END) AS 'Indice3', SUM(CASE WHEN ".$_GET['ClaInd4'].".Valeur IS NULL THEN 1 ELSE 0 END) AS 'Indice4', SUM(CASE WHEN ".$_GET['ClaInd5'].".Valeur IS NULL THEN 1 ELSE 0 END) AS 'Indice5', 
+		SUM(CASE WHEN ".$_GET['ClaInd6'].".Valeur IS NULL THEN 1 ELSE 0 END) AS 'Indice6', SUM(CASE WHEN ".$_GET['ClaInd7'].".Valeur IS NULL THEN 1 ELSE 0 END) AS 'Indice7' FROM pays, inddemocratie, indcorruption, indbonheur, indparite, indlibermorale, indlibercivile, indpaixglobale, continent
+		WHERE continent.NomContinentFR='".$tab[$i]['NomContinentFR']."' AND pays.IdContinent=continent.IdContinent AND pays.IdPays=inddemocratie.IdPays AND pays.IdPays=indcorruption.IdPays AND pays.IdPays=indbonheur.IdPays AND pays.IdPays=indparite.IdPays AND pays.IdPays=indlibermorale.IdPays AND pays.IdPays=indlibercivile.IdPays AND pays.IdPays=indpaixglobale.IdPays 
+		AND inddemocratie.Annee=".$_GET['annee']." AND indcorruption.Annee=".$_GET['annee']." AND indbonheur.Annee=".$_GET['annee']." AND indparite.Annee=".$_GET['annee']." AND indlibermorale.Annee=".$_GET['annee']." AND indlibercivile.Annee=".$_GET['annee']." AND indpaixglobale.Annee=".$_GET['annee']);
+		
+		while ($ligne3 = $rep3->fetch()){ ?>
+		<tr>
+			<td>Nombre de pays manquants</td>
+			<td><? echo $ligne3['Indice1']; ?></td>
+			<td><? echo $ligne3['Indice2']; ?></td>
+			<td><? echo $ligne3['Indice3']; ?></td>
+			<td><? echo $ligne3['Indice4']; ?></td>
+			<td><? echo $ligne3['Indice5']; ?></td>
+			<td><? echo $ligne3['Indice6']; ?></td>
+			<td><? echo $ligne3['Indice7']; ?></td>
+		</tr>
+		
+		<?  } $rep3->closeCursor();
+		
+		
+		}?>
+		
 		
 		
 		<?  } $rep->closeCursor();?>
 		</tbody>
-		</table>
-
-
-
-
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		<table>
-		<tr>
-			<th>Nom Continent</th>
-			<th><? if ($_GET['ClaInd1']=="inddemocratie"){echo 'Indice de démocratie';} if ($_GET['ClaInd1']=="indcorruption"){echo 'Indice de corruption';} if ($_GET['ClaInd1']=="indbonheur"){echo 'Indice du bonheur';}
-			if ($_GET['ClaInd1']=="indparite"){echo 'Indice de parite';} if ($_GET['ClaInd1']=="indlibermorale"){echo 'Indice de liberte morale';} if ($_GET['ClaInd1']=="indlibercivile"){echo 'Indice de liberte civile';}
-			if ($_GET['ClaInd1']=="indpaixglobale"){echo 'Indice de paix';} ?></th>
-			<th><? if ($_GET['ClaInd2']=="inddemocratie"){echo 'Indice de démocratie';} if ($_GET['ClaInd2']=="indcorruption"){echo 'Indice de corruption';} if ($_GET['ClaInd2']=="indbonheur"){echo 'Indice du bonheur';}
-			if ($_GET['ClaInd2']=="indparite"){echo 'Indice de parite';} if ($_GET['ClaInd2']=="indlibermorale"){echo 'Indice de liberte morale';} if ($_GET['ClaInd2']=="indlibercivile"){echo 'Indice de liberte civile';}
-			if ($_GET['ClaInd2']=="indpaixglobale"){echo 'Indice de paix';}  ?></th>
-			<th><? if ($_GET['ClaInd3']=="inddemocratie"){echo 'Indice de démocratie';} if ($_GET['ClaInd3']=="indcorruption"){echo 'Indice de corruption';} if ($_GET['ClaInd3']=="indbonheur"){echo 'Indice du bonheur';}
-			if ($_GET['ClaInd3']=="indparite"){echo 'Indice de parite';} if ($_GET['ClaInd3']=="indlibermorale"){echo 'Indice de liberte morale';} if ($_GET['ClaInd3']=="indlibercivile"){echo 'Indice de liberte civile';}
-			if ($_GET['ClaInd3']=="indpaixglobale"){echo 'Indice de paix';}   ?></th>
-			<th><? if ($_GET['ClaInd4']=="inddemocratie"){echo 'Indice de démocratie';} if ($_GET['ClaInd4']=="indcorruption"){echo 'Indice de corruption';} if ($_GET['ClaInd4']=="indbonheur"){echo 'Indice du bonheur';}
-			if ($_GET['ClaInd4']=="indparite"){echo 'Indice de parite';} if ($_GET['ClaInd4']=="indlibermorale"){echo 'Indice de liberte morale';} if ($_GET['ClaInd4']=="indlibercivile"){echo 'Indice de liberte civile';}
-			if ($_GET['ClaInd4']=="indpaixglobale"){echo 'Indice de paix';}   ?></th>
-			<th><? if ($_GET['ClaInd5']=="inddemocratie"){echo 'Indice de démocratie';} if ($_GET['ClaInd5']=="indcorruption"){echo 'Indice de corruption';} if ($_GET['ClaInd5']=="indbonheur"){echo 'Indice du bonheur';}
-			if ($_GET['ClaInd5']=="indparite"){echo 'Indice de parite';} if ($_GET['ClaInd5']=="indlibermorale"){echo 'Indice de liberte morale';} if ($_GET['ClaInd5']=="indlibercivile"){echo 'Indice de liberte civile';}
-			if ($_GET['ClaInd5']=="indpaixglobale"){echo 'Indice de paix';}   ?></th>
-			<th><? if ($_GET['ClaInd6']=="inddemocratie"){echo 'Indice de démocratie';} if ($_GET['ClaInd6']=="indcorruption"){echo 'Indice de corruption';} if ($_GET['ClaInd6']=="indbonheur"){echo 'Indice du bonheur';}
-			if ($_GET['ClaInd6']=="indparite"){echo 'Indice de parite';} if ($_GET['ClaInd6']=="indlibermorale"){echo 'Indice de liberte morale';} if ($_GET['ClaInd6']=="indlibercivile"){echo 'Indice de liberte civile';}
-			if ($_GET['ClaInd6']=="indpaixglobale"){echo 'Indice de paix';}   ?></th>
-			<th><? if ($_GET['ClaInd7']=="inddemocratie"){echo 'Indice de démocratie';} if ($_GET['ClaInd7']=="indcorruption"){echo 'Indice de corruption';} if ($_GET['ClaInd7']=="indbonheur"){echo 'Indice du bonheur';}
-			if ($_GET['ClaInd7']=="indparite"){echo 'Indice de parite';} if ($_GET['ClaInd7']=="indlibermorale"){echo 'Indice de liberte morale';} if ($_GET['ClaInd7']=="indlibercivile"){echo 'Indice de liberte civile';}
-			if ($_GET['ClaInd7']=="indpaixglobale"){echo 'Indice de paix';}    ?></th>
-			
-		</tr> 
-		<? 
-		$rep = $bdd->query("SELECT continent.NomContinentFR, SUM(CASE WHEN ".$_GET['ClaInd1'].".Valeur IS NULL THEN 1 ELSE 0 END) AS 'Indice1',  SUM(CASE WHEN ".$_GET['ClaInd2'].".Valeur IS NULL THEN 1 ELSE 0 END) AS 'Indice2', 
-		SUM(CASE WHEN ".$_GET['ClaInd3'].".Valeur IS NULL THEN 1 ELSE 0 END) AS 'Indice3', SUM(CASE WHEN ".$_GET['ClaInd4'].".Valeur IS NULL THEN 1 ELSE 0 END) AS 'Indice4', SUM(CASE WHEN ".$_GET['ClaInd5'].".Valeur IS NULL THEN 1 ELSE 0 END) AS 'Indice5', 
-		SUM(CASE WHEN ".$_GET['ClaInd6'].".Valeur IS NULL THEN 1 ELSE 0 END) AS 'Indice6', SUM(CASE WHEN ".$_GET['ClaInd7'].".Valeur IS NULL THEN 1 ELSE 0 END) AS 'Indice7' FROM pays, inddemocratie, indcorruption, indbonheur, indparite, indlibermorale, indlibercivile, indpaixglobale, continent
-		WHERE pays.IdContinent=continent.IdContinent AND pays.IdPays=inddemocratie.IdPays AND pays.IdPays=indcorruption.IdPays AND pays.IdPays=indbonheur.IdPays AND pays.IdPays=indparite.IdPays AND pays.IdPays=indlibermorale.IdPays AND pays.IdPays=indlibercivile.IdPays AND pays.IdPays=indpaixglobale.IdPays 
-		AND inddemocratie.Annee=".$_GET['annee']." AND indcorruption.Annee=".$_GET['annee']." AND indbonheur.Annee=".$_GET['annee']." AND indparite.Annee=".$_GET['annee']." AND indlibermorale.Annee=".$_GET['annee']." AND indlibercivile.Annee=".$_GET['annee']." AND indpaixglobale.Annee=".$_GET['annee']." 
-		GROUP BY continent.IdContinent");
-		
-		while ($ligne = $rep->fetch()){ ?>
-		<tr>
-			<td><? echo $ligne['NomContinentFR']; ?></td>
-			<td><? echo $ligne['Indice1']; ?></td>
-			<td><? echo $ligne['Indice2']; ?></td>
-			<td><? echo $ligne['Indice3']; ?></td>
-			<td><? echo $ligne['Indice4']; ?></td>
-			<td><? echo $ligne['Indice5']; ?></td>
-			<td><? echo $ligne['Indice6']; ?></td>
-			<td><? echo $ligne['Indice7']; ?></td>
-		</tr>
-		
-		<?  } $rep->closeCursor();?>
 		</table>
 
 
