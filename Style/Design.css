@@ -198,6 +198,7 @@ body
     box-shadow: 0 0 3px gray;
     font-size:20px;
     font-weight:bold;
+
 }
 .styled:hover {
     background: #777555;
@@ -332,4 +333,14 @@ font-size:50px;
 }
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+label {
+    display: block;
+    font: 1rem 'Fira Sans', sans-serif;
+}
+
+input,
+label {
+    margin: .4rem 0;
 }
