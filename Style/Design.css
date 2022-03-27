@@ -209,7 +209,6 @@ body
     margin-left:auto;
 	margin-right:auto;
 	margin-top:315px;
-	width:350px;
 	
 }
 
@@ -217,37 +216,12 @@ body
     margin-left:auto;
 	margin-right:auto;
 	margin-top:20px;
-	width:350px;
 	
 }
 
-.Champs{
-	padding-left:20px;
-    width: 350px;
-    background-color: white;
-    color: grey;
-	border-radius : 200px;
-	height: 35px;
-	border:none;
 
 
-
- 
-}
-.bouton{
-    background-image: url(../images/loupe1.jpg);
-	background-size: 40px 30px;
-	background-repeat: no-repeat;
-	width: 45px;
-	height : 35px;
-	border-radius : 200px;
-	opacity : 0.8;
-	border: none;
-	margin-left:385px;
-	margin-top:-8px;
-}
-
-#NomPays{
+		#NomPays{
 	margin-top:5px;
 text-decoration:underline;
 text-align:center;
@@ -267,19 +241,13 @@ font-size:50px;
 	
 }
 
-#ok{
-	margin-top:500px;
-	margin-left:200px;
-}
+
 
 .tailleTitre {
 	font-size:15px;
 	text-align:center;
 }
 
-#formulaire {
-	margin-top:500px;
-}
 
 
 
