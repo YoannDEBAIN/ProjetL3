@@ -46,14 +46,14 @@
 		<div id="menu">
 			<ul id="onglets">
 				<li><a href="../PagesHTML/Explications.html"> Explications </a></li>
-				<li><a href="../PagesHTML/Classement.html"> Classement </a></li>
-				<li><a href="../PagesHTML/Correlation.html"> Correlation </a></li>
+				<li><a href="Classement.php"> Classement </a></li>
+				<li><a href="Correlation.php"> Correlation </a></li>
 				<li class="active"><a href="Accueil.html"> Accueil </a></li>
 				<li class="titre">TITRE</li>
 			</ul>
 		</div>
 		
-			<? $bdd = new PDO('mysql:host=localhost;dbname=projetl3;charset=utf8','root', 'root'); ?>
+			<? $bdd = new PDO('mysql:host=localhost;dbname=bdprojetl3;charset=utf8','root', 'root'); ?>
 		
 <div id="BarreDeRecherche2">
     <form action="../VersionPHP/accueil2.php" method="get" autocomplete="off">
@@ -127,16 +127,16 @@
 		<th class="tailleTitre">Indice Parité Gouvernementale</th>
 		</tr>
 		
-		<? $rep=$bdd->query("SELECT indbonheur.Valeur AS indiceBonheur, inddemocratie.Valeur AS indiceDemocratie, 
+		<? $rep=$bdd->query("SELECT indbonheur.Valeur AS indiceBonheur, indicedemocratie.Valeur AS indiceDemocratie, 
 		indpaixglobale.Valeur AS indicePaixGlobale, indcorruption.Valeur AS indiceCorruption, indlibercivile.Valeur 
 		AS indiceLiberteCivile, indlibermorale.Valeur AS indiceLiberteMorale, indparite.Valeur AS indicePariteGouv 
-FROM indbonheur, inddemocratie, indpaixglobale, indcorruption, indlibercivile, indlibermorale, indparite, pays 
-WHERE indbonheur.Annee=".$_GET['Année']." AND inddemocratie.Annee=".$_GET['Année']." 
+FROM indbonheur, indicedemocratie, indpaixglobale, indcorruption, indlibercivile, indlibermorale, indparite, pays 
+WHERE indbonheur.Annee=".$_GET['Année']." AND indicedemocratie.Annee=".$_GET['Année']." 
 AND indpaixglobale.Annee=".$_GET['Année']." AND indcorruption.Annee=".$_GET['Année']." 
 AND indlibercivile.Annee=".$_GET['Année']." AND indlibermorale.Annee=".$_GET['Année']." 
 AND indparite.Annee=".$_GET['Année']." AND indbonheur.IdPays=pays.IdPays AND indparite.IdPays=pays.IdPays 
 AND indpaixglobale.IdPays=pays.IdPays AND indlibermorale.IdPays=pays.IdPays AND indlibercivile.IdPays=pays.IdPays 
-AND inddemocratie.IdPays=pays.IdPays AND indcorruption.IdPays=pays.IdPays AND indparite.IdPays=pays.IdPays AND pays.IdPays=1");
+AND indicedemocratie.IdPays=pays.IdPays AND indcorruption.IdPays=pays.IdPays AND indparite.IdPays=pays.IdPays AND pays.IdPays=1");
 		
 		$ligne = $rep->fetch();?>
 

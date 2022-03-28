@@ -17,7 +17,7 @@
 			<ul id="onglets">
 				<li><a href="../PagesHTML/Explications.html"> Explications </a></li>
 				<li  class="active"><a href="Classement.php"> Classement </a></li>
-				<li><a href="../PagesHTML/Correlation.html"> Correlation </a></li>
+				<li><a href="Correlation.php"> Correlation </a></li>
 				<li><a href="../PagesHTML/Accueil.html"> Accueil </a></li>
 				<li class="titre">TITRE</li>
 			</ul>
@@ -32,7 +32,7 @@
 		<? for ($i=1; $i<=$nbInd; $i++){
 
 			echo '<select name = "ClaInd'.$i.'">
-            <option value="inddemocratie"'; if ($_GET['ClaInd'.$i]=="inddemocratie"){echo 'selected';} echo '>Democratie</option>
+            <option value="indicedemocratie"'; if ($_GET['ClaInd'.$i]=="indicedemocratie"){echo 'selected';} echo '>Democratie</option>
             <option value="indcorruption"'; if ($_GET['ClaInd'.$i]=="indcorruption"){echo 'selected';} echo '>corruption</option>
 			<option value="indbonheur"'; if ($_GET['ClaInd'.$i]=="indbonheur"){echo 'selected';} echo '>bonheur</option>
 			<option value="indparite"'; if ($_GET['ClaInd'.$i]=="indparite"){echo 'selected';} echo '>parite gouvernementale</option>
@@ -62,7 +62,7 @@
 			
 			<? for ($i=1; $i<=$nbInd; $i++){
 			
-			echo '<th>'; if($_GET['ClaInd'.$i]=="inddemocratie"){echo 'Indice de démocratie';} if ($_GET['ClaInd'.$i]=="indcorruption"){echo 'Indice de corruption';} if ($_GET['ClaInd'.$i]=="indbonheur"){echo 'Indice du bonheur';}
+			echo '<th>'; if($_GET['ClaInd'.$i]=="indicedemocratie"){echo 'Indice de démocratie';} if ($_GET['ClaInd'.$i]=="indcorruption"){echo 'Indice de corruption';} if ($_GET['ClaInd'.$i]=="indbonheur"){echo 'Indice du bonheur';}
 			if ($_GET['ClaInd'.$i]=="indparite"){echo 'Indice de parite';} if ($_GET['ClaInd'.$i]=="indlibermorale"){echo 'Indice de liberte morale';} if ($_GET['ClaInd'.$i]=="indlibercivile"){echo 'Indice de liberte civile';}
 			if ($_GET['ClaInd'.$i]=="indpaixglobale"){echo 'Indice de paix';} echo '</th>';
 			}?>
@@ -76,9 +76,9 @@
 			$sql=$sql.$_GET['ClaInd'.$i].".Valeur AS 'Indice".$i."', ";
 		}
 		$sql=$sql.$_GET['ClaInd'.$nbInd].".Valeur AS 'Indice".$nbInd."' ";
-		$sql=$sql."FROM pays, inddemocratie, indcorruption, indbonheur, indparite, indlibermorale, indlibercivile, indpaixglobale
-		WHERE pays.IdPays=inddemocratie.IdPays AND pays.IdPays=indcorruption.IdPays AND pays.IdPays=indbonheur.IdPays AND pays.IdPays=indparite.IdPays AND pays.IdPays=indlibermorale.IdPays AND pays.IdPays=indlibercivile.IdPays AND pays.IdPays=indpaixglobale.IdPays 
-		AND inddemocratie.Annee=".$_GET['annee']." AND indcorruption.Annee=".$_GET['annee']." AND indbonheur.Annee=".$_GET['annee']." AND indparite.Annee=".$_GET['annee']." AND indlibermorale.Annee=".$_GET['annee']." AND indlibercivile.Annee=".$_GET['annee']." AND indpaixglobale.Annee=".$_GET['annee']." ORDER BY ";
+		$sql=$sql."FROM pays, indicedemocratie, indcorruption, indbonheur, indparite, indlibermorale, indlibercivile, indpaixglobale
+		WHERE pays.IdPays=indicedemocratie.IdPays AND pays.IdPays=indcorruption.IdPays AND pays.IdPays=indbonheur.IdPays AND pays.IdPays=indparite.IdPays AND pays.IdPays=indlibermorale.IdPays AND pays.IdPays=indlibercivile.IdPays AND pays.IdPays=indpaixglobale.IdPays 
+		AND indicedemocratie.Annee=".$_GET['annee']." AND indcorruption.Annee=".$_GET['annee']." AND indbonheur.Annee=".$_GET['annee']." AND indparite.Annee=".$_GET['annee']." AND indlibermorale.Annee=".$_GET['annee']." AND indlibercivile.Annee=".$_GET['annee']." AND indpaixglobale.Annee=".$_GET['annee']." ORDER BY ";
 		for($i=1; $i<$nbInd; $i++){
 			$sql=$sql."Indice".$i." ".$_GET['Ordre'.$i].", ";
 		}
@@ -114,7 +114,7 @@
 			<th>Nom Continent</th>
 			<? for ($i=1; $i<=7; $i++){
 			
-			echo '<th>'; if($_GET['ClaInd'.$i]=="inddemocratie"){echo 'Indice de démocratie';} if ($_GET['ClaInd'.$i]=="indcorruption"){echo 'Indice de corruption';} if ($_GET['ClaInd'.$i]=="indbonheur"){echo 'Indice du bonheur';}
+			echo '<th>'; if($_GET['ClaInd'.$i]=="indicedemocratie"){echo 'Indice de démocratie';} if ($_GET['ClaInd'.$i]=="indcorruption"){echo 'Indice de corruption';} if ($_GET['ClaInd'.$i]=="indbonheur"){echo 'Indice du bonheur';}
 			if ($_GET['ClaInd'.$i]=="indparite"){echo 'Indice de parite';} if ($_GET['ClaInd'.$i]=="indlibermorale"){echo 'Indice de liberte morale';} if ($_GET['ClaInd'.$i]=="indlibercivile"){echo 'Indice de liberte civile';}
 			if ($_GET['ClaInd'.$i]=="indpaixglobale"){echo 'Indice de paix';} echo '</th>';
 			}?>
@@ -132,9 +132,9 @@
 			$sql2=$sql2."round(avg(".$_GET['ClaInd'.$i].".Valeur),2) AS 'Indice".$i."' , ";
 		}
 		$sql2=$sql2."count(pays.IdPays) AS 'NbrPays' ";
-		$sql2=$sql2."FROM pays, inddemocratie, indcorruption, indbonheur, indparite, indlibermorale, indlibercivile, indpaixglobale, continent
-		WHERE pays.IdContinent=continent.IdContinent AND pays.IdPays=inddemocratie.IdPays AND pays.IdPays=indcorruption.IdPays AND pays.IdPays=indbonheur.IdPays AND pays.IdPays=indparite.IdPays AND pays.IdPays=indlibermorale.IdPays AND pays.IdPays=indlibercivile.IdPays AND pays.IdPays=indpaixglobale.IdPays 
-		AND inddemocratie.Annee=".$_GET['annee']." AND indcorruption.Annee=".$_GET['annee']." AND indbonheur.Annee=".$_GET['annee']." AND indparite.Annee=".$_GET['annee']." AND indlibermorale.Annee=".$_GET['annee']." AND indlibercivile.Annee=".$_GET['annee']." AND indpaixglobale.Annee=".$_GET['annee']." 
+		$sql2=$sql2."FROM pays, indicedemocratie, indcorruption, indbonheur, indparite, indlibermorale, indlibercivile, indpaixglobale, continent
+		WHERE pays.IdContinent=continent.IdContinent AND pays.IdPays=indicedemocratie.IdPays AND pays.IdPays=indcorruption.IdPays AND pays.IdPays=indbonheur.IdPays AND pays.IdPays=indparite.IdPays AND pays.IdPays=indlibermorale.IdPays AND pays.IdPays=indlibercivile.IdPays AND pays.IdPays=indpaixglobale.IdPays 
+		AND indicedemocratie.Annee=".$_GET['annee']." AND indcorruption.Annee=".$_GET['annee']." AND indbonheur.Annee=".$_GET['annee']." AND indparite.Annee=".$_GET['annee']." AND indlibermorale.Annee=".$_GET['annee']." AND indlibercivile.Annee=".$_GET['annee']." AND indpaixglobale.Annee=".$_GET['annee']." 
 		GROUP BY continent.IdContinent 
 		ORDER BY ";
 		for($i=1; $i<$nbInd; $i++){
@@ -197,9 +197,9 @@
 			$sql3=$sql3.$_GET['ClaInd'.$k].".Valeur AS 'Indice".$k."', ";
 		}
 		$sql3=$sql3.$_GET['ClaInd'.$nbInd].".Valeur AS 'Indice".$nbInd."' ";
-		$sql3=$sql3."FROM pays, inddemocratie, indcorruption, indbonheur, indparite, indlibermorale, indlibercivile, indpaixglobale, continent
-		WHERE continent.NomContinentFR='".$tab[$i]['NomContinentFR']."' AND pays.IdContinent=continent.IdContinent AND pays.IdPays=inddemocratie.IdPays AND pays.IdPays=indcorruption.IdPays AND pays.IdPays=indbonheur.IdPays AND pays.IdPays=indparite.IdPays AND pays.IdPays=indlibermorale.IdPays AND pays.IdPays=indlibercivile.IdPays AND pays.IdPays=indpaixglobale.IdPays 
-		AND inddemocratie.Annee=".$_GET['annee']." AND indcorruption.Annee=".$_GET['annee']." AND indbonheur.Annee=".$_GET['annee']." AND indparite.Annee=".$_GET['annee']." AND indlibermorale.Annee=".$_GET['annee']." AND indlibercivile.Annee=".$_GET['annee']." AND indpaixglobale.Annee=".$_GET['annee']." ORDER BY ";
+		$sql3=$sql3."FROM pays, indicedemocratie, indcorruption, indbonheur, indparite, indlibermorale, indlibercivile, indpaixglobale, continent
+		WHERE continent.NomContinentFR='".$tab[$i]['NomContinentFR']."' AND pays.IdContinent=continent.IdContinent AND pays.IdPays=indicedemocratie.IdPays AND pays.IdPays=indcorruption.IdPays AND pays.IdPays=indbonheur.IdPays AND pays.IdPays=indparite.IdPays AND pays.IdPays=indlibermorale.IdPays AND pays.IdPays=indlibercivile.IdPays AND pays.IdPays=indpaixglobale.IdPays 
+		AND indicedemocratie.Annee=".$_GET['annee']." AND indcorruption.Annee=".$_GET['annee']." AND indbonheur.Annee=".$_GET['annee']." AND indparite.Annee=".$_GET['annee']." AND indlibermorale.Annee=".$_GET['annee']." AND indlibercivile.Annee=".$_GET['annee']." AND indpaixglobale.Annee=".$_GET['annee']." ORDER BY ";
 		for($k=1; $k<$nbInd; $k++){
 			$sql3=$sql3."Indice".$k." ".$_GET['Ordre'.$k].", ";
 		}
@@ -228,9 +228,9 @@
 			$sql4=$sql4."SUM(CASE WHEN ".$_GET['ClaInd'.$k].".Valeur IS NULL THEN 1 ELSE 0 END) AS 'Indice".$k."', ";
 		}
 		$sql4=$sql4."SUM(CASE WHEN ".$_GET['ClaInd'.$nbInd].".Valeur IS NULL THEN 1 ELSE 0 END) AS 'Indice".$nbInd."' ";
-		$sql4=$sql4."FROM pays, inddemocratie, indcorruption, indbonheur, indparite, indlibermorale, indlibercivile, indpaixglobale, continent
-		WHERE continent.NomContinentFR='".$tab[$i]['NomContinentFR']."' AND pays.IdContinent=continent.IdContinent AND pays.IdPays=inddemocratie.IdPays AND pays.IdPays=indcorruption.IdPays AND pays.IdPays=indbonheur.IdPays AND pays.IdPays=indparite.IdPays AND pays.IdPays=indlibermorale.IdPays AND pays.IdPays=indlibercivile.IdPays AND pays.IdPays=indpaixglobale.IdPays 
-		AND inddemocratie.Annee=".$_GET['annee']." AND indcorruption.Annee=".$_GET['annee']." AND indbonheur.Annee=".$_GET['annee']." AND indparite.Annee=".$_GET['annee']." AND indlibermorale.Annee=".$_GET['annee']." AND indlibercivile.Annee=".$_GET['annee']." AND indpaixglobale.Annee=".$_GET['annee'];
+		$sql4=$sql4."FROM pays, indicedemocratie, indcorruption, indbonheur, indparite, indlibermorale, indlibercivile, indpaixglobale, continent
+		WHERE continent.NomContinentFR='".$tab[$i]['NomContinentFR']."' AND pays.IdContinent=continent.IdContinent AND pays.IdPays=indicedemocratie.IdPays AND pays.IdPays=indcorruption.IdPays AND pays.IdPays=indbonheur.IdPays AND pays.IdPays=indparite.IdPays AND pays.IdPays=indlibermorale.IdPays AND pays.IdPays=indlibercivile.IdPays AND pays.IdPays=indpaixglobale.IdPays 
+		AND indicedemocratie.Annee=".$_GET['annee']." AND indcorruption.Annee=".$_GET['annee']." AND indbonheur.Annee=".$_GET['annee']." AND indparite.Annee=".$_GET['annee']." AND indlibermorale.Annee=".$_GET['annee']." AND indlibercivile.Annee=".$_GET['annee']." AND indpaixglobale.Annee=".$_GET['annee'];
 		
 		$rep3 = $bdd->query($sql4);
 		
