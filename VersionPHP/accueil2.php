@@ -5,15 +5,49 @@
 		<title>TITRE</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<link rel="stylesheet" href="../Style/Design.css" type="text/css" media="screen" />
-		
+		<style>
+#formulaireTableau{
+	margin-top:700px;
+	margin-left:30px;
+	
+
+}
+
+
+.Champs{
+	padding-left:20px;
+    width: 350px;
+    background-color: white;
+    color: grey;
+	border-radius : 200px;
+	height: 35px;
+	border:none;
+		margin-top:15px;
+		margin-left:450px;
+
+}
+.bouton{
+    background-image: url(../images/Loupe.png);
+	background-size: 50px 30px;
+	background-repeat: no-repeat;
+	width: 50px;
+	height : 30px;
+	border-radius : 200px;
+	opacity : 0.8;
+	border: none;
+	margin-left:0px;
+
+}
+
+		</style>
 	
 	</head>
 	<body id="BODY_FondUni">
 		<div id="menu">
 			<ul id="onglets">
-				<li><a href="Explications.html"> Explications </a></li>
-				<li><a href="Classement.html"> Classement </a></li>
-				<li><a href="Correlation.html"> Correlation </a></li>
+				<li><a href="../PagesHTML/Explications.html"> Explications </a></li>
+				<li><a href="../PagesHTML/Classement.html"> Classement </a></li>
+				<li><a href="../PagesHTML/Correlation.html"> Correlation </a></li>
 				<li class="active"><a href="Accueil.html"> Accueil </a></li>
 				<li class="titre">TITRE</li>
 			</ul>
@@ -24,18 +58,17 @@
 <div id="BarreDeRecherche2">
     <form action="../VersionPHP/accueil2.php" method="get" autocomplete="off">
 	
-			<p>
+			
         <input class="Champs" name="Pays" type="text" placeholder="                            Veuillez saisir un pays..."/>
-			</p>
-			<p>
+			
 
 		<input class="bouton" type="submit" value=" "/>
-			</p>
+
 
 		<!--<button type="submit" class="bouton">Q</button>-->
     </form>
 </div>
-		
+		<div>
 		<? 
 		$rep = $bdd->query("SELECT pays.NomPaysFR, pays.UrlDrapeau
 		FROM pays
@@ -47,11 +80,12 @@
 		
 		
 		<?  } $rep->closeCursor();?>
+		</div>
 		
-<form action="accueil2.php" method="get" autocomplete="off">
+		<div id="formulaireTableau">
 
+<form action="accueil2.php" method="get" autocomplete="off">
 		 <select name = "Année">
-		 <p id="formulaire">
 		
             <option value="2000" selected>2000</option>
             <option value="2001">2001</option>
@@ -74,13 +108,13 @@
 			<option value="2018">2018</option>
 			<option value="2019">2019</option>
 			<option value="2020">2020</option>
-		</p>
         </select>
 		
-		
 		<input type="hidden" name="Pays" value="<? echo $_GET['Pays'] ?>"/>
-		<p id="ok"> <input type="submit" value="ok!"> </p>    
+		<input type="submit" value="ok!">   
 		</form>
+		
+		</div>
 		
 		<table id="Tableau" border="2">
 		<tr>
@@ -122,7 +156,7 @@ AND inddemocratie.IdPays=pays.IdPays AND indcorruption.IdPays=pays.IdPays AND in
 		</table>
 
 		
-		
+		</br>
 
 	</body>
 </html>
