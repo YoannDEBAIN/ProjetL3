@@ -54,7 +54,7 @@
 	
 	 
 		
-		<? if ( $_GET['annee']!="") {$bdd = new PDO('mysql:host=localhost;dbname=projetbd;charset=utf8','root', 'root'); ?>
+		<? if ( $_GET['annee']!="") {$bdd = new PDO('mysql:host=localhost;dbname=bdprojetl3;charset=utf8','root', 'root'); ?>
 		<table>
 		<thead>
 		<tr>
