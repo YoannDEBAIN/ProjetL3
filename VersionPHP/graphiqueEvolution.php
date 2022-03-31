@@ -28,8 +28,16 @@ $graph->SetScale("linlin");
 $graph->img->SetMargin(40,40,40,40);        
 $graph->SetShadow();
 
+$titre="Evolution de l'";
+if ($_GET['Indice']=="indicedemocratie"){ $titre.='indice de democartie ';}
+if ($_GET['Indice']=="indcorruption"){ $titre.='indice de corruption ';}
+if ($_GET['Indice']=="indbonheur"){ $titre.='indice de bonheur ';}
+if ($_GET['Indice']=="indparite"){ $titre.='indice de parite gouvernementale ';}
+if ($_GET['Indice']=="indlibermorale"){ $titre.='indice de liberte morale ';}
+if ($_GET['Indice']=="indlibercivile"){ $titre.='indice de liberte civile ';}
+if ($_GET['Indice']=="indpaixglobale"){ $titre.='indice de paix globale ';}
 
-$graph->title->Set("titre");
+$graph->title->Set($titre);
 $graph->title->SetFont(FF_FONT1,FS_BOLD);
 
 $sp1 = new ScatterPlot($datay,$datax);

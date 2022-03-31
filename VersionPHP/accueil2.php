@@ -5,41 +5,7 @@
 		<title>TITRE</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<link rel="stylesheet" href="../Style/Design.css" type="text/css" media="screen" />
-		<style>
-#formulaireTableau{
-	margin-top:700px;
-	margin-left:30px;
-	
 
-}
-
-
-.Champs{
-	padding-left:20px;
-    width: 350px;
-    background-color: white;
-    color: grey;
-	border-radius : 200px;
-	height: 35px;
-	border:none;
-		margin-top:15px;
-		margin-left:450px;
-
-}
-.bouton{
-    background-image: url(../images/Loupe.png);
-	background-size: 50px 30px;
-	background-repeat: no-repeat;
-	width: 50px;
-	height : 30px;
-	border-radius : 200px;
-	opacity : 0.8;
-	border: none;
-	margin-left:0px;
-
-}
-
-		</style>
 	
 	</head>
 	<body id="BODY_FondUni">
@@ -70,17 +36,23 @@
 </div>
 		<div>
 		<? 
-		$rep = $bdd->query("SELECT pays.NomPaysFR, pays.UrlDrapeau
+		$rep = $bdd->query("SELECT pays.NomPaysFR, pays.UrlDrapeau, pays.IdPays
 		FROM pays
 		WHERE pays.NomPaysFR='".$_GET['Pays']."' ");
-		while ($ligne = $rep->fetch()){ ?>
+		
+		$ligne1=$rep->fetchAll();
+		 echo "<h1 id='NomPays'>".$ligne1[0]['NomPaysFR']."<h1>"; 
+		 echo "<img id='Drapeau' src='".$ligne1[0]['UrlDrapeau']."' />"; 
+		
+		/*while ($ligne = $rep->fetch()){ ?>
 		
 			<? echo "<h1 id='NomPays'>".$ligne['NomPaysFR']."<h1>"; ?>
 			<? echo "<img id='Drapeau' src='".$ligne['UrlDrapeau']."' />"; ?>
 		
 		
-		<?  } $rep->closeCursor();?>
+		<?  } $rep->closeCursor(); */?>
 		</div>
+		
 		
 		<div id="formulaireTableau">
 
@@ -136,7 +108,7 @@ AND indpaixglobale.Annee=".$_GET['Année']." AND indcorruption.Annee=".$_GET['An
 AND indlibercivile.Annee=".$_GET['Année']." AND indlibermorale.Annee=".$_GET['Année']." 
 AND indparite.Annee=".$_GET['Année']." AND indbonheur.IdPays=pays.IdPays AND indparite.IdPays=pays.IdPays 
 AND indpaixglobale.IdPays=pays.IdPays AND indlibermorale.IdPays=pays.IdPays AND indlibercivile.IdPays=pays.IdPays 
-AND indicedemocratie.IdPays=pays.IdPays AND indcorruption.IdPays=pays.IdPays AND indparite.IdPays=pays.IdPays AND pays.IdPays=1");
+AND indicedemocratie.IdPays=pays.IdPays AND indcorruption.IdPays=pays.IdPays AND indparite.IdPays=pays.IdPays AND pays.NomPaysFR='".$_GET['Pays']."'");
 		
 		$ligne = $rep->fetch();?>
 
@@ -157,6 +129,82 @@ AND indicedemocratie.IdPays=pays.IdPays AND indcorruption.IdPays=pays.IdPays AND
 
 		
 		</br>
+		
+		<!--<form action="accueil2.php" method="get" autocomplete="off">
+		<p> Zoom
+		<input name = "zoom" type = "number" value ="<? if ($_GET['zoom']==""){echo '1';} else{echo $_GET['zoom'];}?>" min="0" max ="2" step="0.1">
+		</p>
+		<input type="submit" value="ok!">   
+
+  
+		</form> -->
+		
+		<?$lienbonheur="graphiqueEvolution.php?Indice=indbonheur&IdenPays=";
+	$lienbonheur.=$ligne1[0]['IdPays'];?>
+		
+	<p>	<img class="Graph" src="<? echo $lienbonheur; ?>"/> </p>
+	<a href="<? $lienbonheur ?>" 
+   download="bonheur.png">Télécharger le graphique</a>
+		
+		
+
+		<?$lienDemocratie="graphiqueEvolution.php?Indice=indicedemocratie&IdenPays=";
+	$lienDemocratie.=$ligne1[0]['IdPays'];?>
+		
+	<p>	<img class="Graph" src="<? echo $lienDemocratie; ?>"/> </p>
+	<a href="<? echo $lienDemocratie ?>" 
+   download="democratie.png">Télécharger le graphique</a>
+   
+   
+	
+		<?$lienPaix="graphiqueEvolution.php?Indice=indpaixglobale&IdenPays=";
+	$lienPaix.=$ligne1[0]['IdPays'];?>
+		
+	<p>	<img class="Graph" src="<? echo $lienPaix; ?>"/> </p>
+	
+	<a href="<? $lienPaix; ?>" 
+   download="PaixGlobale.png">Télécharger le graphique</a>
+   
+
+		
+		<?$lienCorruption="graphiqueEvolution.php?Indice=indcorruption&IdenPays=";
+	$lienCorruption.=$ligne1[0]['IdPays'];?>
+		
+	<p>	<img class="Graph" src="<? echo $lienCorruption; ?>"/> </p>
+	<a href="<? echo $lienCorruption ?>" 
+   download="Corruption.png">Télécharger le graphique</a>
+   
+
+		
+		<?$lienLiberteCivile="graphiqueEvolution.php?Indice=indlibercivile&IdenPays=";
+	$lienLiberteCivile.=$ligne1[0]['IdPays'];?>
+		
+	<p>	<img class="Graph" src="<? echo $lienLiberteCivile; ?>"/> </p>
+	<a href="<? $lienLiberteCivile ?>" 
+   download="LibertéCivile.png">Télécharger le graphique</a>
+   
+
+		
+		<?$lienLiberteMorale="graphiqueEvolution.php?Indice=indlibermorale&IdenPays=";
+	$lienLiberteMorale.=$ligne1[0]['IdPays'];?>
+		
+	<p>	<img class="Graph" src="<? echo $lienLiberteMorale; ?>"/> </p>
+	<a href="<? $lienLiberteMorale ?>" 
+   download="LibertéMorale.png">Télécharger le graphique</a>
+   
+   
+
+	
+	<?$lienParite="graphiqueEvolution.php?Indice=indparite&IdenPays=";
+	$lienParite.=$ligne1[0]['IdPays'];?>
+		
+	<p>	<img class="Graph" src="<? echo $lienParite; ?>"/> </p>
+	<a href="<? echo $lienParite ?>" 
+   download="ParitéGouv.png">Télécharger le graphique</a>
+
+		
+		
+		
 
 	</body>
 </html>
