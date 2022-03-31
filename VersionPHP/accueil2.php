@@ -5,7 +5,7 @@
 		<title>TITRE</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<link rel="stylesheet" href="../Style/Design.css" type="text/css" media="screen" />
-
+		<script type="text/javascript" src="accueil.js"> </script>
 	
 	</head>
 	<body id="BODY_FondUni">
@@ -54,6 +54,13 @@
 		</div>
 		
 		
+		
+		
+		
+		
+		<div id="aaa">
+		<button class="button" onclick="cache('d1');"> <span> Cliquez-moi !</span></button>
+		<div id="d1">
 		<div id="formulaireTableau">
 
 <form action="accueil2.php" method="get" autocomplete="off">
@@ -88,6 +95,7 @@
 		
 		</div>
 		
+		</br>
 		<table id="Tableau" border="2">
 		<tr>
 		<th class="tailleTitre">Indice Bonheur</th>
@@ -126,6 +134,10 @@ AND indicedemocratie.IdPays=pays.IdPays AND indcorruption.IdPays=pays.IdPays AND
 		<? $rep->closeCursor();?>
 		
 		</table>
+		</div>
+		</div>
+
+		
 
 		
 		</br>
@@ -138,6 +150,10 @@ AND indicedemocratie.IdPays=pays.IdPays AND indcorruption.IdPays=pays.IdPays AND
 
   
 		</form> -->
+		
+		   <button class="button" onclick="cache('d2');"> <span> Cliquez-moi !</span></button>
+		<div id="d2">
+
 		
 		<?$lienbonheur="graphiqueEvolution.php?Indice=indbonheur&IdenPays=";
 	$lienbonheur.=$ligne1[0]['IdPays'];?>
@@ -201,6 +217,8 @@ AND indicedemocratie.IdPays=pays.IdPays AND indcorruption.IdPays=pays.IdPays AND
 	<p>	<img class="Graph" src="<? echo $lienParite; ?>"/> </p>
 	<a href="<? echo $lienParite ?>" 
    download="ParitéGouv.png">Télécharger le graphique</a>
+   
+   </div>
 
 		
 		
