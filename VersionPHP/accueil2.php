@@ -6,7 +6,43 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<link rel="stylesheet" href="../Style/Design.css" type="text/css" media="screen" />
 		<script type="text/javascript" src="accueil.js"> </script>
-	
+<style>
+<!--
+.zoom {
+width: 200px;
+height: 200px;
+overflow: hidden;
+margin: 0 auto;
+}
+.zoom img {
+width: 100%;
+transition: 0.5s all ease-in-out;
+}
+.zoom:hover img {
+transform: scale(2.0);
+}
+
+.zoom {
+	 display: block; margin-left: auto; margin-right: auto ;
+
+}-->
+
+.Graph {
+     -webkit-transition: all 0.2s;
+     -moz-transition: all 0.2s;
+     -ms-transition: all 0.2s;
+     -o-transition: all 0.2s;
+     transition: all 0.2s;
+}
+.Graph:hover {
+     transform:scale(1.2);
+}
+.Graph {
+ display: block; margin-left: auto; margin-right: auto ;
+ width:800px;
+ height:500px;
+}
+</style> 
 	</head>
 	<body id="BODY_FondUni">
 		<div id="menu">
@@ -43,14 +79,7 @@
 		$ligne1=$rep->fetchAll();
 		 echo "<h1 id='NomPays'>".$ligne1[0]['NomPaysFR']."<h1>"; 
 		 echo "<img id='Drapeau' src='".$ligne1[0]['UrlDrapeau']."' />"; 
-		
-		/*while ($ligne = $rep->fetch()){ ?>
-		
-			<? echo "<h1 id='NomPays'>".$ligne['NomPaysFR']."<h1>"; ?>
-			<? echo "<img id='Drapeau' src='".$ligne['UrlDrapeau']."' />"; ?>
-		
-		
-		<?  } $rep->closeCursor(); */?>
+		?>
 		</div>
 		
 
@@ -167,6 +196,7 @@ AND indicedemocratie.IdPays=pays.IdPays AND indcorruption.IdPays=pays.IdPays AND
 	$lienbonheur.=$ligne1[0]['IdPays'];?>
 		
 	<p>	<img class="Graph" src="<? echo $lienbonheur; ?>"/> </p>
+
 	<a href="<? $lienbonheur ?>" 
    download="bonheur.png">Télécharger le graphique</a>
 		
@@ -175,7 +205,9 @@ AND indicedemocratie.IdPays=pays.IdPays AND indcorruption.IdPays=pays.IdPays AND
 		<?$lienDemocratie="graphiqueEvolution.php?Indice=indicedemocratie&IdenPays=";
 	$lienDemocratie.=$ligne1[0]['IdPays'];?>
 		
+
 	<p>	<img class="Graph" src="<? echo $lienDemocratie; ?>"/> </p>
+	
 	<a href="<? echo $lienDemocratie ?>" 
    download="democratie.png">Télécharger le graphique</a>
    
@@ -226,7 +258,11 @@ AND indicedemocratie.IdPays=pays.IdPays AND indcorruption.IdPays=pays.IdPays AND
 	<a href="<? echo $lienParite ?>" 
    download="ParitéGouv.png">Télécharger le graphique</a>
    
+
+   
    </div>
+   
+   		</br>
 
 		
 		
