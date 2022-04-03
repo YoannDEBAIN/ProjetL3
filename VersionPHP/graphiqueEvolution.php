@@ -20,6 +20,8 @@ for($i=0;$i<count($col);$i++){
 header("Content-type: image/png");
 require_once ('jpgraph/src/jpgraph.php');
 require_once ('jpgraph/src/jpgraph_scatter.php');
+require_once ('jpgraph/src/jpgraph_line.php');
+require_once ('jpgraph/src/jpgraph_plotline.php');
 
  
 $graph = new Graph(1200,700);
@@ -41,6 +43,9 @@ $graph->title->Set($titre);
 $graph->title->SetFont(FF_FONT1,FS_BOLD);
 
 $sp1 = new ScatterPlot($datay,$datax);
+/*$graph->setClipping(true);
+$sp1 = new LinePlot($datay,$datax);*/
+
  
 $graph->Add($sp1);
 $graph->Stroke();
