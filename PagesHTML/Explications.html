@@ -5,6 +5,30 @@
 		<title>TITRE</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<link rel="stylesheet" href="../Style/Design.css" type="text/css" media="screen" />
+		<script type="text/javascript" src="../VersionPHP/accueil.js"> </script>
+		
+		<style>
+		
+		ul div{
+		
+		display : none;
+		
+		}
+		
+		{
+		cursor : grab;
+		
+		}
+		
+		
+		#demo, #corrup, #corrupDet, #LibCiv, #PaixGlob, #PariGouv, #Bonh, #LibMor{
+		display : none;
+		
+		}
+		
+		
+		</style>
+		
 	</head>
 	
 	<body id ="BODY_FondUni">
@@ -18,55 +42,46 @@
 			</ul>
 		</div>
 		
-		
-		<h2>Indice de démocratie</h2>
-		<h3>Explications simples : </h3>
-		<p>L’indice de la démocratie utilise les données de l’Economist Inteligence Unit pour exprimer la qualité des démocraties sous la forme d’un nombre compris entre 0 et 100.</p>
-<p>Cet indice est calculé à partir de 60 aspects différents des sociétés qui sont pertinents pour la démocratie, le suffrage universel pour tous les adultes, la participation des électeurs, 
-la perception de la protection des droits de la personne et la liberté de former des organisations et des partis.</p>
-
-<p>L’indice de démocratie est calculé à partir des 60 indicateurs, divisés en cinq "sous-indices", qui sont:</p>
+		<h2 onclick="cache('demo');">  Indice de démocratie</h2>
+		<div id="demo">
+		<p>L’indice de la démocratie utilise les données de l’Economist Inteligence Unit pour exprimer la qualité des démocraties sous la forme d’un nombre compris entre 0 et 100 (0 représentant un régime totalitaire et 100 représentant une démocratie parfaite).</p>
+<p>Cet indice est calculé à partir de 60 aspects différents des sociétés qui sont pertinents pour la démocratie. Ces 60 aspects sont réparties en cinq "sous-indices", qui sont les suivants : </p>
 
 <ul>
-				<li> Indice du pluralisme électoral  </li>
-				<li>Indice des administrations publiques</li>
-				<li>Indice de participation politique</li>
-				<li>Indice de la culture politique</li>
-				<li>Indice des libertés civiles</li>
-			</ul>
-      
-<h3>Détails méthodologiques</h3>	  
-<p>Les sous-indices sont basés sur la somme des scores sur environ 12 indicateurs par sous-indice, convertis en un score compris entre 0 et 100.</p>
+				<li onclick="cache('demoPlu');"> Sous-indice du pluralisme électoral </li>
+				<div id="demoPlu">
+				<ul>
+<li>Les élections au Parlement national et au chef du gouvernement sont-elles libres?</li>
 
-<ul>
-<li>*** Indice du pluralisme électoral</li>
-<ul>
-<li>1. Les élections au Parlement national et au chef du gouvernement sont-elles libres?</li>
+<li>Les élections au Parlement national et au chef du gouvernement sont-elles équitables?</li>
+<li>Les élections municipales sont-elles libres et équitables?</li>
 
-<li>2. Les élections au Parlement national et au chef du gouvernement sont-elles équitables?</li>
-<li>3. Les élections municipales sont-elles libres et équitables?</li>
+<li>Y a-t-il un suffrage universel pour tous les adultes?</li>
 
-<li>4. Y a-t-il un suffrage universel pour tous les adultes?</li>
+<li>Les citoyens peuvent-ils voter à l’abri de menaces importantes à leur sécurité de la part d’organismes étatiques ou non étatiques?</li>
 
-<li>5. Les citoyens peuvent-ils voter à l’abri de menaces importantes à leur sécurité de la part d’organismes étatiques ou non étatiques?</li>
+<li>Les lois prévoient-elles des possibilités de campagne largement égales?</li>
 
-<li>6. Les lois prévoient-elles des possibilités de campagne largement égales?</li>
+<li>Le processus de financement des partis politiques est-il transparent ?</li>
 
-<li>7. Le processus de financement des partis politiques est-il transparent ?</li>
-
-<li>8. Après les élections, les mécanismes constitutionnels pour le transfert du pouvoir d’un
+<li>Après les élections, les mécanismes constitutionnels pour le transfert du pouvoir d’un
 gouvernement à un autre sont-ils établis et acceptés?</li>
 
-<li>9. Les citoyens sont-ils libres de former des partis politiques indépendants du gouvernement?</li>
+<li>Les citoyens sont-ils libres de former des partis politiques indépendants du gouvernement?</li>
 
-<li>10. Les partis d’opposition ont-ils une perspective réaliste de gouvernement?</li>
+<li>Les partis d’opposition ont-ils une perspective réaliste de gouvernement?</li>
 
-<li>11. L’accès potentiel à une charge publique est-il ouvert à tous les citoyens?</li>
+<li>L’accès potentiel à une charge publique est-il ouvert à tous les citoyens?</li>
 
-<li>12. Les citoyens sont-ils autorisés à former des organisations politiques et civiques, libres de toute ingérence et surveillance de l’État?</li>
+<li>Les citoyens sont-ils autorisés à former des organisations politiques et civiques, libres de toute ingérence et surveillance de l’État?</li>
 </ul>
-
-<li>**Indice des administrations publiques (gouvernement)</li>
+				
+				</div>
+				
+				<li onclick="cache('demoAdmi');">Sous-indice des administrations publiques</li>
+				<div id="demoAdmi" >
+				
+				
 <ul>
 <li>Les représentants élus librement déterminent-ils la politique gouvernementale?</li>
 
@@ -96,9 +111,10 @@ gouvernement à un autre sont-ils établis et acceptés?</li>
 
 <li>Confiance du public envers les partis politiques.</li>
 </ul>
-
-<li>** Indice de la participation politique </li>
-<ul>
+				</div>
+				<li onclick="cache('demoPar');">Sous-indice de participation politique </li>
+				<div id="demoPar">
+				<ul>
 <li>Participation aux élections nationales.</li>
 
 <li>Les minorités ethniques, religieuses et autres ont-elles un degré raisonnable d’autonomie et de voix dans le processus politique?</li>
@@ -117,10 +133,11 @@ gouvernement à un autre sont-ils établis et acceptés?</li>
 
 <li>Les efforts mis en place par les autorités pour promouvoir la participation politique.</li>
 </ul>
-
-
-<li>**Indice de la culture politique</li>
-<ul>
+				
+				</div>
+				<li onclick="cache('demoCul');"> Sous-indice de la culture politique</li>
+				<div id="demoCul">
+				<ul>
 <li>Existe-t-il un degré suffisant de consensus et de cohésion sociétale pour soutenir une démocratie stable et fonctionnelle?</li>
 
 <li>Perceptions du leadership : proportion de la population qui désire un dirigeant fort qui contourne le Parlement et les élections.</li>
@@ -138,10 +155,10 @@ gouvernement à un autre sont-ils établis et acceptés?</li>
 
 <li>Il existe une forte séparation de l’Église et de l’État.</li>
  </ul>
-
-
-<li>*** Indice des libertés civiles</li>
-<ul>
+				</div>
+				<li onclick="cache('demoCiv');"> Sous-indice des libertés civiles</li>
+				<div id="demoCiv">
+				<ul>
 <li>Y a-t-il des médias en ligne gratuits?</li>
 
 <li>Y a-t-il des médias imprimés gratuits?</li>
@@ -176,20 +193,26 @@ gouvernement à un autre sont-ils établis et acceptés?</li>
 
 <li>Mesure dans laquelle le gouvernement invoque de nouveaux risques et de nouvelles menaces comme excuse pour restreindre les libertés civiles.</li>
 </ul>
-</ul>
+				
+				</div>
+			</ul>
+     
 
+	</div>	
+		
 		
 		
 		
 		
 
-<h2>Indice de corruption</h2>
-		<h3>Explications simples : </h3>
-		<p>L’indice de corruption ou IPC note et classe les pays en fonction du degré de corruption présent dans le secteur public d’un pays tel qu’il est perçu par les experts et les chefs d’entreprise.
-Dans l’indice de corruption, 13 sources de données qui décrivent un certain nombre de comportements corrompus dans le secteur public tels que le détournement de fonds public, le népotisme dans la fonction publique, 
-l’utilisation de la fonction publique à des fins privées… Mais qui examinent également les mécanismes disponibles pour prévenir la corruption dans un pays tels que la capacité du gouvernement à faire appliquer des mécanismes d’intégrité, 
-la poursuite en justice efficace des fonctionnaires corrompus, l’existence de lois pertinentes sur la divulgation financière etc…</p>
-		<h3>Détails méthodologiques</h3>
+<h2 onclick="cache('corrup');"> Indice de corruption</h2>
+<div id="corrup">
+		<p>L’indice de corruption note les pays en fonction du degré de corruption présent dans le secteur public d’un pays tel qu’il est perçu par les experts et les chefs d’entreprise.
+Cet indice utilise 13 sources de données qui décrivant un certain nombre de comportements corrompus dans le secteur public, et examinant également les mécanismes disponibles pour prévenir la corruption.
+Son score varie de 0 à 100 (0 représentant un pays totalement corrompu et 100 représentant un pays sans corruption).</p>
+		
+		<h3 onclick="cache('corrupDet');">Détails méthodologiques</h3>
+		<div id="corrupDet">
 		<table>
 		<tr>
 		<th>Données</th>
@@ -216,72 +239,277 @@ la poursuite en justice efficace des fonctionnaires corrompus, l’existence de 
 		<td>Evaluations des risques fondés sur des indicateurs qualitatifs et quantitatifs</td>
 		<td>Economist Intelligence Unit</td>
 		</tr>
+		<tr>
+		<td>Rapports du projet de recherche Nations en transition</td>
+		<td>Evaluation qualitative d’experts</td>
+		<td>Freedom House</td>
+		</tr>
+		<tr>
+		<td>Indicateurs des conditions économiques et de risque</td>
+		<td>Evaluation des affaires commerciales par des experts</td>
+		<td>IHS Global insight, Global Risk Service</td>
+		</tr>
+		<tr>
+		<td>Rapport annuel sur la compétitivité mondiale d’IMD</td>
+		<td>Enquête d’opinion auprès des dirigeants</td>
+		<td>Centre de la compétitivité mondiale de l’IMD</td>
+		</tr>
+		<tr>
+		<td>Political and Economic Risk Consultancy</td>
+		<td>Enquête d’opinion auprès des dirigeants</td>
+		<td>Political and Economic Risk Consultancy</td>
+		</tr>
+		<tr>
+		<td>Guide international sur les risques pays</td>
+		<td>Evaluation des risques</td>
+		<td>PRS Group</td>
+		</tr>
+		<tr>
+		<td>Évaluation des politiques et des institutions des pays</td>
+		<td>Evaluation d’experts</td>
+		<td>Banque mondiale</td>
+		</tr>
+		<tr>
+		<td>Enquête d’opinion auprès de cadres</td>
+		<td>Enquête auprès de cadre dirigeants</td>
+		<td>Forum économique mondial</td>
+		</tr>
+		<tr>
+		<td>Indice de l’État de droit</td>
+		<td>Enquête d’expert</td>
+		<td>Projet de justice mondiale</td>
+		</tr>
+		<tr>
+		<td>Projet Variétés de démocraties</td>
+		<td>Enquête d’expert</td>
+		<td>Université de Goteberg, V-Dem institue et Université de Notre Damee</td>
+		</tr>
 		</table>
+		</div>
+		
+		</div>
 		
 		
 		
 		
 		
-		<h2>Indice de liberté civile</h2>
-		<h3>Explications simples : </h3>
 		
-		<p>La liberté civile est la liberté d’exercer ses droits tels que garantis par les lois du pays. Son indice sert à savoir si le pays en question est libre ou non. L’indice de liberté civile varie de 1 (libre) à 7 (non libre). 
-		Si celui est compris entre 1 et 2,5 alors le pays est considéré comme libre, s’il est compris entre 3 et 5 alors le pays est en partie libre, enfin s’il est compris entre 5,5 et 7 alors le pays n’est pas libre. </p>
-<p>L’indice de liberté civile est évalué selon 15 indicateurs sous forme de questions, groupés en 4 grandes catégories : </p>
+		
+		
+		
+		
+		<h2 onclick="cache('LibCiv');">Indice de liberté civile</h2>
+		<div id="LibCiv">
+		<p>L'indice de liberté civil mesure la liberté des habitants d'un pays a exercer leurs droits tels que garantis par les lois du pays en question. 
+		Les valeurs de l’indice de liberté civile varie de 1 (libre) à 7 (non libre). Son calcul se base sur 15 indicateurs, groupés en 4 grandes catégories : </p>
 <ul>
-    <li>Liberté d’expression et de croyance (0-16 points)</li>
-    <li>Droits associatifs et organisationnels (0-12 points)</li>
-    <li>Règles de lois (0-16 points)</li>
-    <li>Autonomie personnelle et droits individuels (0-16 points)</li>
-</ul>
-<p>A la fin, une note allant de 1 à 7 avec 1 représentant le plus grand degré de liberté et 7 le plus petit degré de liberté est attribuée à un pays en fonction des scores totaux obtenus à la suite du questionnaire ci-dessus :</p>
-   <ul>
-   <li>Un score entre 53 et 60 (compris)  Degré de liberté = 1 </li>
-    <li>Un score entre 44 et 52 (compris)  Degré de liberté = 2 </li>
-    <li>Un score entre 35 et 43 (compris)  Degré de liberté = 3 </li>
-    <li>Un score entre 26 et 34 (compris)  Degré de liberté = 4 </li>
-    <li>Un score entre 17 et 25 (compris)  Degré de liberté = 5 </li>
-    <li>Un score entre 8 et 16 (compris)  Degré de liberté = 6 </li>
-    <li>Un score entre 0 et 7 (compris)  Degré de liberté = 7 </li>
-	</ul>	
-	
-		<h3>Détails méthodologiques</h3>
-		<ul>
-		 <li> Liberté d’expression et de croyance (0-16 points)</li>
-		 <ul>
+    <li onclick="cache('LibExpCroy');"> Liberté d’expression et de croyance (sur 16 points)</li>
+	<div id ="LibExpCroy">
+	<ul>
         <li> Y a-t-il des médias libres et indépendants ?</li>
         <li> Les individus sont-ils libres de pratiquer et d’exprimer leur foi religieuse ou leur incrédulité en public et en privé ?</li>
         <li> Y a-t-il une liberté académique ? et le système éducatif est-il exempt d’endoctrinement politique étendu ?</li>
         <li> Les individus sont-ils libres d’exprimer leurs opinions personnelles sur des sujets politiques ou d’autres sujets sensibles sans crainte de surveillance ou de représailles ?</li>
     </ul>
-	<li> Droits associatifs et organisationnels (0-12 points)</li>
+	
+	</div>
+	
+    <li onclick="cache('DroitAsOrg');">Droits associatifs et organisationnels (sur 12 points)</li>
+	
+	<div id="DroitAsOrg">
+	
 	<ul>
         <li> Y a-t-il liberté de réunion ?</li>
         <li>Y a-t-il une liberté pour les organisations non gouvernementales, en particulier celles qui œuvrent dans le domaine des droits de l’homme et de la gouvernance ?</li>
         <li> Y a-t-il une liberté pour les syndicats et les organisations professionnelles ou syndicales similaires ?</li>
     </ul>
-	<li> Règles de lois (0-16 points)</li>
-	<ul>
+	
+	</div>
+	
+	
+	
+    <li onclick="cache('RegleLois');">Règles de lois (sur 16 points)</li>
+	<div id="RegleLois">
+	
+		<ul>
         <li>Y a-t-il une magistrature indépendante ?</li>
         <li>L’application régulière de la loi prévaut-elle en matière civile et pénale ?</li> 
         <li>Y a-t-il une protection contre l’utilisation illégitime de la force physique et la liberté contre la guerre et les insurrections ? </li>
         <li>Les lois, les politiques et les pratiques garantissent-elles l’égalité de traitement de divers segments de la population ?</li>
     </ul>
-	<li>Autonomie personnelle et droits individuels (0-16 points)</li>
+	
+	</div>
+	
+	
+    <li onclick="cache('AutoPersDroitInd');">Autonomie personnelle et droits individuels (sur 16 points)</li>
+	<div id="AutoPersDroitInd">
+	
 	<ul>
         <li>Les individus jouissent-ils de la liberté de circulation, y compris la possibilité de changer de lieu de résidence, d’emploi ou d’éducation ? </li>
         <li>Les particuliers sont-ils en mesure d’exercer leur droit de propriété et d’établir des entreprises privées sans ingérence indue de la part d’acteurs étatiques ou non étatiques ?</li>
         <li>Les individus jouissent-ils de libertés sociales personnelles, y compris le choix du partenaire conjugal et la taille de la famille, la protection contre la violence familiale et le contrôle de l’apparence ?</li>
         <li> Les individus jouissent-ils de l’égalité des chances et de la liberté d’exploitation économique ?</li>
 		</ul>
+	
+	</div>
+</ul>
+
+<p> Une fois le score total d'un pays calculé, celui est catégorisé, permettant de définir la valeur de l'indice de liberté civile :</p>
+   <ul>
+   <li>Si le score total est entre 53 et 60 (compris) alors l'indice de liberté civil = 1 </li>
+    <li>Si le score total est entre 44 et 52 (compris) alors l'indice de liberté civil = 2 </li>
+    <li>Si le score total est entre 35 et 43 (compris) alors l'indice de liberté civil = 3 </li>
+    <li>Si le score total est entre 26 et 34 (compris) alors l'indice de liberté civil = 4 </li>
+    <li>Si le score total est entre 17 et 25 (compris) alors l'indice de liberté civil = 5 </li>
+    <li>Si le score total est entre 8 et 16 (compris) alors l'indice de liberté civil = 6 </li>
+    <li>Si le score total est entre 0 et 7 (compris) alors l'indice de liberté civil = 7 </li>
+	</ul>	
+		
+		</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<h2 onclick="cache('PaixGlob');">Indice de Paix globale</h2>
+		<div id="PaixGlob">
+		L’indice de paix globale est une mesure le degré de violence d'un pays. Ses valeurs vont de 1 (représentant un pays paisible) à 5 (représentant un pays violent). L'indice est calculé à l’aide de 23 indicateurs qualitatifs et quantitatifs selon trois domaines :
+    <ul>
+	
+	<li onclick="cache('NivSurSecuSoc');">Le niveau de sûreté et de sécurité sociétales</li>
+	<div id="NivSurSecuSoc">
+	<ul>
+	<li>Niveau de perception de criminalité</li>
+	<li>Nombre de réfugiés et population déplacée</li>
+	<li>Instabilité politique</li>
+	<li>Echelle de la terreur politique</li>
+	<li>Impact du terrorisme</li>
+	<li>Nombre d'homicides pour 100 000 habitants</li>
+	<li>Niveau de crime violent</li>
+	<li>Probabilité de manifestations violentes</li>
+	<li>Nombre de personnes en prison pour 100 000 habitants</li>
+	<li>Nombre de policiers et officiers pour 100 000 habitants</li>
+	</ul>
+	</div>
+    <li onclick="cache('EtenConf');">L’étendue des conflits nationaux et internationaux en cours</li>
+	<div id="EtenConf">
+	<ul>
+	<li>Nombre et durée des conflits</li>
+	<li>Nombre de décès dû aux conflits externes</li>
+	<li>Nombre de décès dû aux conflits internes</li>
+	<li>Nombre, rôle et durée dans les conflits externes</li>
+	<li>Intensité des conflits internes</li>
+	<li>Relation avec les pays voisins</li>
+	</ul>
+	</div>
+    <li onclick="cache('DegMili');">Le degré de militarisation</li>
+	<div id="DegMili">
+	<ul>
+	<li>Part des dépenses militaires dans le PIB</li>
+	<li>Nombre de services armés pour 100 000 habitants</li>
+	<li>Volume de l'importation d'armes conventionnées pour 100 000 habitants</li>
+	<li>Volume de l'exportation d'armes conventionnées pour 100 000 habitants</li>
+	<li>Contribution financière aux missions de maintien de la paix de l'ONU</li>
+	<li>Capacités nucléaires et possession d'armes lourdes</li>
+	<li>Facilité d'accès aux armes légères et de petit calibre</li>
+	</ul>
+	</div>
 		</ul>
+		</div>
 		
-		<h2>Indice de Paix globale</h2>
-		L’IPG (Global Peace Index) est la première mesure mondiale de paix. Elle ne mesure pas seulement la présence ou l’absence de guerre mais prend aussi en compte l’absence de violence et la peur de la violence. Ainsi l’IPG couvre 99,7 % de la population mondiale, et est calculé à l’aide de 23 indicateurs qualitatifs et quantitatifs, et mesure l’état de paix selon trois domaines :
-    • Le niveau de sûreté et de sécurité sociétales
-    • L’étendue des conflits nationaux et internationaux en cours 
-    • Et le degré de militarisation 
 		
+	<h2 onclick="cache('PariGouv');">Indice de parité gouvernementale</h2>
+	<div id="PariGouv">
+	<p>L’indice de parité gouvernementale est un indice qui représente le pourcentage de sièges parlementaires nationaux occupés par des femmes (chambres basses et hautes combinées). 
+	Les données de cet indice ont été compilées par l’Union interparlementaire (l’IUP) grâce à des informations fournies par les parlements nationaux.</p>
+</div>
+
+
+
+<h2 onclick="cache('Bonh');">Indice du Bonheur</h2>
+	<div id="Bonh">
+	<p>L'indice du bonheur mesure la sensation de bien être moyenne des habitants d'un pays donné. Pour se faire, les enqueteurs pose la question d'évaluation suivante : 
+	« Imaginez une échelle, avec des marches numérotées de 0 à 10. Le haut de l’échelle représente la meilleure vie possible pour vous et le bas de l’échelle représente la pire vie possible pour vous. 
+	Sur quelle marche de l’échelle diriez-vous que vous vous sentez personnellement en ce moment? ».</p>
+</div>
+
+
+<h2 onclick="cache('LibMor');">Indice de liberté morale</h2>
+	<div id="LibMor">
+	<p>L'indice de liberté morale, mesure liberté individuelle dont jouissent les citoyens de chaque pays face à des problèmes moraux particulièrement présent au 21ème siècle. 
+	
+Le but est de montrer si des règles strictes sont imposées ou si les décisions sont librement
+prises selon les croyances et les idées particulières de chacun,
+qu'elles coïncident ou non avec celles de la majorité ou celle de l'État. L'indice mesure donc à quel point les lois obligent les citoyens à agir conformément à un ensemble de valeurs officiellement sanctionnées - ou à s'abstenir d'agir conformément avec des ensembles particuliers de valeurs non approuvées par les autorités du pays.</p>
+<p>Les valeurs de l'indice vont de 0 à 100. 0 représentant le plus bas niveau de liberté morale et 100 le plus grand niveau de liberté morale. L'indice est calculé selon cinq sous-indices : </p>
+
+
+<ul>
+	<li onclick="cache('rel');">Sous-indice relatif à la religion</li>
+	<div id="rel">
+	<ul>
+	<li>Influence de la religion sur l'État, y compris son statut institutionnel formel et sa pratique gouvernementale (compte pour 37,5% du score final relatif à la religion)</li>
+	<li>Censure morale en ligne (compte pour 10% du score final relatif à la religion)</li>
+	<li>Liberté religieuse (principalement sur la base de dispositions constitutionnelles et légales) et ajustés pour refléter toute violation bien connue dans la pratique (compte pour 37,5% du score final relatif à la religion)</li>
+	<li>Droits de l'Homme liés à la religion (en tenant compte du taux d'incarcération existant des prisonniers d'opinion dans chacun des pays) (compte pour 15% du score final relatif à la religion)</li>
+	</ul>
+	</div>
+	<li onclick="cache('bioeth');">Sous-indice relatif à la bioéthique</li>
+	<div id="bioeth">
+	<ul>
+	<li>Droit à l'avortement (compte pour 62,5% du score final relatif à la bioéthique)</li>
+	<li>Droit à l'euthanasie (compte pour 12,5% du score final relatif à la bioéthique)</li>
+	<li>Maternité de substitution (compte pour 25% du score final relatif à la bioéthique)</li>
+	</ul>
+	</div>
+	<li onclick="cache('drug');">Sous-indice relatif aux drogues</li>
+	<div id="drug">
+	<ul>
+	<li>Légalisation du cannabis(compte pour 70% du score final relatif aux drogues)</li>
+	<li>Politique générale sur les autres drogues (compte pour 15% du score final relatif aux drogues)</li>
+	<li>Nombre estimé de détenus liés à la drogue dans les prisons (compte pour 15% du score final relatif aux drogues)</li>
+	</ul>
+	</div>
+	<li onclick="cache('sex');">Sous-indice relatif à la sexualité</li>
+	<div id="sex">
+	<ul>
+	<li>Liberté de consommation de contenus pornographiques (compte pour 40% du score final relatif à la sexualité)</li>
+	<li>Statut légal de la prostitution (compte pour 35% du score final relatif à la sexualité)</li>
+	<li>Age légal du consentement sexuel(compte pour 25% du score final relatif à la sexualité)</li>
+	</ul>
+	</div>
+	<li onclick="cache('genre');">Sous-indice relatif aux genres</li>
+	<div id="genre">
+	<ul>
+	<li>Liberté des femmes, notamment de mouvement par rapport aux hommes (compte pour 20% du score final relatif aux genres)</li>
+	<li>Cohabitation de couples non mariés (compte pour 20% du score final relatif aux genres)</li>
+	<li>Liberté de se marier et d'adopter des couples de même genre (compte pour 40% du score final relatif aux genres)</li>
+	<li>Statut des personnes transgenres (compte pour 10% du score final relatif aux genres)</li>
+	</ul>
+	</div>
+</ul>
+
+
+</div>
+
+
+
+
+
+
+
+
+
 		
 	</body>
 </html>
