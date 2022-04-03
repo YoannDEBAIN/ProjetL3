@@ -274,8 +274,8 @@ th, td {
 	border-radius : 200px;
 	opacity : 0.8;
 	border: none;
-	margin-left:0px;
-
+	margin-left:5px;
+	
 }
 
 
@@ -358,6 +358,25 @@ margin-left : auto;
   border-bottom-right-radius : 15px;
 }
 
+.Graph {
+     -webkit-transition: all 0.2s;
+     -moz-transition: all 0.2s;
+     -ms-transition: all 0.2s;
+     -o-transition: all 0.2s;
+     transition: all 0.2s;
+}
+.Graph:hover {
+     transform:scale(1.2);
+}
+.Graph {
+ display: block; margin-left: auto; margin-right: auto ;
+ width:800px;
+ height:500px;
+}
+
+#année {
+	margin-left:10px;
+}
 
 
 

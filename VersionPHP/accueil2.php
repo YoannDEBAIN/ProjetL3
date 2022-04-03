@@ -50,7 +50,7 @@
 		<div id="d1">
 
 <form action="accueil2.php" method="get" autocomplete="off">
-		 <select name = "Année">
+		 <select id="année" name = "Année">
 		
     <option value="2000"  <? if($_GET['Année']==2000){echo 'selected';} ?>>2000</option>
             <option value="2001"  <? if($_GET['Année']==2001){echo 'selected';} ?>>2001</option>
