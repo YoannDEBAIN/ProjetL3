@@ -95,7 +95,7 @@ WHERE ".$_GET['Ind1'].".IdPays=".$_GET['Ind2'].".IdPays AND ".$_GET['Ind1'].".Va
 
 $res=$rep->fetchAll();
 
-echo '<img src="test.php?Ind1='.$_GET['Ind1'].'&Ind2='.$_GET['Ind2'].'&annee='.$_GET['annee'].'&zoom='.$_GET['zoom'].'&cor='.$res[0]['r'].'" />';
+echo '<img class = "Graph" src="test.php?Ind1='.$_GET['Ind1'].'&Ind2='.$_GET['Ind2'].'&annee='.$_GET['annee'].'&zoom='.$_GET['zoom'].'&cor='.$res[0]['r'].'" />';
 
 echo '<br />';
 
