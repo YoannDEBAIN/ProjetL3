@@ -6,14 +6,11 @@
 		<title>TITRE</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<link rel="stylesheet" href="../Style/Design.css" type="text/css" media="screen" />
-		<style>
-			table {
-	
-	margin-left : 50px;
-	margin-right : auto;
-	width : auto;
-	
-}
+		<? require('ColFondTablInd.php');?>
+
+	<style>
+
+
 
 tbody, thead{
   display: block;
@@ -21,331 +18,13 @@ tbody, thead{
 tbody{
   height:500px;
   overflow-y: scroll;
-}
-th, td {
-  text-align : center;
-  border : thin black solid;
+  overflow-x: auto;
 }
 
-th{
-	
-	width : 150px;
-}
-
-td{
-	
-	width : 150px;
-}
-			
-		.Vert1{
-			background-color : green;
-		}
-		
-		.Vert2{
-			background-color : limegreen;
-		}
-		
-		.VertJaune{
-			background-color : greenyellow;
-		}
-		
-		.Jaune{
-			background-color : yellow
-		}
-		
-		.JauneFonce{
-			background-color : #ffd700;
-		}
-		
-		.Orange{
-			background-color : orange;
-		}
-			
-		.Rouge{
-			background-color : red;
-		}
-		
-		.RougeBrique{
-			background-color : firebrick;
-		}
-		
-		.RougeNoir{
-			background-color : darkred;
-		}
-		
-		.Vide{
-			background-color : grey;
-		}
-		
-		
-	
-.bulle { 
-position:relative;
-color:#C800F0;
-text-decoration:none;
-font-family:arial, verdana, sans-serif;
-text-align:center;
-}
-
-.bulle:hover {
-background: none;
-z-index: 50;
-}
-
-.bulle span {
-display: none;
-}
-
-.bulle:hover span {
-display: block;
-position: absolute;
-top: -40px; 
-left: 0px; 
-font-family:arial, verdana, sans-serif;
-text-align:left;
-font-size:17px;
-color:#0CBFA7;
-font-weight:normal;
-width:200px;
-background: white;
-padding: 5px;
-border: #62c0f4 solid 1px ;
-text-indent: 0;
-}	
-		
-	
-		
-		</style>
 
 	
-	<? 
-	
-	
-	function FondCase ($nomIndice, $valeurIndice){
-		if($nomIndice=="indicedemocratie"){
-			if($valeurIndice==NULL){
-				return('class="Vide"');
-			}
-			else if($valeurIndice>90 && $valeurIndice<=100){
-			return ('class="Vert1"');
-			}
-			else if($valeurIndice>80 && $valeurIndice<=90){
-			return ('class="Vert2"');
-			}
-			else if($valeurIndice>70 && $valeurIndice<=80){
-			return ('class="VertJaune"');
-			}
-			else if($valeurIndice>60 && $valeurIndice<=70){
-			return ('class="Jaune"');
-			}
-			else if($valeurIndice>50 && $valeurIndice<=60){
-			return ('class="JauneFonce"');
-			}
-			else if($valeurIndice>40 && $valeurIndice<=50){
-			return ('class="Orange"');
-			}
-			else if($valeurIndice>30 && $valeurIndice<=40){
-			return ('class="Rouge"');
-			}
-			else if($valeurIndice>20 && $valeurIndice<=30){
-			return ('class="RougeBrique"');
-			}
-			else{
-				 return ('class="RougeNoir"');
-			}
-		} 
-		if ($nomIndice=="indcorruption"){
-			if($valeurIndice==NULL){
-				return('class="Vide"');
-			}
-			else if($valeurIndice>90 && $valeurIndice<=100){
-			return ('class="Vert1"');
-			}
-			else if($valeurIndice>80 && $valeurIndice<=90){
-			return ('class="Vert2"');
-			}
-			else if($valeurIndice>70 && $valeurIndice<=80){
-			return ('class="VertJaune"');
-			}
-			else if($valeurIndice>60 && $valeurIndice<=70){
-			return ('class="Jaune"');
-			}
-			else if($valeurIndice>50 && $valeurIndice<=60){
-			return ('class="JauneFonce"');
-			}
-			else if($valeurIndice>40 && $valeurIndice<=50){
-			return ('class="Orange"');
-			}
-			else if($valeurIndice>30 && $valeurIndice<=40){
-			return ('class="Rouge"');
-			}
-			else if($valeurIndice>20 && $valeurIndice<=30){
-			return ('class="RougeBrique"');
-			}
-			else{
-				 return ('class="RougeNoir"');
-			}
-		}
-		if ($nomIndice=="indparite"){
-			if($valeurIndice==NULL){
-				return('class="Vide"');
-			}
-			else if($valeurIndice>45 && $valeurIndice<=55){
-			return ('class="Vert1"');
-			}
-			else if($valeurIndice>40 && $valeurIndice<=60){
-			return ('class="Vert2"');
-			}
-			else if($valeurIndice>35 && $valeurIndice<=65){
-			return ('class="VertJaune"');
-			}
-			else if($valeurIndice>30 && $valeurIndice<=70){
-			return ('class="Jaune"');
-			}
-			else if($valeurIndice>25 && $valeurIndice<=75){
-			return ('class="JauneFonce"');
-			}
-			else if($valeurIndice>20 && $valeurIndice<=80){
-			return ('class="Orange"');
-			}
-			else if($valeurIndice>15 && $valeurIndice<=85){
-			return ('class="Rouge"');
-			}
-			else if($valeurIndice>10 && $valeurIndice<=90){
-			return ('class="RougeBrique"');
-			}
-			else{
-				 return ('class="RougeNoir"');
-			}
-		} 
-		if ($nomIndice=="indlibermorale"){
-			if($valeurIndice==NULL){
-				return('class="Vide"');
-			}
-			else if($valeurIndice>90 && $valeurIndice<=100){
-			return ('class="Vert1"');
-			}
-			else if($valeurIndice>80 && $valeurIndice<=90){
-			return ('class="Vert2"');
-			}
-			else if($valeurIndice>70 && $valeurIndice<=80){
-			return ('class="VertJaune"');
-			}
-			else if($valeurIndice>60 && $valeurIndice<=70){
-			return ('class="Jaune"');
-			}
-			else if($valeurIndice>50 && $valeurIndice<=60){
-			return ('class="JauneFonce"');
-			}
-			else if($valeurIndice>40 && $valeurIndice<=50){
-			return ('class="Orange"');
-			}
-			else if($valeurIndice>30 && $valeurIndice<=40){
-			return ('class="Rouge"');
-			}
-			else if($valeurIndice>20 && $valeurIndice<=30){
-			return ('class="RougeBrique"');
-			}
-			else{
-				 return ('class="RougeNoir"');
-			}
-		} 
-		if ($nomIndice=="indlibercivile"){
-			if($valeurIndice==NULL){
-				return('class="Vide"');
-			}
-			else if($valeurIndice<2 && $valeurIndice>=1){
-			return ('class="Vert1"');
-			}
-			else if($valeurIndice<3 && $valeurIndice>=2){
-			return ('class="Vert2"');
-			}
-			else if($valeurIndice<4 && $valeurIndice>=3){
-			return ('class="Jaune"');
-			}
-			else if($valeurIndice<5 && $valeurIndice>=4){
-			return ('class="Orange"');
-			}
-			else if($valeurIndice<6 && $valeurIndice>=5){
-			return ('class="Rouge"');
-			}
-			else if($valeurIndice<7 && $valeurIndice>=6){
-			return ('class="RougeBrique"');
-			}
-			else if($valeurIndice==7){
-			 return ('class="RougeNoir"');
-			}
-		}
-		if ($nomIndice=="indpaixglobale"){
-			if($valeurIndice==NULL){
-				return('class="Vide"');
-			}
-			else if($valeurIndice>=1 && $valeurIndice<=1.5){
-			return ('class="Vert1"');
-			}
-			else if($valeurIndice>1.5 && $valeurIndice<=2){
-			return ('class="VertJaune"');
-			}
-			else if($valeurIndice>2 && $valeurIndice<=2.5){
-			return ('class="Jaune"');
-			}
-			else if($valeurIndice>2.5 && $valeurIndice<=3){
-			return ('class="JauneFonce"');
-			}
-			else if($valeurIndice>3 && $valeurIndice<=3.5){
-			return ('class="Orange"');
-			}
-			else if($valeurIndice>3.5 && $valeurIndice<=4){
-			return ('class="Rouge"');
-			}
-			else if($valeurIndice>4 && $valeurIndice<=4.5){
-			return ('class="RougeBrique"');
-			}
-			else{
-				 return ('class="RougeNoir"');
-			}
-		}
-		
-		if ($nomIndice=="indbonheur"){
-			if($valeurIndice==NULL){
-				return('class="Vide"');
-			}
-			else if($valeurIndice>90 && $valeurIndice<=100){
-			return ('class="Vert1"');
-			}
-			else if($valeurIndice>80 && $valeurIndice<=90){
-			return ('class="Vert2"');
-			}
-			else if($valeurIndice>70 && $valeurIndice<=80){
-			return ('class="VertJaune"');
-			}
-			else if($valeurIndice>60 && $valeurIndice<=70){
-			return ('class="Jaune"');
-			}
-			else if($valeurIndice>50 && $valeurIndice<=60){
-			return ('class="JauneFonce"');
-			}
-			else if($valeurIndice>40 && $valeurIndice<=50){
-			return ('class="Orange"');
-			}
-			else if($valeurIndice>30 && $valeurIndice<=40){
-			return ('class="Rouge"');
-			}
-			else if($valeurIndice>20 && $valeurIndice<=30){
-			return ('class="RougeBrique"');
-			}
-			else{
-				 return ('class="RougeNoir"');
-			}
-		}
-		
-	}
-	
-	
-	
-	
-	
-	?>
+	</style>
+
 		
 		
 	</head>
@@ -364,8 +43,7 @@ text-indent: 0;
 		<br/>
 		
 		<? $nbInd=7; ?>
-		
-		<form action="Classement.php" method="get" autocomplete="off">
+		<form id="ChoixCla" action="Classement.php" method="get" autocomplete="off">
 		
 		<? for ($i=1; $i<=$nbInd; $i++){
 
@@ -390,9 +68,10 @@ text-indent: 0;
 		<input type="submit" value="Envoyer">
 		</form>
 	
-	 
+	 <br />
 		
 		<? if ( $_GET['annee']!="") {$bdd = new PDO('mysql:host=localhost;dbname=bdprojetl3;charset=utf8','root', 'root'); ?>
+		<div class="ConTab">
 		<table>
 		<thead>
 		<tr>
@@ -439,16 +118,16 @@ text-indent: 0;
 		<?  } $rep->closeCursor();?>
 		</tbody>
 		</table>
-	
+	</div>
 		<br />
 		
 		
 		
 	
-		
+		<div class="ConTab">
 		<table>
 		<thead>
-		<tr>
+		<tr class="Gras">
 			<th>Nom Continent</th>
 			<? for ($i=1; $i<=7; $i++){
 			
@@ -487,7 +166,7 @@ text-indent: 0;
 		$tab = $rep->fetchAll();
 		
 		for ($i=0; $i<count($tab); $i++){ ?>
-		<tr>
+		<tr class="Gras">
 			<td><? echo $tab[$i]['NomContinentFR']; ?></td>
 			<? for($k=1; $k<=$nbInd; $k++){
 
@@ -594,7 +273,7 @@ text-indent: 0;
 		<?  } $rep->closeCursor();?>
 		</tbody>
 		</table>
-
+</div>
 
 		<?}?>
 		

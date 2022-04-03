@@ -10,6 +10,12 @@ body
 	margin : 0px;	
 }
 
+
+
+
+
+
+
 #menu
 {
 	padding-bottom : 61px; /* placement du trait bas de la barre d'onglet */
@@ -63,6 +69,17 @@ body
 	border-color : #b7c8c4;
 }
 
+
+
+
+
+
+
+
+
+
+
+
 #MAP
 {
 	background: url("../images/map.svg");
@@ -74,6 +91,300 @@ body
 {
 	background:  url("../images/uni.svg");
 }
+
+
+
+
+
+
+ 
+#BarreDeRecherche1{
+    margin-left:auto;
+	margin-right:auto;
+	margin-top:300px;
+	width : 450px;
+	
+}
+
+.Champs{
+	padding-left:20px;
+    width: 350px;
+    background-color: white;
+    color: grey;
+	border-radius : 200px;
+	height: 35px;
+	border:none;
+
+		
+
+}
+.bouton{
+    background-image: url(../images/Loupe.png);
+	background-size: 50px 30px;
+	background-repeat: no-repeat;
+	width: 50px;
+	height : 30px;
+	border-radius : 200px;
+	opacity : 0.8;
+	border: none;
+
+}
+  
+  
+  
+
+#BarreDeRecherche2{
+    margin-left:auto;
+	margin-right:auto;
+	margin-top:20px;
+	width : 450px;
+}
+
+
+#NomPays{
+	margin-top:5px;
+text-decoration:underline;
+text-align:center;
+font-size:50px;
+}
+
+#Drapeau{
+	max-width:550px;
+	margin-left : auto;
+	display : block;
+	
+}
+
+#Tableau {
+	width:1200px;
+	margin-left:auto;
+	margin-right:auto;
+	
+}
+
+th, td {
+	font-size:15px;
+	text-align:center;
+	width : 150px;
+	border : thin black solid;
+}
+
+
+
+.button {
+  display: inline-block;
+  border-radius: 10px;
+  background-color: Floral white ;
+  border: solid 1px black;
+  color: black;
+  text-align: center;
+  font-size: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left:8px;
+  padding-right: 8px;
+  width: 150px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+
+
+
+.Vert1{
+			background-color : green;
+		}
+		
+		.Vert2{
+			background-color : limegreen;
+		}
+		
+		.VertJaune{
+			background-color : greenyellow;
+		}
+		
+		.Jaune{
+			background-color : yellow
+		}
+		
+		.JauneFonce{
+			background-color : #ffd700;
+		}
+		
+		.Orange{
+			background-color : orange;
+		}
+			
+		.Rouge{
+			background-color : red;
+		}
+		
+		.RougeBrique{
+			background-color : firebrick;
+		}
+		
+		.RougeNoir{
+			background-color : darkred;
+		}
+		
+		.Vide{
+			background-color : grey;
+		}
+		
+		
+		
+.Graph {
+ display: block; margin-left: auto; margin-right: auto ;
+
+}
+
+
+.bouton2{
+    background-color: #e0e7e3ff;
+	background-size: 70px 30px;
+	background-repeat: no-repeat;
+	width: 70px;
+	height : 30px;
+	border-radius : 200px;
+	opacity : 0.8;
+	border: none;
+	margin-left:0px;
+
+}
+
+
+
+ #ChoixCla{
+	 
+width : 1000px;
+margin-right : auto;
+margin-left : auto;
+	 
+ } 
+
+		
+.Gras{
+	
+	font-weight : bold;
+}
+	
+		
+	.ConTab{
+		width : fit-content;
+		margin-right:auto;
+		margin-left:auto;
+	}
+
+
+
+
+
+
+#carrousel {
+    width: 800px; 
+    height: 105px; 
+    overflow: hidden; 
+    margin-left: auto; 
+    margin-right: auto; 
+    margin-top: 10%;
+    border: solid 3px #b7c8c4;
+    box-shadow: 0 0 15px #444;
+    position:relative;
+    background-color: #f5f5f5;
+    opacity: 0.8;
+}
+
+#anecdotes {
+    width: 800px; 
+    height: 105px; 
+    margin-left: auto; 
+    margin-right: auto; 
+    margin-top: 5px;
+    margin-bottom: auto;
+}
+.anecdote{
+    margin: 0%;
+    text-align: center;
+    top: 100px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    font-size: large;
+    color: #444;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* A CITER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 
 
 .custom-dropdown--large {
@@ -165,7 +476,47 @@ body
 }
 
 
-/*Centre les éléments inline dans les éléments possédant un attribut class="centre"*/
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+
+
+
+
+
+
+/* UTILE?????????
+label {
+    display: block;
+    font: 1rem 'Fira Sans', sans-serif;
+}
+
+input,
+label {
+    margin: .4rem 0;
+}
+*/
+
+
+
+/*UTILES?????????????*/
 .centre{
   text-align: center;
 }
@@ -183,6 +534,10 @@ body
   border-bottom-left-radius : 15px;
   border-bottom-right-radius : 15px;
 }
+/*????????????????????*/
+
+
+/*Bouton ? Kanto */
 
 .styled {
     display:block;
@@ -204,235 +559,45 @@ body
     background: #777555;
 }
 
-  
-#BarreDeRecherche1{
-    margin-left:auto;
-	margin-right:auto;
-	margin-top:315px;
+/*.....................*/
+
+/*
+
+TEST Bulle info
+		
 	
-}
-
-#BarreDeRecherche2{
-    margin-left:auto;
-	margin-right:auto;
-	margin-top:20px;
-	
-}
-
-
-#NomPays{
-	margin-top:5px;
-text-decoration:underline;
+.bulle { 
+position:relative;
+color:#C800F0;
+text-decoration:none;
+font-family:arial, verdana, sans-serif;
 text-align:center;
-font-size:50px;
 }
 
-#Drapeau{
-	float:right;
-	width:550px;
-	
+.bulle:hover {
+background: none;
+z-index: 50;
 }
 
-#Tableau {
-	width:1200px;
-	margin-left:auto;
-	margin-right:auto;
-	
+.bulle span {
+display: none;
 }
 
+.bulle:hover span {
+display: block;
+position: absolute;
+top: -40px; 
+left: 0px; 
+font-family:arial, verdana, sans-serif;
+text-align:left;
+font-size:17px;
+color:#0CBFA7;
+font-weight:normal;
+width:200px;
+background: white;
+padding: 5px;
+border: #62c0f4 solid 1px ;
+text-indent: 0;
+}	
 
-
-.tailleTitre {
-	font-size:15px;
-	text-align:center;
-}
-
-
-
-
-#aaa {
-		margin-top:700px;
-	
-}
-
-
-
-.Champs{
-	padding-left:20px;
-    width: 350px;
-    background-color: white;
-    color: grey;
-	border-radius : 200px;
-	height: 35px;
-	border:none;
-		margin-top:15px;
-		margin-left:450px;
-
-}
-.bouton{
-    background-image: url(../images/Loupe.png);
-	background-size: 50px 30px;
-	background-repeat: no-repeat;
-	width: 50px;
-	height : 30px;
-	border-radius : 200px;
-	opacity : 0.8;
-	border: none;
-	margin-left:0px;
-
-}
-.Graph {
- display: block; margin-left: auto; margin-right: auto ;
- 
-
-}
-
-
-
-.bouton2{
-    background-color: #e0e7e3ff;
-	background-size: 70px 30px;
-	background-repeat: no-repeat;
-	width: 70px;
-	height : 30px;
-	border-radius : 200px;
-	opacity : 0.8;
-	border: none;
-	margin-left:0px;
-
-}
-
-.button {
-  display: inline-block;
-  border-radius: 10px;
-  background-color: Floral white ;
-  border: solid 1px black;
-  color: black;
-  text-align: center;
-  font-size: 15px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left:8px;
-  padding-right: 8px;
-  width: 150px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-}
-.button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-.button span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-.button:hover span {
-  padding-right: 25px;
-}
-
-.button:hover span:after {
-  opacity: 1;
-  right: 0;
-}
-
-
-#carrousel {
-    width: 800px; 
-    height: 105px; 
-    overflow: hidden; 
-    margin-left: auto; 
-    margin-right: auto; 
-    margin-top: 10%;
-    border: solid 3px #b7c8c4;
-    box-shadow: 0 0 15px #444;
-    position:relative;
-    background-color: #f5f5f5;
-    opacity: 0.8;
-}
-
-#anecdotes {
-    width: 800px; 
-    height: 105px; 
-    margin-left: auto; 
-    margin-right: auto; 
-    margin-top: 5px;
-    margin-bottom: auto;
-}
-.anecdote{
-    margin: 0%;
-    text-align: center;
-    top: 100px;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-weight: bold;
-    font-size: large;
-    color: #444;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  padding: 12px 16px;
-}
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-label {
-    display: block;
-    font: 1rem 'Fira Sans', sans-serif;
-}
-
-input,
-label {
-    margin: .4rem 0;
-}
+*/

@@ -6,7 +6,8 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<link rel="stylesheet" href="../Style/Design.css" type="text/css" media="screen" />
 		<script type="text/javascript" src="accueil.js"> </script>
-	
+			<? require('ColFondTablInd.php');?>
+
 	</head>
 	<body id="BODY_FondUni">
 		<div id="menu">
@@ -14,7 +15,7 @@
 				<li><a href="../PagesHTML/Explications.html"> Explications </a></li>
 				<li><a href="Classement.php"> Classement </a></li>
 				<li><a href="Correlation.php"> Correlation </a></li>
-				<li class="active"><a href="PagesHTML/Accueil.html"> Accueil </a></li>
+				<li class="active"><a href="../PagesHTML/Accueil.html"> Accueil </a></li>
 				<li class="titre">TITRE</li>
 			</ul>
 		</div>
@@ -31,77 +32,64 @@
 		<input class="bouton" type="submit" value=" "/>
 
 
-		<!--<button type="submit" class="bouton">Q</button>-->
     </form>
 </div>
-		<div>
 		<? 
 		$rep = $bdd->query("SELECT pays.NomPaysFR, pays.UrlDrapeau, pays.IdPays
 		FROM pays
 		WHERE pays.NomPaysFR='".$_GET['Pays']."' ");
 		
 		$ligne1=$rep->fetchAll();
-		 echo "<h1 id='NomPays'>".$ligne1[0]['NomPaysFR']."<h1>"; 
-		 echo "<img id='Drapeau' src='".$ligne1[0]['UrlDrapeau']."' />"; 
-		
-		/*while ($ligne = $rep->fetch()){ ?>
-		
-			<? echo "<h1 id='NomPays'>".$ligne['NomPaysFR']."<h1>"; ?>
-			<? echo "<img id='Drapeau' src='".$ligne['UrlDrapeau']."' />"; ?>
-		
-		
-		<?  } $rep->closeCursor(); */?>
-		</div>
+		 echo "<h1 id='NomPays'>".$ligne1[0]['NomPaysFR']."</h1>"; 
+		 echo "<div><img id='Drapeau' src='".$ligne1[0]['UrlDrapeau']."' /></div>"; ?>
 		
 
 		
-		<div id="aaa">
+		<!--<div id="aaa">-->
 		<button class="button" onclick="cache('d1');"> <span> Cliquez-moi !</span></button>
 		<div id="d1">
-		<div id="formulaireTableau">
 
 <form action="accueil2.php" method="get" autocomplete="off">
 		 <select name = "Année">
 		
-            <option value="2000">2000</option>
-            <option value="2001">2001</option>
-			<option value="2002">2002</option>
-			<option value="2003">2003</option>
-			<option value="2004">2004</option>
-			<option value="2005">2005</option>
-			<option value="2006">2006</option>
-			<option value="2007">2007</option>
-			<option value="2008">2008</option>
-			<option value="2009">2009</option>
-			<option value="2010">2010</option> 
-			<option value="2011">2011</option>
-			<option value="2012">2012</option>
-			<option value="2013">2013</option>
-			<option value="2014">2014</option>
-			<option value="2015">2015</option>
-			<option value="2016">2016</option>
-			<option value="2017">2017</option>
-			<option value="2018">2018</option>
-			<option value="2019">2019</option>
-			<option value="2020">2020</option>
+    <option value="2000"  <? if($_GET['Année']==2000){echo 'selected';} ?>>2000</option>
+            <option value="2001"  <? if($_GET['Année']==2001){echo 'selected';} ?>>2001</option>
+			<option value="2002"  <? if($_GET['Année']==2002){echo 'selected';} ?>>2002</option>
+			<option value="2003"  <? if($_GET['Année']==2003){echo 'selected';} ?>>2003</option>
+			<option value="2004"  <? if($_GET['Année']==2004){echo 'selected';} ?>>2004</option>
+			<option value="2005"  <? if($_GET['Année']==2005){echo 'selected';} ?>>2005</option>
+			<option value="2006"  <? if($_GET['Année']==2006){echo 'selected';} ?>>2006</option>
+			<option value="2007"  <? if($_GET['Année']==2007){echo 'selected';} ?>>2007</option>
+			<option value="2008"  <? if($_GET['Année']==2008){echo 'selected';} ?>>2008</option>
+			<option value="2009"  <? if($_GET['Année']==2009){echo 'selected';} ?>>2009</option>
+			<option value="2010"  <? if($_GET['Année']==2010){echo 'selected';} ?>>2010</option> 
+			<option value="2011"  <? if($_GET['Année']==2011){echo 'selected';} ?>>2011</option>
+			<option value="2012"  <? if($_GET['Année']==2012){echo 'selected';} ?>>2012</option>
+			<option value="2013"  <? if($_GET['Année']==2013){echo 'selected';} ?>>2013</option>
+			<option value="2014"  <? if($_GET['Année']==2014){echo 'selected';} ?>>2014</option>
+			<option value="2015"  <? if($_GET['Année']==2015){echo 'selected';} ?>>2015</option>
+			<option value="2016"  <? if($_GET['Année']==2016){echo 'selected';} ?>>2016</option>
+			<option value="2017"  <? if($_GET['Année']==2017){echo 'selected';} ?>>2017</option>
+			<option value="2018"  <? if($_GET['Année']==2018){echo 'selected';} ?>>2018</option>
+			<option value="2019"  <? if($_GET['Année']==2019){echo 'selected';} ?>>2019</option>
+			<option value="2020"  <? if($_GET['Année']==2020){echo 'selected';} ?>>2020</option>
         </select>
 		
 		<input type="hidden" name="Pays" value="<? echo $_GET['Pays'] ?>"/>
 		<input type="submit" value="ok!">   
 		</form>
-		
-		</div>
+
 		
 		</br>
-		<table id="Tableau" border="2">
+		<table id="Tableau">
 		<tr>
-		<th class="tailleTitre">Indice Bonheur</th>
-		<th class="tailleTitre">Indice Démocratie</th>
-		<th class="tailleTitre">Indice Paix</th>
-		<th class="tailleTitre">Indice Corruption</th>
-		<th class="tailleTitre">Indice Liberté Civile</th>
-		<th class="tailleTitre">Indice Liberté Morale</th>
-		<th class="tailleTitre">Indice Parité Gouvernementale</th>
+		<th>Indice du bonheur</th>
+		<th>Indice de démocratie</th>
+		<th>Indice de paix globale</th>
+		<th>Indice de corruption</th>
+		<th>Indice de liberté civile</th>
+		<th>Indice de liberté morale</th>
+		<th>Indice de parité gouvernementale</th>
 		</tr>
 		
 		<? if($_GET['Année']!=""){ 
@@ -120,44 +108,36 @@ AND indicedemocratie.IdPays=pays.IdPays AND indcorruption.IdPays=pays.IdPays AND
 		$ligne = $rep->fetch();?>
 
 		<tr>
-			<td class="tailleTitre"><? echo $ligne['indiceBonheur']; ?></td>
-			<td class="tailleTitre"><? echo $ligne['indiceDemocratie']; ?></td>
-			<td class="tailleTitre"><? echo $ligne['indicePaixGlobale']; ?></td>
-			<td class="tailleTitre"><? echo $ligne['indiceCorruption']; ?></td>
-			<td class="tailleTitre"><? echo $ligne['indiceLiberteCivile']; ?></td>
-			<td class="tailleTitre"><? echo $ligne['indiceLiberteMorale']; ?></td>
-			<td class="tailleTitre"><? echo $ligne['indicePariteGouv']; ?></td>
+			<td <? echo FondCase("indbonheur",$ligne['indiceBonheur']); ?>><? echo $ligne['indiceBonheur']; ?></td>
+			<td <? echo FondCase("indicedemocratie",$ligne['indiceDemocratie']); ?>><? echo $ligne['indiceDemocratie']; ?></td>
+			<td <? echo FondCase("indpaixglobale",$ligne['indicePaixGlobale']); ?>><? echo $ligne['indicePaixGlobale']; ?></td>
+			<td <? echo FondCase("indcorruption",$ligne['indiceCorruption']); ?>><? echo $ligne['indiceCorruption']; ?></td>
+			<td <? echo FondCase("indlibercivile",$ligne['indiceLiberteCivile']); ?>><? echo $ligne['indiceLiberteCivile']; ?></td>
+			<td <? echo FondCase("indlibermorale",$ligne['indiceLiberteMorale']); ?>><? echo $ligne['indiceLiberteMorale']; ?></td>
+			<td <? echo FondCase("indparite",$ligne['indicePariteGouv']); ?>><? echo $ligne['indicePariteGouv']; ?></td>
 			
 		</tr>
 		
 		<? $rep->closeCursor();} else {?>
 		<tr>
-			<td class="tailleTitre"></td>
-			<td class="tailleTitre"></td>
-			<td class="tailleTitre"></td>
-			<td class="tailleTitre"></td>
-			<td class="tailleTitre"></td>
-			<td class="tailleTitre"></td>
-			<td class="tailleTitre"></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
 			
 		</tr> <? }?>
 		</table>
 		</div>
-		</div>
+		<!--</div>-->
 
 		
 
 		
 		</br>
-		
-		<!--<form action="accueil2.php" method="get" autocomplete="off">
-		<p> Zoom
-		<input name = "zoom" type = "number" value ="<? if ($_GET['zoom']==""){echo '1';} else{echo $_GET['zoom'];}?>" min="0" max ="2" step="0.1">
-		</p>
-		<input type="submit" value="ok!">   
 
-  
-		</form> -->
 		
 		   <button class="button" onclick="cache('d2');"> <span> Cliquez-moi !</span></button>
 		<div id="d2">
@@ -166,66 +146,86 @@ AND indicedemocratie.IdPays=pays.IdPays AND indcorruption.IdPays=pays.IdPays AND
 		<?$lienbonheur="graphiqueEvolution.php?Indice=indbonheur&IdenPays=";
 	$lienbonheur.=$ligne1[0]['IdPays'];?>
 		
-	<p>	<img class="Graph" src="<? echo $lienbonheur; ?>"/> </p>
+	<img class="Graph" src="<? echo $lienbonheur; ?>"/> 
+	<br />
 	<a href="<? $lienbonheur ?>" 
    download="bonheur.png">Télécharger le graphique</a>
-		
+	<br />
+	<br />
+	<br />
 		
 
 		<?$lienDemocratie="graphiqueEvolution.php?Indice=indicedemocratie&IdenPays=";
 	$lienDemocratie.=$ligne1[0]['IdPays'];?>
 		
-	<p>	<img class="Graph" src="<? echo $lienDemocratie; ?>"/> </p>
+	<img class="Graph" src="<? echo $lienDemocratie; ?>"/> 
+	<br />
 	<a href="<? echo $lienDemocratie ?>" 
    download="democratie.png">Télécharger le graphique</a>
-   
+   <br />
+	<br />
+	<br />
    
 	
 		<?$lienPaix="graphiqueEvolution.php?Indice=indpaixglobale&IdenPays=";
 	$lienPaix.=$ligne1[0]['IdPays'];?>
 		
-	<p>	<img class="Graph" src="<? echo $lienPaix; ?>"/> </p>
-	
+	<img class="Graph" src="<? echo $lienPaix; ?>"/>
+	<br />
 	<a href="<? $lienPaix; ?>" 
    download="PaixGlobale.png">Télécharger le graphique</a>
-   
+   <br />
+	<br />
+	<br />
 
 		
 		<?$lienCorruption="graphiqueEvolution.php?Indice=indcorruption&IdenPays=";
 	$lienCorruption.=$ligne1[0]['IdPays'];?>
 		
-	<p>	<img class="Graph" src="<? echo $lienCorruption; ?>"/> </p>
+	<img class="Graph" src="<? echo $lienCorruption; ?>"/>
+	<br />
 	<a href="<? echo $lienCorruption ?>" 
    download="Corruption.png">Télécharger le graphique</a>
-   
+   <br />
+	<br />
+	<br />
 
 		
 		<?$lienLiberteCivile="graphiqueEvolution.php?Indice=indlibercivile&IdenPays=";
 	$lienLiberteCivile.=$ligne1[0]['IdPays'];?>
 		
-	<p>	<img class="Graph" src="<? echo $lienLiberteCivile; ?>"/> </p>
+	<img class="Graph" src="<? echo $lienLiberteCivile; ?>"/>
+	<br />
 	<a href="<? $lienLiberteCivile ?>" 
    download="LibertéCivile.png">Télécharger le graphique</a>
-   
+   <br />
+	<br />
+	<br />
 
 		
 		<?$lienLiberteMorale="graphiqueEvolution.php?Indice=indlibermorale&IdenPays=";
 	$lienLiberteMorale.=$ligne1[0]['IdPays'];?>
 		
-	<p>	<img class="Graph" src="<? echo $lienLiberteMorale; ?>"/> </p>
+	<img class="Graph" src="<? echo $lienLiberteMorale; ?>"/> 
+	<br />
 	<a href="<? $lienLiberteMorale ?>" 
    download="LibertéMorale.png">Télécharger le graphique</a>
-   
+   <br />
+	<br />
+	<br />
    
 
 	
 	<?$lienParite="graphiqueEvolution.php?Indice=indparite&IdenPays=";
 	$lienParite.=$ligne1[0]['IdPays'];?>
 		
-	<p>	<img class="Graph" src="<? echo $lienParite; ?>"/> </p>
+	<img class="Graph" src="<? echo $lienParite; ?>"/>
+	<br />
 	<a href="<? echo $lienParite ?>" 
    download="ParitéGouv.png">Télécharger le graphique</a>
-   
+   <br />
+	<br />
+	<br />
    </div>
 
 		

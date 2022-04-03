@@ -19,34 +19,32 @@ for($i=0;$i<count($col);$i++){
 
 header("Content-type: image/png");
 require_once ('jpgraph/src/jpgraph.php');
-require_once ('jpgraph/src/jpgraph_scatter.php');
 require_once ('jpgraph/src/jpgraph_line.php');
-require_once ('jpgraph/src/jpgraph_plotline.php');
+
 
  
 $graph = new Graph(1200,700);
-$graph->SetScale("linlin");
  
-$graph->img->SetMargin(40,40,40,40);        
-$graph->SetShadow();
 
 $titre="Evolution de l'";
-if ($_GET['Indice']=="indicedemocratie"){ $titre.='indice de democartie ';}
-if ($_GET['Indice']=="indcorruption"){ $titre.='indice de corruption ';}
-if ($_GET['Indice']=="indbonheur"){ $titre.='indice de bonheur ';}
-if ($_GET['Indice']=="indparite"){ $titre.='indice de parite gouvernementale ';}
-if ($_GET['Indice']=="indlibermorale"){ $titre.='indice de liberte morale ';}
-if ($_GET['Indice']=="indlibercivile"){ $titre.='indice de liberte civile ';}
-if ($_GET['Indice']=="indpaixglobale"){ $titre.='indice de paix globale ';}
+if ($_GET['Indice']=="indicedemocratie"){ $titre.='indice de democratie '; $graph->SetScale("linlin", 0, 100, 2000, 2020); $graph->yaxis->scale->ticks->Set(5);}
+if ($_GET['Indice']=="indcorruption"){ $titre.='indice de corruption '; $graph->SetScale("linlin", 0, 100, 2000, 2020);  $graph->yaxis->scale->ticks->Set(5);}
+if ($_GET['Indice']=="indbonheur"){ $titre.='indice de bonheur '; $graph->SetScale("linlin", 0, 100, 2000, 2020);  $graph->yaxis->scale->ticks->Set(5);}
+if ($_GET['Indice']=="indparite"){ $titre.='indice de parite gouvernementale '; $graph->SetScale("linlin", 0, 100, 2000, 2020);  $graph->yaxis->scale->ticks->Set(5);}
+if ($_GET['Indice']=="indlibermorale"){ $titre.='indice de liberte morale '; $graph->SetScale("linlin", 0, 100, 2000, 2020);  $graph->yaxis->scale->ticks->Set(5);}
+if ($_GET['Indice']=="indlibercivile"){ $titre.='indice de liberte civile '; $graph->SetScale("linlin", 1, 7, 2000, 2020);  $graph->yaxis->scale->ticks->Set(1);}
+if ($_GET['Indice']=="indpaixglobale"){ $titre.='indice de paix globale '; $graph->SetScale("linlin", 1, 5, 2000, 2020);  $graph->yaxis->scale->ticks->Set(0.5);}
+$graph->xaxis->scale->ticks->Set(1);
+$graph->img->SetMargin(40,40,40,40);        
+$graph->SetShadow();
+$graph->xgrid->Show();
 
 $graph->title->Set($titre);
 $graph->title->SetFont(FF_FONT1,FS_BOLD);
+$sp1 = new LinePlot($datay,$datax);
+$sp1->mark->SetType(MARK_FILLEDCIRCLE);
 
-$sp1 = new ScatterPlot($datay,$datax);
-/*$graph->setClipping(true);
-$sp1 = new LinePlot($datay,$datax);*/
 
- 
 $graph->Add($sp1);
 $graph->Stroke();
 
