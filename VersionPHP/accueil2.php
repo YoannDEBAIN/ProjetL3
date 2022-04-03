@@ -14,7 +14,7 @@
 				<li><a href="../PagesHTML/Explications.html"> Explications </a></li>
 				<li><a href="Classement.php"> Classement </a></li>
 				<li><a href="Correlation.php"> Correlation </a></li>
-				<li class="active"><a href="Accueil.html"> Accueil </a></li>
+				<li class="active"><a href="PagesHTML/Accueil.html"> Accueil </a></li>
 				<li class="titre">TITRE</li>
 			</ul>
 		</div>
@@ -53,10 +53,7 @@
 		<?  } $rep->closeCursor(); */?>
 		</div>
 		
-		
-		
-		
-		
+
 		
 		<div id="aaa">
 		<button class="button" onclick="cache('d1');"> <span> Cliquez-moi !</span></button>
@@ -66,7 +63,7 @@
 <form action="accueil2.php" method="get" autocomplete="off">
 		 <select name = "Année">
 		
-            <option value="2000" selected>2000</option>
+            <option value="2000">2000</option>
             <option value="2001">2001</option>
 			<option value="2002">2002</option>
 			<option value="2003">2003</option>
@@ -107,7 +104,9 @@
 		<th class="tailleTitre">Indice Parité Gouvernementale</th>
 		</tr>
 		
-		<? $rep=$bdd->query("SELECT indbonheur.Valeur AS indiceBonheur, indicedemocratie.Valeur AS indiceDemocratie, 
+		<? if($_GET['Année']!=""){ 
+		
+		$rep=$bdd->query("SELECT indbonheur.Valeur AS indiceBonheur, indicedemocratie.Valeur AS indiceDemocratie, 
 		indpaixglobale.Valeur AS indicePaixGlobale, indcorruption.Valeur AS indiceCorruption, indlibercivile.Valeur 
 		AS indiceLiberteCivile, indlibermorale.Valeur AS indiceLiberteMorale, indparite.Valeur AS indicePariteGouv 
 FROM indbonheur, indicedemocratie, indpaixglobale, indcorruption, indlibercivile, indlibermorale, indparite, pays 
@@ -131,8 +130,17 @@ AND indicedemocratie.IdPays=pays.IdPays AND indcorruption.IdPays=pays.IdPays AND
 			
 		</tr>
 		
-		<? $rep->closeCursor();?>
-		
+		<? $rep->closeCursor();} else {?>
+		<tr>
+			<td class="tailleTitre"></td>
+			<td class="tailleTitre"></td>
+			<td class="tailleTitre"></td>
+			<td class="tailleTitre"></td>
+			<td class="tailleTitre"></td>
+			<td class="tailleTitre"></td>
+			<td class="tailleTitre"></td>
+			
+		</tr> <? }?>
 		</table>
 		</div>
 		</div>
