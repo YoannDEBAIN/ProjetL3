@@ -36,7 +36,7 @@ tbody{
 				<li  class="active"><a href="Classement.php"> Classement </a></li>
 				<li><a href="Correlation.php"> Correlation </a></li>
 				<li><a href="../PagesHTML/Accueil.html"> Accueil </a></li>
-				<li class="titre">TITRE</li>
+				<li class="titre">Index World</li>
 			</ul>
 		</div>
 		
