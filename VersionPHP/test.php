@@ -26,7 +26,7 @@ require_once ('jpgraph/src/jpgraph.php');
 require_once ('jpgraph/src/jpgraph_scatter.php');
 
  
-$graph = new Graph(1200*$_GET['zoom'],700*$_GET['zoom']);
+$graph = new Graph(1000,650);
 /*$graph->SetScale("linlin");*/
  
 $graph->img->SetMargin(40,40,40,40);        

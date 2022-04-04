@@ -23,7 +23,7 @@ require_once ('jpgraph/src/jpgraph_line.php');
 
 
  
-$graph = new Graph(1200,700);
+$graph = new Graph(1000,650);
  
 
 $titre="Evolution de l'";

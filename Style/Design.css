@@ -258,12 +258,7 @@ th, td {
 		}
 		
 		
-		
-.Graph {
- display: block; margin-left: auto; margin-right: auto ;
-
-}
-
+	
 
 .bouton2{
     background-color: #e0e7e3ff;
@@ -364,15 +359,12 @@ margin-left : auto;
      -ms-transition: all 0.2s;
      -o-transition: all 0.2s;
      transition: all 0.2s;
+	  display: block; margin-left: auto; margin-right: auto ;
 }
 .Graph:hover {
      transform:scale(1.2);
 }
-.Graph {
- display: block; margin-left: auto; margin-right: auto ;
- width:800px;
- height:500px;
-}
+
 
 #année {
 	margin-left:10px;
