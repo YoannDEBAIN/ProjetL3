@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 28, 2022 at 03:08 PM
+-- Generation Time: Apr 04, 2022 at 01:19 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.4.16
 
@@ -20,6 +20,191 @@ SET time_zone = "+00:00";
 --
 -- Database: `bdprojetl3`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `carteinteractive`
+--
+
+CREATE TABLE `carteinteractive` (
+  `IdPays` int(3) DEFAULT NULL,
+  `URL` varchar(64) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `carteinteractive`
+--
+
+INSERT INTO `carteinteractive` (`IdPays`, `URL`) VALUES
+(1, '../VersionPHP/accueil2.php?Pays=Afghanistan'),
+(2, '../VersionPHP/accueil2.php?Pays=Afrique du Sud'),
+(3, '../VersionPHP/accueil2.php?Pays=Albanie'),
+(4, '../VersionPHP/accueil2.php?Pays=Algerie'),
+(5, '../VersionPHP/accueil2.php?Pays=Allemagne'),
+(7, '../VersionPHP/accueil2.php?Pays=Angola'),
+(9, '../VersionPHP/accueil2.php?Pays=Arabie saoudite'),
+(10, '../VersionPHP/accueil2.php?Pays=Argentine'),
+(11, '../VersionPHP/accueil2.php?Pays=Armenie'),
+(12, '../VersionPHP/accueil2.php?Pays=Australie'),
+(13, '../VersionPHP/accueil2.php?Pays=Autriche'),
+(14, '../VersionPHP/accueil2.php?Pays=Azerbaidjan'),
+(15, '../VersionPHP/accueil2.php?Pays=Bahamas'),
+(16, '../VersionPHP/accueil2.php?Pays=Bahrein'),
+(17, '../VersionPHP/accueil2.php?Pays=Bangladesh'),
+(19, '../VersionPHP/accueil2.php?Pays=Belarus'),
+(20, '../VersionPHP/accueil2.php?Pays=Belgique'),
+(21, '../VersionPHP/accueil2.php?Pays=Belize'),
+(22, '../VersionPHP/accueil2.php?Pays=Benin'),
+(24, '../VersionPHP/accueil2.php?Pays=Bhoutan'),
+(25, '../VersionPHP/accueil2.php?Pays=Bolivie'),
+(26, '../VersionPHP/accueil2.php?Pays=Bosnie-Herzegovine'),
+(27, '../VersionPHP/accueil2.php?Pays=Botswana'),
+(28, '../VersionPHP/accueil2.php?Pays=Bresil'),
+(29, '../VersionPHP/accueil2.php?Pays=Brunei Darussalam'),
+(30, '../VersionPHP/accueil2.php?Pays=Bulgarie'),
+(31, '../VersionPHP/accueil2.php?Pays=Burkina Faso'),
+(32, '../VersionPHP/accueil2.php?Pays=Burundi'),
+(33, '../VersionPHP/accueil2.php?Pays=Cap-Vert'),
+(34, '../VersionPHP/accueil2.php?Pays=Cambodge'),
+(35, '../VersionPHP/accueil2.php?Pays=Cameroun'),
+(36, '../VersionPHP/accueil2.php?Pays=Canada'),
+(37, '../VersionPHP/accueil2.php?Pays=Chili'),
+(38, '../VersionPHP/accueil2.php?Pays=Chine'),
+(39, '../VersionPHP/accueil2.php?Pays=Chypre'),
+(40, '../VersionPHP/accueil2.php?Pays=Colombie'),
+(42, '../VersionPHP/accueil2.php?Pays=Congo'),
+(43, '../VersionPHP/accueil2.php?Pays=Republique democratique du Congo'),
+(44, '../VersionPHP/accueil2.php?Pays=Coree du Sud'),
+(45, '../VersionPHP/accueil2.php?Pays=Coree du Nord'),
+(46, '../VersionPHP/accueil2.php?Pays=Costa Rica'),
+(47, '../VersionPHP/accueil2.php?Pays=Cote d\'Ivoire'),
+(48, '../VersionPHP/accueil2.php?Pays=Croatie'),
+(49, '../VersionPHP/accueil2.php?Pays=Cuba'),
+(50, '../VersionPHP/accueil2.php?Pays=Danemark'),
+(51, '../VersionPHP/accueil2.php?Pays=Djibouti'),
+(52, '../VersionPHP/accueil2.php?Pays=Republique dominicaine'),
+(54, '../VersionPHP/accueil2.php?Pays=Egypte'),
+(55, '../VersionPHP/accueil2.php?Pays=Salvador'),
+(56, '../VersionPHP/accueil2.php?Pays=Emirats arabes unis'),
+(57, '../VersionPHP/accueil2.php?Pays=Equateur'),
+(58, '../VersionPHP/accueil2.php?Pays=Erythree'),
+(59, '../VersionPHP/accueil2.php?Pays=Espagne'),
+(60, '../VersionPHP/accueil2.php?Pays=Estonie'),
+(62, '../VersionPHP/accueil2.php?Pays=Etats-Unis'),
+(63, '../VersionPHP/accueil2.php?Pays=Ethiopie'),
+(65, '../VersionPHP/accueil2.php?Pays=Fidji'),
+(66, '../VersionPHP/accueil2.php?Pays=Finlande'),
+(67, '../VersionPHP/accueil2.php?Pays=France'),
+(68, '../VersionPHP/accueil2.php?Pays=Gabon'),
+(69, '../VersionPHP/accueil2.php?Pays=Gambie'),
+(70, '../VersionPHP/accueil2.php?Pays=Georgie'),
+(71, '../VersionPHP/accueil2.php?Pays=Ghana'),
+(73, '../VersionPHP/accueil2.php?Pays=Grece'),
+(75, '../VersionPHP/accueil2.php?Pays=Groenland'),
+(76, '../VersionPHP/accueil2.php?Pays=Guatemala'),
+(78, '../VersionPHP/accueil2.php?Pays=Guinee'),
+(79, '../VersionPHP/accueil2.php?Pays=Guinee equatoriale'),
+(80, '../VersionPHP/accueil2.php?Pays=Guinee-Bissau'),
+(81, '../VersionPHP/accueil2.php?Pays=Guyana'),
+(82, '../VersionPHP/accueil2.php?Pays=Haiti'),
+(83, '../VersionPHP/accueil2.php?Pays=Honduras'),
+(85, '../VersionPHP/accueil2.php?Pays=Hongrie'),
+(86, '../VersionPHP/accueil2.php?Pays=Inde'),
+(87, '../VersionPHP/accueil2.php?Pays=Indonesie'),
+(88, '../VersionPHP/accueil2.php?Pays=Iran'),
+(89, '../VersionPHP/accueil2.php?Pays=Iraq'),
+(90, '../VersionPHP/accueil2.php?Pays=Irlande'),
+(91, '../VersionPHP/accueil2.php?Pays=Islande'),
+(92, '../VersionPHP/accueil2.php?Pays=Israel'),
+(93, '../VersionPHP/accueil2.php?Pays=Italie'),
+(94, '../VersionPHP/accueil2.php?Pays=Jamaique'),
+(95, '../VersionPHP/accueil2.php?Pays=Japon'),
+(96, '../VersionPHP/accueil2.php?Pays=Jordanie'),
+(97, '../VersionPHP/accueil2.php?Pays=Kazakhstan'),
+(98, '../VersionPHP/accueil2.php?Pays=Kenya'),
+(99, '../VersionPHP/accueil2.php?Pays=Kirghizistan'),
+(101, '../VersionPHP/accueil2.php?Pays=Koweit'),
+(102, '../VersionPHP/accueil2.php?Pays=Laos'),
+(103, '../VersionPHP/accueil2.php?Pays=Lesotho'),
+(104, '../VersionPHP/accueil2.php?Pays=Lettonie'),
+(106, '../VersionPHP/accueil2.php?Pays=Liberia'),
+(107, '../VersionPHP/accueil2.php?Pays=Libye'),
+(109, '../VersionPHP/accueil2.php?Pays=Lituanie'),
+(110, '../VersionPHP/accueil2.php?Pays=Luxembourg'),
+(112, '../VersionPHP/accueil2.php?Pays=Macedoine du Nord'),
+(113, '../VersionPHP/accueil2.php?Pays=Madagascar'),
+(114, '../VersionPHP/accueil2.php?Pays=Malaisie'),
+(115, '../VersionPHP/accueil2.php?Pays=Malawi'),
+(117, '../VersionPHP/accueil2.php?Pays=Mali'),
+(119, '../VersionPHP/accueil2.php?Pays=Maroc'),
+(121, '../VersionPHP/accueil2.php?Pays=Mauritanie'),
+(122, '../VersionPHP/accueil2.php?Pays=Mexique'),
+(124, '../VersionPHP/accueil2.php?Pays=Moldavie'),
+(126, '../VersionPHP/accueil2.php?Pays=Mongolie'),
+(127, '../VersionPHP/accueil2.php?Pays=Montenegro'),
+(128, '../VersionPHP/accueil2.php?Pays=Mozambique'),
+(129, '../VersionPHP/accueil2.php?Pays=Myanmar'),
+(130, '../VersionPHP/accueil2.php?Pays=Namibie'),
+(132, '../VersionPHP/accueil2.php?Pays=Nepal'),
+(133, '../VersionPHP/accueil2.php?Pays=Nicaragua'),
+(134, '../VersionPHP/accueil2.php?Pays=Niger'),
+(135, '../VersionPHP/accueil2.php?Pays=Nigeria'),
+(137, '../VersionPHP/accueil2.php?Pays=Norvege'),
+(138, '../VersionPHP/accueil2.php?Pays=Nouvelle-Zelande'),
+(139, '../VersionPHP/accueil2.php?Pays=Oman'),
+(140, '../VersionPHP/accueil2.php?Pays=Ouganda'),
+(141, '../VersionPHP/accueil2.php?Pays=Ouzbekistan'),
+(142, '../VersionPHP/accueil2.php?Pays=Pakistan'),
+(144, '../VersionPHP/accueil2.php?Pays=Palestine'),
+(145, '../VersionPHP/accueil2.php?Pays=Panama'),
+(146, '../VersionPHP/accueil2.php?Pays=Papouasie-Nouvelle-Guinee'),
+(147, '../VersionPHP/accueil2.php?Pays=Paraguay'),
+(148, '../VersionPHP/accueil2.php?Pays=Pays-Bas'),
+(149, '../VersionPHP/accueil2.php?Pays=Perou'),
+(150, '../VersionPHP/accueil2.php?Pays=Philippines'),
+(151, '../VersionPHP/accueil2.php?Pays=Pologne'),
+(152, '../VersionPHP/accueil2.php?Pays=Portugal'),
+(153, '../VersionPHP/accueil2.php?Pays=Qatar'),
+(154, '../VersionPHP/accueil2.php?Pays=Syrie'),
+(155, '../VersionPHP/accueil2.php?Pays=Republique centrafricaine'),
+(156, '../VersionPHP/accueil2.php?Pays=Roumanie'),
+(157, '../VersionPHP/accueil2.php?Pays=Royaume-Uni'),
+(158, '../VersionPHP/accueil2.php?Pays=Russie'),
+(159, '../VersionPHP/accueil2.php?Pays=Rwanda'),
+(165, '../VersionPHP/accueil2.php?Pays=Iles Salomon'),
+(168, '../VersionPHP/accueil2.php?Pays=Senegal'),
+(169, '../VersionPHP/accueil2.php?Pays=Serbie'),
+(171, '../VersionPHP/accueil2.php?Pays=Sierra Leone'),
+(173, '../VersionPHP/accueil2.php?Pays=Slovaquie'),
+(174, '../VersionPHP/accueil2.php?Pays=Slovenie'),
+(175, '../VersionPHP/accueil2.php?Pays=Somalie'),
+(176, '../VersionPHP/accueil2.php?Pays=Soudan'),
+(177, '../VersionPHP/accueil2.php?Pays=Soudan du Sud'),
+(178, '../VersionPHP/accueil2.php?Pays=Sri Lanka'),
+(179, '../VersionPHP/accueil2.php?Pays=Suede'),
+(180, '../VersionPHP/accueil2.php?Pays=Suisse'),
+(181, '../VersionPHP/accueil2.php?Pays=Suriname'),
+(182, '../VersionPHP/accueil2.php?Pays=Tadjikistan'),
+(183, '../VersionPHP/accueil2.php?Pays=Taiwan'),
+(184, '../VersionPHP/accueil2.php?Pays=Tanzanie'),
+(185, '../VersionPHP/accueil2.php?Pays=Tchad'),
+(186, '../VersionPHP/accueil2.php?Pays=Tchequie'),
+(187, '../VersionPHP/accueil2.php?Pays=Thailande'),
+(188, '../VersionPHP/accueil2.php?Pays=Timor-Leste'),
+(189, '../VersionPHP/accueil2.php?Pays=Togo'),
+(191, '../VersionPHP/accueil2.php?Pays=Trinite-et-Tobago'),
+(192, '../VersionPHP/accueil2.php?Pays=Tunisie'),
+(193, '../VersionPHP/accueil2.php?Pays=Turkmenistan'),
+(194, '../VersionPHP/accueil2.php?Pays=Turquie'),
+(196, '../VersionPHP/accueil2.php?Pays=Ukraine'),
+(197, '../VersionPHP/accueil2.php?Pays=Uruguay'),
+(198, '../VersionPHP/accueil2.php?Pays=Vanuatu'),
+(199, '../VersionPHP/accueil2.php?Pays=Venezuela'),
+(200, '../VersionPHP/accueil2.php?Pays=Viet Nam'),
+(201, '../VersionPHP/accueil2.php?Pays=Yemen'),
+(202, '../VersionPHP/accueil2.php?Pays=Zambie'),
+(203, '../VersionPHP/accueil2.php?Pays=Zimbabwe');
 
 -- --------------------------------------------------------
 
@@ -8613,21 +8798,21 @@ INSERT INTO `indcorruption` (`IdPays`, `Valeur`, `Annee`, `IdCorruption`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `indicedemocratie`
+-- Table structure for table `inddemocratie`
 --
 
-CREATE TABLE `indicedemocratie` (
+CREATE TABLE `inddemocratie` (
   `IdPays` int(3) DEFAULT NULL,
   `Valeur` decimal(4,2) DEFAULT NULL,
   `Annee` int(4) DEFAULT NULL,
-  `IdDemocratie` int(4) NOT NULL
+  `IndDemocratie` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `indicedemocratie`
+-- Dumping data for table `inddemocratie`
 --
 
-INSERT INTO `indicedemocratie` (`IdPays`, `Valeur`, `Annee`, `IdDemocratie`) VALUES
+INSERT INTO `inddemocratie` (`IdPays`, `Valeur`, `Annee`, `IndDemocratie`) VALUES
 (1, NULL, 2000, 1),
 (1, NULL, 2001, 2),
 (1, NULL, 2002, 3),
@@ -10773,7 +10958,7 @@ INSERT INTO `indicedemocratie` (`IdPays`, `Valeur`, `Annee`, `IdDemocratie`) VAL
 (103, NULL, 2000, 2143),
 (103, NULL, 2001, 2144),
 (103, NULL, 2002, 2145);
-INSERT INTO `indicedemocratie` (`IdPays`, `Valeur`, `Annee`, `IdDemocratie`) VALUES
+INSERT INTO `inddemocratie` (`IdPays`, `Valeur`, `Annee`, `IndDemocratie`) VALUES
 (103, NULL, 2003, 2146),
 (103, NULL, 2004, 2147),
 (103, NULL, 2005, 2148),
@@ -12797,9 +12982,9 @@ INSERT INTO `indicedemocratie` (`IdPays`, `Valeur`, `Annee`, `IdDemocratie`) VAL
 (199, '53.80', 2007, 4166),
 (199, '53.40', 2008, 4167),
 (199, '52.60', 2009, 4168),
-(199, '51.80', 2010, 4169);
-INSERT INTO `indicedemocratie` (`IdPays`, `Valeur`, `Annee`, `IdDemocratie`) VALUES
-(199, '50.80', 2011, 4170),
+(199, '51.80', 2010, 4169),
+(199, '50.80', 2011, 4170);
+INSERT INTO `inddemocratie` (`IdPays`, `Valeur`, `Annee`, `IndDemocratie`) VALUES
 (199, '51.50', 2012, 4171),
 (199, '50.70', 2013, 4172),
 (199, '50.70', 2014, 4173),
@@ -17187,14 +17372,14 @@ CREATE TABLE `indlibermorale` (
   `IdPays` int(3) DEFAULT NULL,
   `Valeur` decimal(4,2) DEFAULT NULL,
   `Annee` int(4) DEFAULT NULL,
-  `IdLibMorale` int(4) NOT NULL
+  `IdParite` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `indlibermorale`
 --
 
-INSERT INTO `indlibermorale` (`IdPays`, `Valeur`, `Annee`, `IdLibMorale`) VALUES
+INSERT INTO `indlibermorale` (`IdPays`, `Valeur`, `Annee`, `IdParite`) VALUES
 (1, NULL, 2000, 1),
 (2, NULL, 2000, 2),
 (3, NULL, 2000, 3),
@@ -19467,7 +19652,7 @@ INSERT INTO `indlibermorale` (`IdPays`, `Valeur`, `Annee`, `IdLibMorale`) VALUES
 (37, NULL, 2011, 2270),
 (38, NULL, 2011, 2271),
 (39, NULL, 2011, 2272);
-INSERT INTO `indlibermorale` (`IdPays`, `Valeur`, `Annee`, `IdLibMorale`) VALUES
+INSERT INTO `indlibermorale` (`IdPays`, `Valeur`, `Annee`, `IdParite`) VALUES
 (40, NULL, 2011, 2273),
 (41, NULL, 2011, 2274),
 (42, NULL, 2011, 2275),
@@ -30088,7 +30273,7 @@ CREATE TABLE `pays` (
   `NomPaysFR` varchar(32) DEFAULT NULL,
   `NomPaysANG` varchar(32) DEFAULT NULL,
   `IdContinent` int(1) DEFAULT NULL,
-  `UrlDrapeau` varchar(139) DEFAULT NULL
+  `UrlDrapeau` varchar(166) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -30101,34 +30286,34 @@ INSERT INTO `pays` (`IdPays`, `NomPaysFR`, `NomPaysANG`, `IdContinent`, `UrlDrap
 (3, 'Albanie', 'Albania', 2, 'https://upload.wikimedia.org/wikipedia/commons/8/89/Flag_map_of_Albania.png'),
 (4, 'Algerie', 'Algeria', 3, 'https://upload.wikimedia.org/wikipedia/commons/1/16/Flag_map_of_Algeria.svg'),
 (5, 'Allemagne', 'Germany', 2, 'https://upload.wikimedia.org/wikipedia/commons/8/8e/Flag_map_of_Germany.svg'),
-(6, 'Andorre', 'Andorra', 2, NULL),
+(6, 'Andorre', 'Andorra', 2, 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Flag_map_of_Andorra.svg/1255px-Flag_map_of_Andorra.svg.png'),
 (7, 'Angola', 'Angola', 3, 'https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_map_of_Angola_%28MPLA%29.png'),
-(8, 'Antigua-et-Barbuda', 'Antigua and Barbuda', 4, NULL),
+(8, 'Antigua-et-Barbuda', 'Antigua and Barbuda', 4, 'https://upload.wikimedia.org/wikipedia/commons/8/89/Flag_of_Antigua_and_Barbuda.svg'),
 (9, 'Arabie saoudite', 'Saudi Arabia', 1, 'https://upload.wikimedia.org/wikipedia/commons/1/1d/Saudi_Arabia-Flagmap.svg'),
 (10, 'Argentine', 'Argentina', 4, 'https://upload.wikimedia.org/wikipedia/commons/7/72/Flag-map_of_Argentina_%2B_Falkland_Islands.svg'),
 (11, 'Armenie', 'Armenia', 2, 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Flag_map_of_Armenia.svg'),
 (12, 'Australie', 'Australia', 5, 'https://upload.wikimedia.org/wikipedia/commons/6/63/Flag-map_of_Australia.svg'),
 (13, 'Autriche', 'Austria', 2, 'https://upload.wikimedia.org/wikipedia/commons/6/64/Flag-map_of_Austria.svg'),
 (14, 'Azerbaidjan', 'Azerbaijan', 1, 'https://upload.wikimedia.org/wikipedia/commons/d/d3/Flag-map_of_Azerbaijan.svg'),
-(15, 'Bahamas', 'Bahamas', 4, NULL),
+(15, 'Bahamas', 'Bahamas', 4, 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Flag_of_the_Bahamas.svg/1200px-Flag_of_the_Bahamas.svg.png'),
 (16, 'Bahrein', 'Bahrain', 1, 'https://upload.wikimedia.org/wikipedia/commons/9/91/Flag-map_of_Bahrain.svg'),
 (17, 'Bangladesh', 'Bangladesh', 1, 'https://upload.wikimedia.org/wikipedia/commons/8/88/Flag-map_of_Bangladesh.svg'),
-(18, 'Barbade', 'Barbados', 4, NULL),
+(18, 'Barbade', 'Barbados', 4, 'https://upload.wikimedia.org/wikipedia/commons/2/27/Flag-map_of_Barbados.svg'),
 (19, 'Belarus', 'Belarus', 2, 'https://upload.wikimedia.org/wikipedia/commons/d/d5/Flag-map_of_Belarus.svg'),
 (20, 'Belgique', 'Belgium', 2, 'https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag-map_of_Belgium.svg'),
 (21, 'Belize', 'Belize', 4, 'https://upload.wikimedia.org/wikipedia/commons/d/dd/Flag-map_of_Belize.png'),
 (22, 'Benin', 'Benin', 3, 'https://upload.wikimedia.org/wikipedia/commons/4/4d/Flag-map_of_Benin.svg'),
-(23, 'Bermudes', 'Bermuda', 4, NULL),
+(23, 'Bermudes', 'Bermuda', 4, 'https://upload.wikimedia.org/wikipedia/commons/5/54/Flag-map_of_Bermuda.svg'),
 (24, 'Bhoutan', 'Bhutan', 1, 'https://upload.wikimedia.org/wikipedia/commons/3/31/Flag-map_of_Bhutan.svg'),
 (25, 'Bolivie', 'Bolivia', 4, 'https://upload.wikimedia.org/wikipedia/commons/a/a9/Flag-map_of_Bolivia.svg'),
 (26, 'Bosnie-Herzegovine', 'Bosnia and Herzegovina', 2, 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Flag_map_of_Bosnia_and_Herzegovina.svg'),
 (27, 'Botswana', 'Botswana', 3, 'https://upload.wikimedia.org/wikipedia/commons/f/ff/Flag-map_of_Botswana.svg'),
 (28, 'Bresil', 'Brazil', 4, 'https://upload.wikimedia.org/wikipedia/commons/9/9e/Flag_map_of_Brazil.png'),
-(29, 'Brunei Darussalam', 'Brunei Darussalam', 1, NULL),
+(29, 'Brunei Darussalam', 'Brunei Darussalam', 1, 'https://brandeps.com/logo-download/F/Flag-map-of-Brunei-logo-vector-01.svg'),
 (30, 'Bulgarie', 'Bulgaria', 2, 'https://upload.wikimedia.org/wikipedia/commons/7/72/Flag_map_of_Bulgaria.svg'),
 (31, 'Burkina Faso', 'Burkina Faso', 3, 'https://upload.wikimedia.org/wikipedia/commons/e/ec/Flag-map_of_Burkina_Faso.svg'),
 (32, 'Burundi', 'Burundi', 3, 'https://upload.wikimedia.org/wikipedia/commons/0/07/Flag-map_of_Burundi.svg'),
-(33, 'Cap-Vert', 'Cabo Verde', 3, NULL),
+(33, 'Cap-Vert', 'Cabo Verde', 3, 'https://upload.wikimedia.org/wikipedia/commons/a/a1/Flag-map_of_Cape_Verde.svg'),
 (34, 'Cambodge', 'Cambodia', 1, 'https://upload.wikimedia.org/wikipedia/commons/e/e9/Flag_map_of_Cambodia.svg'),
 (35, 'Cameroun', 'Cameroon', 3, 'https://upload.wikimedia.org/wikipedia/commons/7/73/Flag-map_of_Cameroon.svg'),
 (36, 'Canada', 'Canada', 4, 'https://upload.wikimedia.org/wikipedia/commons/4/45/Flag-map_of_Canada.svg'),
@@ -30140,7 +30325,7 @@ INSERT INTO `pays` (`IdPays`, `NomPaysFR`, `NomPaysANG`, `IdContinent`, `UrlDrap
 (42, 'Congo', 'Congo', 3, 'https://upload.wikimedia.org/wikipedia/commons/8/86/Flag-map_of_the_Republic_of_the_Congo.svg'),
 (43, 'Republique democratique du Congo', 'Democratic Republic of the Congo', 3, 'https://upload.wikimedia.org/wikipedia/commons/b/b8/Flag-map_of_the_Democratic_Republic_of_the_Congo.svg'),
 (44, 'Coree du Sud', 'South Korea', 1, 'https://upload.wikimedia.org/wikipedia/commons/5/50/Flag-map_of_South_Korea.svg'),
-(45, 'Coree du Nord', 'North Korea', 1, NULL),
+(45, 'Coree du Nord', 'North Korea', 1, 'https://upload.wikimedia.org/wikipedia/commons/1/15/Flag-map_of_North_Korea.svg'),
 (46, 'Costa Rica', 'Costa Rica', 4, 'https://upload.wikimedia.org/wikipedia/commons/d/d2/Map_and_flag_of_Costa_Rica.svg'),
 (47, 'Cote d\'Ivoire', 'Cote d\'Ivoire', 3, 'https://upload.wikimedia.org/wikipedia/commons/7/79/Flag-map_of_Cote_d%27Ivoire.svg'),
 (48, 'Croatie', 'Croatia', 2, 'https://upload.wikimedia.org/wikipedia/commons/c/c9/Flag_map_of_Croatia.svg'),
@@ -30148,34 +30333,34 @@ INSERT INTO `pays` (`IdPays`, `NomPaysFR`, `NomPaysANG`, `IdContinent`, `UrlDrap
 (50, 'Danemark', 'Denmark', 2, 'https://upload.wikimedia.org/wikipedia/commons/4/42/Flag-map_of_Denmark.svg'),
 (51, 'Djibouti', 'Djibouti', 3, 'https://upload.wikimedia.org/wikipedia/commons/c/c2/Flag-map_of_Djibouti.svg'),
 (52, 'Republique dominicaine', 'Dominican Republic', 4, 'https://upload.wikimedia.org/wikipedia/commons/3/39/Flag_map_of_the_Dominican_Republic.svg'),
-(53, 'Dominique', 'Dominica', 4, NULL),
+(53, 'Dominique', 'Dominica', 4, 'https://upload.wikimedia.org/wikipedia/commons/f/f0/Flag-map_of_Dominica.svg'),
 (54, 'Egypte', 'Egypt', 3, 'https://upload.wikimedia.org/wikipedia/commons/0/03/Flag-map_of_Egypt.svg'),
 (55, 'Salvador', 'Salvador', 4, 'https://upload.wikimedia.org/wikipedia/commons/1/18/El_Salvador_Stub.svg'),
 (56, 'Emirats arabes unis', 'United Arab Emirates', 1, 'https://upload.wikimedia.org/wikipedia/commons/4/42/Flag_map_of_the_United_Arab_Emirates.svg'),
 (57, 'Equateur', 'Ecuador', 4, 'https://upload.wikimedia.org/wikipedia/commons/0/02/Flag-map_of_Ecuador.svg'),
-(58, 'Erythree', 'Eritrea', 3, NULL),
+(58, 'Erythree', 'Eritrea', 3, 'https://upload.wikimedia.org/wikipedia/commons/b/b9/Flag-map_of_Eritrea.svg'),
 (59, 'Espagne', 'Spain', 2, 'https://upload.wikimedia.org/wikipedia/commons/a/a6/Flag_map_of_Spain.svg'),
 (60, 'Estonie', 'Estonia', 2, 'https://upload.wikimedia.org/wikipedia/commons/8/81/Flag-map_of_Estonia.svg'),
 (61, 'Eswatini', 'Eswatini', 3, 'https://upload.wikimedia.org/wikipedia/commons/d/da/Flag-map_of_Eswatini.svg'),
 (62, 'Etats-Unis', 'United States', 4, 'https://upload.wikimedia.org/wikipedia/commons/1/1e/Flag_map_of_the_United_States_%28All_50_States%29.png'),
 (63, 'Ethiopie', 'Ethiopia', 3, 'https://upload.wikimedia.org/wikipedia/commons/0/06/Flag-map_of_Ethiopia.svg'),
-(64, 'Feroe', 'Faroe Islands', 2, NULL),
-(65, 'Fidji', 'Fiji', 5, NULL),
+(64, 'Feroe', 'Faroe Islands', 2, 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Flag-map_of_the_Faroe_Islands.svg'),
+(65, 'Fidji', 'Fiji', 5, 'https://upload.wikimedia.org/wikipedia/commons/5/5d/Flag-map_of_Fiji.svg'),
 (66, 'Finlande', 'Finland', 2, 'https://upload.wikimedia.org/wikipedia/commons/1/12/Flag-map_of_Finland.svg'),
 (67, 'France', 'France', 2, 'https://upload.wikimedia.org/wikipedia/commons/2/20/Flag-map_of_France2.svg'),
 (68, 'Gabon', 'Gabon', 3, 'https://upload.wikimedia.org/wikipedia/commons/3/30/Flag-map_of_Gabon.svg'),
 (69, 'Gambie', 'Gambia', 3, 'https://upload.wikimedia.org/wikipedia/commons/7/7d/Flag-map_of_The_Gambia.svg'),
 (70, 'Georgie', 'Georgia', 2, 'https://upload.wikimedia.org/wikipedia/commons/7/78/Flag-map_of_Georgia.svg'),
 (71, 'Ghana', 'Ghana', 3, 'https://upload.wikimedia.org/wikipedia/commons/3/33/Flag-map_of_Ghana.svg'),
-(72, 'Gibraltar', 'Gibraltar', 2, NULL),
+(72, 'Gibraltar', 'Gibraltar', 2, 'https://upload.wikimedia.org/wikipedia/commons/7/7f/Flag_map_of_Gibraltar.svg'),
 (73, 'Grece', 'Greece', 2, 'https://upload.wikimedia.org/wikipedia/commons/e/ee/Flag-map_of_Greece2.svg'),
-(74, 'Grenade', 'Grenada', 4, NULL),
-(75, 'Groenland', 'Greenland', 2, NULL),
+(74, 'Grenade', 'Grenada', 4, 'https://upload.wikimedia.org/wikipedia/commons/b/ba/Flag-map_of_Grenada.svg'),
+(75, 'Groenland', 'Greenland', 2, 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Flag_Map_of_Greenland_%28Denmark%29.png/514px-Flag_Map_of_Greenland_%28Denmark%29.png'),
 (76, 'Guatemala', 'Guatemala', 4, 'https://upload.wikimedia.org/wikipedia/commons/c/c4/Flag_map_of_Guatemala.svg'),
-(77, 'Guernesey', 'Guernsey', 2, NULL),
+(77, 'Guernesey', 'Guernsey', 2, 'https://upload.wikimedia.org/wikipedia/commons/e/e9/Flag-map_of_Guernsey.svg'),
 (78, 'Guinee', 'Guinea', 3, 'https://upload.wikimedia.org/wikipedia/commons/4/4f/Flag-map_of_Guinea.svg'),
-(79, 'Guinee equatoriale', 'Equatorial Guinea', 3, NULL),
-(80, 'Guinee-Bissau', 'Guinea-Bissau', 3, NULL),
+(79, 'Guinee equatoriale', 'Equatorial Guinea', 3, 'https://freesvg.org/img/Equatorial-Guinea-Flag-Map.png'),
+(80, 'Guinee-Bissau', 'Guinea-Bissau', 3, 'https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag-map_of_Guinea-Bissau.svg'),
 (81, 'Guyana', 'Guyana', 4, 'https://upload.wikimedia.org/wikipedia/commons/8/87/Flag-map_of_Guyana.svg'),
 (82, 'Haiti', 'Haiti', 4, 'https://upload.wikimedia.org/wikipedia/commons/c/c7/Flag_map_of_Haiti.svg'),
 (83, 'Honduras', 'Honduras', 4, 'https://upload.wikimedia.org/wikipedia/commons/e/ef/Flag-map_of_Honduras.svg'),
@@ -30195,7 +30380,7 @@ INSERT INTO `pays` (`IdPays`, `NomPaysFR`, `NomPaysANG`, `IdContinent`, `UrlDrap
 (97, 'Kazakhstan', 'Kazakhstan', 1, 'https://upload.wikimedia.org/wikipedia/commons/9/94/Flag-map_of_Kazakhstan_%28precise_boundaries%29.svg'),
 (98, 'Kenya', 'Kenya', 3, 'https://upload.wikimedia.org/wikipedia/commons/b/b3/Flag-map_of_Kenya.svg'),
 (99, 'Kirghizistan', 'Kyrgyzstan', 1, 'https://upload.wikimedia.org/wikipedia/commons/4/41/Kyrgyzstan_stub.svg'),
-(100, 'Kiribati', 'Kiribati', 5, NULL),
+(100, 'Kiribati', 'Kiribati', 5, 'https://upload.wikimedia.org/wikipedia/commons/6/63/Flag_map_of_Kiribati_%28Kiritimati%29.png'),
 (101, 'Koweit', 'Kuwait', 1, 'https://upload.wikimedia.org/wikipedia/commons/8/84/Flag-map_of_Kuwait.svg'),
 (102, 'Laos', 'Lao', 1, 'https://upload.wikimedia.org/wikipedia/commons/2/21/Flag-map_of_Laos.svg'),
 (103, 'Lesotho', 'Lesotho', 3, 'https://upload.wikimedia.org/wikipedia/commons/5/54/Flag-map_of_Lesotho.svg'),
@@ -30203,10 +30388,10 @@ INSERT INTO `pays` (`IdPays`, `NomPaysFR`, `NomPaysANG`, `IdContinent`, `UrlDrap
 (105, 'Liban', 'Lebanon', 1, 'https://upload.wikimedia.org/wikipedia/commons/5/57/Flag-map_of_Lebanon.svg'),
 (106, 'Liberia', 'Liberia', 3, 'https://upload.wikimedia.org/wikipedia/commons/e/e1/Flag-map_of_Liberia.svg'),
 (107, 'Libye', 'Libya', 3, 'https://upload.wikimedia.org/wikipedia/commons/4/44/Flag-map_of_Libya.svg'),
-(108, 'Liechtenstein', 'Liechtenstein', 2, NULL),
+(108, 'Liechtenstein', 'Liechtenstein', 2, 'https://upload.wikimedia.org/wikipedia/commons/7/75/Flag-map_of_Liechtenstein.svg'),
 (109, 'Lituanie', 'Lithuania', 2, 'https://upload.wikimedia.org/wikipedia/commons/b/b2/Flag-map_of_Lithuania.svg'),
 (110, 'Luxembourg', 'Luxembourg', 2, 'https://upload.wikimedia.org/wikipedia/commons/7/70/Flag-map_of_Luxembourg.svg'),
-(111, 'Macao', 'Macao', 1, NULL),
+(111, 'Macao', 'Macao', 1, 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Macau_flag-map.svg/593px-Macau_flag-map.svg.png'),
 (112, 'Macedoine du Nord', 'North Macedonia', 2, 'https://upload.wikimedia.org/wikipedia/commons/f/f9/Flag_map_of_North_Macedonia.svg'),
 (113, 'Madagascar', 'Madagascar', 3, 'https://upload.wikimedia.org/wikipedia/commons/7/7c/Flag-map_of_Madagascar.svg'),
 (114, 'Malaisie', 'Malaysia', 1, 'https://upload.wikimedia.org/wikipedia/commons/8/8d/Flag_map_of_Malaysia.svg'),
@@ -30218,30 +30403,30 @@ INSERT INTO `pays` (`IdPays`, `NomPaysFR`, `NomPaysANG`, `IdContinent`, `UrlDrap
 (120, 'Maurice', 'Mauritius', 3, 'https://upload.wikimedia.org/wikipedia/commons/1/13/Flag-map_of_Mauritius.svg'),
 (121, 'Mauritanie', 'Mauritania', 3, 'https://upload.wikimedia.org/wikipedia/commons/a/aa/Flag-map_of_Mauritania.svg'),
 (122, 'Mexique', 'Mexico', 4, 'https://upload.wikimedia.org/wikipedia/commons/a/aa/Mexico_Flag_Map.svg'),
-(123, 'Micronesie', 'Micronesia', 5, NULL),
+(123, 'Micronesie', 'Micronesia', 5, 'https://cdn.pixabay.com/photo/2020/06/21/05/21/micronesia-5323265_960_720.png'),
 (124, 'Moldavie', 'Moldova', 2, 'https://upload.wikimedia.org/wikipedia/commons/9/95/Flag_map_of_Moldova.svg'),
-(125, 'Monaco', 'Monaco', 2, NULL),
+(125, 'Monaco', 'Monaco', 2, 'https://cdn.pixabay.com/photo/2016/10/21/19/04/monaco-1758837_960_720.png'),
 (126, 'Mongolie', 'Mongolia', 1, 'https://upload.wikimedia.org/wikipedia/commons/6/62/Flag-map_of_Mongolia.svg'),
 (127, 'Montenegro', 'Montenegro', 2, 'https://upload.wikimedia.org/wikipedia/commons/f/fd/Flag_map_of_Montenegro.svg'),
 (128, 'Mozambique', 'Mozambique', 3, 'https://upload.wikimedia.org/wikipedia/commons/4/44/Flag-map_of_Mozambique.svg'),
 (129, 'Myanmar', 'Myanmar', 1, 'https://upload.wikimedia.org/wikipedia/commons/4/4e/Myanmar_Map_Flag.svg'),
 (130, 'Namibie', 'Namibia', 3, 'https://upload.wikimedia.org/wikipedia/commons/9/95/Flag-map_of_Namibia.svg'),
-(131, 'Nauru', 'Nauru', 5, NULL),
+(131, 'Nauru', 'Nauru', 5, 'https://cdn.pixabay.com/photo/2016/10/21/19/31/namibia-1758967_960_720.png'),
 (132, 'Nepal', 'Nepal', 1, 'https://upload.wikimedia.org/wikipedia/commons/0/09/Flag_map_of_Nepal.svg'),
 (133, 'Nicaragua', 'Nicaragua', 4, 'https://upload.wikimedia.org/wikipedia/commons/8/87/Flag_map_of_Nicaragua.svg'),
 (134, 'Niger', 'Niger', 3, 'https://upload.wikimedia.org/wikipedia/commons/d/da/Flag-map_of_Niger.svg'),
 (135, 'Nigeria', 'Nigeria', 3, 'https://upload.wikimedia.org/wikipedia/commons/4/43/Flag-map_of_Nigeria.svg'),
-(136, 'Niue', 'Niue', 5, NULL),
+(136, 'Niue', 'Niue', 5, 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Flag-map_of_Niue.svg/1200px-Flag-map_of_Niue.svg.png'),
 (137, 'Norvege', 'Norway', 2, 'https://upload.wikimedia.org/wikipedia/commons/5/58/Norway-Flagmap.svg'),
 (138, 'Nouvelle-Zelande', 'New Zealand', 5, 'https://upload.wikimedia.org/wikipedia/commons/5/51/Flag-map_of_New_Zealand.svg'),
 (139, 'Oman', 'Oman', 1, 'https://upload.wikimedia.org/wikipedia/commons/d/d8/Flag_map_of_Oman.svg'),
 (140, 'Ouganda', 'Uganda', 3, 'https://upload.wikimedia.org/wikipedia/commons/3/30/Flag-map_of_Uganda.svg'),
 (141, 'Ouzbekistan', 'Uzbekistan', 1, 'https://upload.wikimedia.org/wikipedia/commons/e/e8/Flag-map_of_Uzbekistan.svg'),
 (142, 'Pakistan', 'Pakistan', 1, 'https://upload.wikimedia.org/wikipedia/commons/5/53/Flag_map_of_Pakistan.svg'),
-(143, 'Palaos', 'Palau', 5, NULL),
+(143, 'Palaos', 'Palau', 5, 'https://cdn.pixabay.com/photo/2020/06/21/05/23/palau-5323273_1280.png'),
 (144, 'Palestine', 'Palestine', 1, 'https://upload.wikimedia.org/wikipedia/commons/b/b2/Flag_map_of_the_Palestinian_territories.svg'),
 (145, 'Panama', 'Panama', 4, 'https://upload.wikimedia.org/wikipedia/commons/5/56/Flag-map_of_Panama.svg'),
-(146, 'Papouasie-Nouvelle-Guinee', 'Papua New Guinea', 5, NULL),
+(146, 'Papouasie-Nouvelle-Guinee', 'Papua New Guinea', 5, 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Flag-map_of_Papua_New_Guinea2.svg/2560px-Flag-map_of_Papua_New_Guinea2.svg.png'),
 (147, 'Paraguay', 'Paraguay', 4, 'https://upload.wikimedia.org/wikipedia/commons/b/b1/Flag-map_of_Paraguay.svg'),
 (148, 'Pays-Bas', 'Netherlands', 2, 'https://upload.wikimedia.org/wikipedia/commons/e/ee/Flag-map_of_the_Netherlands.svg'),
 (149, 'Perou', 'Peru', 4, 'https://upload.wikimedia.org/wikipedia/commons/d/d1/Flag-map_of_Peru.svg'),
@@ -30255,17 +30440,17 @@ INSERT INTO `pays` (`IdPays`, `NomPaysFR`, `NomPaysANG`, `IdContinent`, `UrlDrap
 (157, 'Royaume-Uni', 'United Kingdom', 2, 'https://upload.wikimedia.org/wikipedia/commons/e/ec/Flag-map_of_the_United_Kingdom.svg'),
 (158, 'Russie', 'Russia', 2, 'https://upload.wikimedia.org/wikipedia/commons/9/94/Flag-map_of_Russia.svg'),
 (159, 'Rwanda', 'Rwanda', 3, 'https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag-map_of_Rwanda.svg'),
-(160, 'Sainte-Lucie', 'Saint Lucia', 4, NULL),
-(161, 'Saint-Kitts-et-Nevis', 'Saint Kitts and Nevis', 4, NULL),
-(162, 'Saint-Marin', 'San Marino', 2, NULL),
-(163, 'Vatican', 'Holy see', 2, NULL),
-(164, 'Saint-Vincent-et-lesGrenadines', 'Saint Vincent and the Grenadines', 4, NULL),
-(165, 'Iles Salomon', 'Solomon Islands', 5, NULL),
-(166, 'Samoa', 'Samoa', 5, NULL),
-(167, 'Sao Tome-et-Principe', 'Sao Tome and Principe', 3, NULL),
+(160, 'Sainte-Lucie', 'Saint Lucia', 4, 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Flag-map_of_Saint_Lucia.svg/1200px-Flag-map_of_Saint_Lucia.svg.png'),
+(161, 'Saint-Kitts-et-Nevis', 'Saint Kitts and Nevis', 4, 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Flag-map_of_Saint_Kitts_and_Nevis.svg/741px-Flag-map_of_Saint_Kitts_and_Nevis.svg.png'),
+(162, 'Saint-Marin', 'San Marino', 2, 'https://freesvg.org/img/San-Marino-Map-Flag.png'),
+(163, 'Vatican', 'Holy see', 2, 'https://freesvg.org/img/Vatican-City-Map-Flag.png'),
+(164, 'Saint-Vincent-et-lesGrenadines', 'Saint Vincent and the Grenadines', 4, 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Flag_map_of_Saint_Vincent_and_the_Grenadines.svg/1200px-Flag_map_of_Saint_Vincent_and_the_Grenadines.svg.png'),
+(165, 'Iles Salomon', 'Solomon Islands', 5, 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Flag-map_of_the_Solomon_Islands.svg/1200px-Flag-map_of_the_Solomon_Islands.svg.png'),
+(166, 'Samoa', 'Samoa', 5, 'https://upload.wikimedia.org/wikipedia/commons/f/f8/Flag-map_of_Samoa.svg'),
+(167, 'Sao Tome-et-Principe', 'Sao Tome and Principe', 3, 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Flag-map_of_Sao_Tome_and_Principe.svg/1200px-Flag-map_of_Sao_Tome_and_Principe.svg.png'),
 (168, 'Senegal', 'Senegal', 3, 'https://upload.wikimedia.org/wikipedia/commons/d/d3/Flag-map_of_Senegal.svg'),
 (169, 'Serbie', 'Serbia', 2, 'https://upload.wikimedia.org/wikipedia/commons/e/e0/Flag_map_of_Serbia_%28with_Kosovo%29.svg'),
-(170, 'Seychelles', 'Seychelles', 3, NULL),
+(170, 'Seychelles', 'Seychelles', 3, 'https://cdn.pixabay.com/photo/2020/06/21/05/28/seychelles-5323288_640.png'),
 (171, 'Sierra Leone', 'Sierra Leone', 3, 'https://upload.wikimedia.org/wikipedia/commons/7/7f/Flag-map_of_Sierra_Leone.svg'),
 (172, 'Singapour', 'Singapore', 1, 'https://upload.wikimedia.org/wikipedia/commons/9/99/Flag_map_of_Singapore.svg'),
 (173, 'Slovaquie', 'Slovakia', 2, 'https://upload.wikimedia.org/wikipedia/commons/8/8c/Flag-map_of_Czechoslovakia.svg'),
@@ -30283,17 +30468,17 @@ INSERT INTO `pays` (`IdPays`, `NomPaysFR`, `NomPaysANG`, `IdContinent`, `UrlDrap
 (185, 'Tchad', 'Chad', 3, 'https://upload.wikimedia.org/wikipedia/commons/2/21/Flag-map_of_Chad.svg'),
 (186, 'Tchequie', 'Czechia', 2, 'https://upload.wikimedia.org/wikipedia/commons/a/a5/Flag-map_of_the_Czech_Republic.svg'),
 (187, 'Thailande', 'Thailand', 1, 'https://upload.wikimedia.org/wikipedia/commons/f/f2/Flag_map_of_Thailand.svg'),
-(188, 'Timor-Leste', 'Timor-Leste', 1, NULL),
+(188, 'Timor-Leste', 'Timor-Leste', 1, 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Flag-map_of_Great_Timor.svg/1200px-Flag-map_of_Great_Timor.svg.png'),
 (189, 'Togo', 'Togo', 3, 'https://upload.wikimedia.org/wikipedia/commons/4/4a/Flag-map_of_Togo.svg'),
-(190, 'Tonga', 'Tonga', 5, NULL),
+(190, 'Tonga', 'Tonga', 5, 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Flag-map_of_Great_Timor.svg'),
 (191, 'Trinite-et-Tobago', 'Trinidad and Tobago', 4, 'https://upload.wikimedia.org/wikipedia/commons/8/8b/Flag-map_of_Trinidad_and_Tobago.svg'),
 (192, 'Tunisie', 'Tunisia', 3, 'https://upload.wikimedia.org/wikipedia/commons/0/06/Flag_map_of_Tunisia.svg'),
 (193, 'Turkmenistan', 'Turkmenistan', 1, 'https://upload.wikimedia.org/wikipedia/commons/c/c1/Turkmenistan-Flagmap.svg'),
 (194, 'Turquie', 'Turkey', 1, 'https://upload.wikimedia.org/wikipedia/commons/4/49/Flag-map_of_Turkey.svg'),
-(195, 'Tuvalu', 'Tuvalu', 5, NULL),
+(195, 'Tuvalu', 'Tuvalu', 5, 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Flag-map_of_Tuvalu.svg/1200px-Flag-map_of_Tuvalu.svg.png'),
 (196, 'Ukraine', 'Ukraine', 2, 'https://upload.wikimedia.org/wikipedia/commons/0/06/Flag_map_of_Ukraine_with_Crimea_as_disputed_territory.png'),
 (197, 'Uruguay', 'Uruguay', 4, 'https://upload.wikimedia.org/wikipedia/commons/f/f8/Flag-map_of_Uruguay.svg'),
-(198, 'Vanuatu', 'Vanuatu', 5, NULL),
+(198, 'Vanuatu', 'Vanuatu', 5, 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Flag-map_of_Vanuatu.svg/505px-Flag-map_of_Vanuatu.svg.png'),
 (199, 'Venezuela', 'Venezuela', 4, 'https://upload.wikimedia.org/wikipedia/commons/8/84/Flag-map_of_Venezuela.svg'),
 (200, 'Viet Nam', 'Viet Nam', 1, 'https://upload.wikimedia.org/wikipedia/commons/8/83/Flag-map_of_Vietnam_%28precise_boundaries%29.svg'),
 (201, 'Yemen', 'Yemen', 1, 'https://upload.wikimedia.org/wikipedia/commons/d/da/Flag-map_of_Yemen_%28precise_boundaries%29.svg'),
@@ -30303,6 +30488,13 @@ INSERT INTO `pays` (`IdPays`, `NomPaysFR`, `NomPaysANG`, `IdContinent`, `UrlDrap
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `carteinteractive`
+--
+ALTER TABLE `carteinteractive`
+  ADD PRIMARY KEY (`URL`),
+  ADD KEY `IdPays` (`IdPays`);
 
 --
 -- Indexes for table `continent`
@@ -30325,10 +30517,10 @@ ALTER TABLE `indcorruption`
   ADD KEY `IdPays` (`IdPays`);
 
 --
--- Indexes for table `indicedemocratie`
+-- Indexes for table `inddemocratie`
 --
-ALTER TABLE `indicedemocratie`
-  ADD PRIMARY KEY (`IdDemocratie`),
+ALTER TABLE `inddemocratie`
+  ADD PRIMARY KEY (`IndDemocratie`),
   ADD KEY `IdPays` (`IdPays`);
 
 --
@@ -30342,7 +30534,7 @@ ALTER TABLE `indlibercivile`
 -- Indexes for table `indlibermorale`
 --
 ALTER TABLE `indlibermorale`
-  ADD PRIMARY KEY (`IdLibMorale`),
+  ADD PRIMARY KEY (`IdParite`),
   ADD KEY `IdPays` (`IdPays`);
 
 --
@@ -30378,6 +30570,12 @@ ALTER TABLE `pays`
 --
 
 --
+-- Constraints for table `carteinteractive`
+--
+ALTER TABLE `carteinteractive`
+  ADD CONSTRAINT `carteinteractive_ibfk_1` FOREIGN KEY (`IdPays`) REFERENCES `pays` (`IdPays`);
+
+--
 -- Constraints for table `indbonheur`
 --
 ALTER TABLE `indbonheur`
@@ -30390,10 +30588,10 @@ ALTER TABLE `indcorruption`
   ADD CONSTRAINT `indcorruption_ibfk_1` FOREIGN KEY (`IdPays`) REFERENCES `pays` (`IdPays`);
 
 --
--- Constraints for table `indicedemocratie`
+-- Constraints for table `inddemocratie`
 --
-ALTER TABLE `indicedemocratie`
-  ADD CONSTRAINT `indicedemocratie_ibfk_1` FOREIGN KEY (`IdPays`) REFERENCES `pays` (`IdPays`);
+ALTER TABLE `inddemocratie`
+  ADD CONSTRAINT `inddemocratie_ibfk_1` FOREIGN KEY (`IdPays`) REFERENCES `pays` (`IdPays`);
 
 --
 -- Constraints for table `indlibercivile`
