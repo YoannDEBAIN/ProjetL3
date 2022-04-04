@@ -11,8 +11,24 @@ $datax=array();
 $datay=array();
 
 for($i=0;$i<count($col);$i++){
-	$datay[$i]=$col[$i][0];
+
+	$datay[$i]=$col[$i][0];	if ($datay[$i]=="indlibercivile"){ 
+	$datay[$i]=(1-(($datay[$i]-1)/6))*100;
+	}
+	else {
+		if ($datay[$i]=="indpaixglobale"){ 
+	$datay[$i]=(1-(($datay[$i]-1)/4))*100;
+	}
+	}
+	else {
+		if ($datay[$i]=="indparite"){ 
+	$datay[$i]=(((100-$datay[$i]-50)-50)/50)*100;
+	}
+	
+	}
+
 	$datax[$i]=$col[$i][1];
+
 }
 
 
