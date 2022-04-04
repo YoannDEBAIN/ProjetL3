@@ -67,6 +67,7 @@ body
 	background-color : #b7c8c4;
 	border-bottom : #b7c8c4;
 	border-color : #b7c8c4;
+	text-shadow: 0.1em 0.1em 0.4em black;
 }
 
 
@@ -258,12 +259,7 @@ th, td {
 		}
 		
 		
-		
-.Graph {
- display: block; margin-left: auto; margin-right: auto ;
-
-}
-
+	
 
 .bouton2{
     background-color: #e0e7e3ff;
@@ -274,8 +270,8 @@ th, td {
 	border-radius : 200px;
 	opacity : 0.8;
 	border: none;
-	margin-left:0px;
-
+	margin-left:5px;
+	
 }
 
 
@@ -340,8 +336,40 @@ margin-left : auto;
 
 
 
+.centre{
+  text-align: center;
+}
+
+#rectangle {
+  border: 3px solid #37483eb0;
+  width : 600px;
+  background-color : #ffffffb0;
+  margin-left : auto;
+  margin-right : auto;
+  margin-top : 100px;
+  padding: 10px;
+  border-top-left-radius : 15px;
+  border-top-right-radius : 15px;
+  border-bottom-left-radius : 15px;
+  border-bottom-right-radius : 15px;
+}
+
+.Graph {
+     -webkit-transition: all 0.2s;
+     -moz-transition: all 0.2s;
+     -ms-transition: all 0.2s;
+     -o-transition: all 0.2s;
+     transition: all 0.2s;
+	  display: block; margin-left: auto; margin-right: auto ;
+}
+.Graph:hover {
+     transform:scale(1.2);
+}
 
 
+#année {
+	margin-left:10px;
+}
 
 
 
@@ -516,25 +544,6 @@ label {
 
 
 
-/*UTILES?????????????*/
-.centre{
-  text-align: center;
-}
-
-#rectangle {
-  border: 3px solid #37483eb0;
-  width : 600px;
-  background-color : #ffffffb0;
-  margin-left : auto;
-  margin-right : auto;
-  margin-top : 100px;
-  padding: 10px;
-  border-top-left-radius : 15px;
-  border-top-right-radius : 15px;
-  border-bottom-left-radius : 15px;
-  border-bottom-right-radius : 15px;
-}
-/*????????????????????*/
 
 
 /*Bouton ? Kanto */

@@ -56,8 +56,6 @@ En
 </span>
 ?
 <br />
-Zoom de l'image : 
-<input name = "zoom" type = "number" value ="<? if ($_GET['zoom']==""){echo '1';} else{echo $_GET['zoom'];}?>" min="0" max ="2" step="0.1">
 		<br />
 		<input type="submit" value="Envoyer">
 		</form>
@@ -69,11 +67,11 @@ Zoom de l'image :
 <? 
 if ($_GET['annee']!=""){
 if($_GET['Ind1']==$_GET['Ind2']){
-echo '<img class = "Graph" src="test.php?Ind1='.$_GET['Ind1'].'&Ind2='.$_GET['Ind2'].'&annee='.$_GET['annee'].'&zoom='.$_GET['zoom'].'&cor=1" />';
+echo '<img class = "Graph" src="test.php?Ind1='.$_GET['Ind1'].'&Ind2='.$_GET['Ind2'].'&annee='.$_GET['annee'].'&cor=1" />';
 echo '<br />';
 
 ?>
-<a href="<? echo 'test.php?Ind1='.$_GET['Ind1'].'&Ind2='.$_GET['Ind2'].'&annee='.$_GET['annee'].'&zoom='.$_GET['zoom'].'&cor=1'; ?>" 
+<a href="<? echo 'test.php?Ind1='.$_GET['Ind1'].'&Ind2='.$_GET['Ind2'].'&annee='.$_GET['annee'].'&cor=1'; ?>" 
    download="cor.png">Télécharger le graphique</a>
 
 <? 
@@ -95,12 +93,12 @@ WHERE ".$_GET['Ind1'].".IdPays=".$_GET['Ind2'].".IdPays AND ".$_GET['Ind1'].".Va
 
 $res=$rep->fetchAll();
 
-echo '<img src="test.php?Ind1='.$_GET['Ind1'].'&Ind2='.$_GET['Ind2'].'&annee='.$_GET['annee'].'&zoom='.$_GET['zoom'].'&cor='.$res[0]['r'].'" />';
+echo '<img class = "Graph" src="test.php?Ind1='.$_GET['Ind1'].'&Ind2='.$_GET['Ind2'].'&annee='.$_GET['annee'].'&cor='.$res[0]['r'].'" />';
 
 echo '<br />';
 
 ?>
-<a href="<? echo 'test.php?Ind1='.$_GET['Ind1'].'&Ind2='.$_GET['Ind2'].'&annee='.$_GET['annee'].'&zoom='.$_GET['zoom'].'&cor='.$res[0]['r']; ?>" 
+<a href="<? echo 'test.php?Ind1='.$_GET['Ind1'].'&Ind2='.$_GET['Ind2'].'&annee='.$_GET['annee'].'&cor='.$res[0]['r']; ?>" 
    download="cor.png">Télécharger le graphique</a>
    
   
