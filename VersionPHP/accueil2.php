@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -16,7 +20,7 @@
 				<li><a href="Classement.php"> Classement </a></li>
 				<li><a href="Correlation.php"> Correlation </a></li>
 				<li class="active"><a href="../PagesHTML/Accueil.html"> Accueil </a></li>
-				<li class="titre">TITRE</li>
+				<li class="titre">Index World</li>
 			</ul>
 		</div>
 		
@@ -228,7 +232,17 @@ AND indicedemocratie.IdPays=pays.IdPays AND indcorruption.IdPays=pays.IdPays AND
 	<br />
    </div>
 
-		
+	<?
+if(isset($_SESSION['accueil2'])){
+	$_SESSION['accueil2']['NomPaysFR']=$_GET['Pays'];
+	$_SESSION['accueil2']['Annee']=$_GET['Année'];
+}
+else {
+	$_SESSION['accueil2']=array();
+	$_SESSION['accueil2']['NomPaysFR']=$_GET['Pays'];
+	$_SESSION['accueil2']['Annee']=$_GET['Année'];
+}
+?>
 		
 		
 
