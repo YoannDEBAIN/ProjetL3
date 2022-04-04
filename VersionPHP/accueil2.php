@@ -50,7 +50,7 @@ session_start();
 
 		
 		<!--<div id="aaa">-->
-		<button class="button" onclick="cache('d1');"> <span> Cliquez-moi !</span></button>
+		<button class="button" onclick="cache('d1');"> <span> Masquez </span></button>
 		<div id="d1">
 
 <form action="accueil2.php" method="get" autocomplete="off">
@@ -80,7 +80,8 @@ session_start();
         </select>
 		
 		<input type="hidden" name="Pays" value="<? echo $_GET['Pays'] ?>"/>
-		<input type="submit" value="ok!">   
+
+		<input id="ok" type="submit" value="ok">   
 		</form>
 
 		
@@ -143,7 +144,7 @@ AND indicedemocratie.IdPays=pays.IdPays AND indcorruption.IdPays=pays.IdPays AND
 		</br>
 
 		
-		   <button class="button" onclick="cache('d2');"> <span> Cliquez-moi !</span></button>
+		   <button class="button" onclick="cache('d2');"> <span> Masquez </span></button>
 		<div id="d2">
 
 		
