@@ -6,8 +6,20 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<link rel="stylesheet" href="../Style/Design.css" type="text/css" media="screen" />
 		<script type="text/javascript" src="../VersionPHP/accueil.js"> </script>
+		<script async="true" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=AM_CHTML"> </script>
 		
 		<style>
+		h2{
+		margin-left : 10px;
+		}
+		
+		p{
+		margin-left : 10px;
+		}
+		
+		h3{
+		margin-left : 10px;
+		}
 		
 		ul div{
 		
@@ -25,7 +37,36 @@
 		display : none;
 		
 		}
-		
+.frac{
+  display:inline-block;
+  margin-left:.1em;margin-right:.1em;
+  vertical-align:-64%;
+  text-align:center;
+}
+.frac > .num, .frac > .den{
+  display:inline-block;
+  padding:0 .1em;
+}
+.frac > .fracbar {display:block;
+  height:0;margin:0;border:0;
+  border-bottom:.1em solid;
+  overflow:hidden;
+}
+.den{vertical-align:top;}
+.lrp{display:inline-block;
+  border-left:.15em solid;border-right:2px solid;
+  border-radius:.7em;
+  padding:.3em;padding-top:0;padding-bottom:0;
+  margin:.1em
+}
+
+#corrupDet{
+width:500px ;
+	margin-left: auto;
+	margin-right:auto;
+}
+
+	
 		
 		</style>
 		
@@ -42,13 +83,15 @@
 			</ul>
 		</div>
 		
-		<h2 onclick="cache('demo');">  Indice de Démocratie</h2>
+		<h2>  Indice de Démocratie 
+		<button onclick="cache('demo');"> + </button> </h2>  
 		<div id="demo">
 		<p>L’indice de la démocratie utilise les données de l’Economist Inteligence Unit pour exprimer la qualité des démocraties sous la forme d’un nombre compris entre 0 et 100 (0 représentant un régime totalitaire et 100 représentant une démocratie parfaite).</p>
 <p>Cet indice est calculé à partir de 60 aspects différents des sociétés qui sont pertinents pour la démocratie. Ces 60 aspects sont réparties en cinq "sous-indices", qui sont les suivants : </p>
 
 <ul>
-				<li onclick="cache('demoPlu');"> Sous-indice du pluralisme électoral </li>
+				<li>Sous-indice du pluralisme électoral
+				<button class="BoutonExplication" onclick="cache('demoPlu');"> ▼ </button></li> 
 				<div id="demoPlu">
 				<ul>
 <li>Les élections au Parlement national et au chef du gouvernement sont-elles libres?</li>
@@ -78,7 +121,8 @@ gouvernement à un autre sont-ils établis et acceptés?</li>
 				
 				</div>
 				
-				<li onclick="cache('demoAdmi');">Sous-indice des administrations publiques</li>
+				<li> Sous-indice des administrations publiques
+				<button onclick="cache('demoAdmi');"> ▼ </button> </li> 
 				<div id="demoAdmi" >
 				
 				
@@ -112,7 +156,8 @@ gouvernement à un autre sont-ils établis et acceptés?</li>
 <li>Confiance du public envers les partis politiques.</li>
 </ul>
 				</div>
-				<li onclick="cache('demoPar');">Sous-indice de participation politique </li>
+				<li> Sous-indice de participation politique  
+				<button onclick="cache('demoPar');"> ▼ </button> </li> 
 				<div id="demoPar">
 				<ul>
 <li>Participation aux élections nationales.</li>
@@ -135,7 +180,8 @@ gouvernement à un autre sont-ils établis et acceptés?</li>
 </ul>
 				
 				</div>
-				<li onclick="cache('demoCul');"> Sous-indice de la culture politique</li>
+				<li> Sous-indice de la culture politique
+				<button onclick="cache('demoCul');"> ▼ </button> </li> 
 				<div id="demoCul">
 				<ul>
 <li>Existe-t-il un degré suffisant de consensus et de cohésion sociétale pour soutenir une démocratie stable et fonctionnelle?</li>
@@ -156,7 +202,8 @@ gouvernement à un autre sont-ils établis et acceptés?</li>
 <li>Il existe une forte séparation de l’Église et de l’État.</li>
  </ul>
 				</div>
-				<li onclick="cache('demoCiv');"> Sous-indice des libertés civiles</li>
+				<li> Sous-indice des libertés civiles
+				<button class="BoutonExplication" onclick="cache('demoCiv');"> ▼ </button> </li> 
 				<div id="demoCiv">
 				<ul>
 <li>Y a-t-il des médias en ligne gratuits?</li>
@@ -199,46 +246,63 @@ gouvernement à un autre sont-ils établis et acceptés?</li>
      
 <table class="TableauIndice">
 		<tr>
-		<th>Démocratie parfaite</th>
-		<th></th>
-		<th></th>
-		<th></th>
-		<th></th>
-		<th></th>
-		<th></th>
-		<th></th>
 		<th>Régime totalitaire</th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th>Démocratie parfaite</th>
 		</tr>
 		<tr>
-		<td class="Vert1">90 à 100</td>
-		<td class="Vert2">80 à 90</td>
-		<td class="VertJaune">70 à 80</td>
-		<td class="Jaune">60 à 70</td>
-		<td class="JauneFonce">50 à 60</td>
-		<td class="Orange">40 à 50</td>
-		<td class="Rouge">30 à 40</td>
-		<td class="RougeBrique">20 à 30</td>
 		<td class="RougeNoir">0 à 20</td>
-		
-		
+		<td class="RougeBrique">20 à 30</td>
+		<td class="Rouge">30 à 40</td>
+		<td class="Orange">40 à 50</td>
+		<td class="JauneFonce">50 à 60</td>
+		<td class="Jaune">60 à 70</td>
+		<td class="VertJaune">70 à 80</td>
+		<td class="Vert2">80 à 90</td>
+		<td class="Vert1">90 à 100</td>
 		</tr>
 		
 		
 </table>
+
+
 	</div>	
 		
 		
 		
 		
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 
-<h2 onclick="cache('corrup');"> Indice de Corruption</h2>
+<h2>  Indice de Corruption 
+		<button onclick="cache('corrup');"> + </button> </h2>  
 <div id="corrup">
 		<p>L’indice de corruption note les pays en fonction du degré de corruption présent dans le secteur public d’un pays tel qu’il est perçu par les experts et les chefs d’entreprise.
 Cet indice utilise 13 sources de données qui décrivant un certain nombre de comportements corrompus dans le secteur public, et examinant également les mécanismes disponibles pour prévenir la corruption.
 Son score varie de 0 à 100 (0 représentant un pays totalement corrompu et 100 représentant un pays sans corruption).</p>
 		
-		<h3 onclick="cache('corrupDet');">Détails méthodologiques</h3>
+			<h3> Détails méthodologiques
+				<button class="BoutonExplication" onclick="cache('corrupDet');"> ▼ </button> </h3> 
+				
 		<div id="corrupDet">
 		<table>
 		<tr>
@@ -312,11 +376,12 @@ Son score varie de 0 à 100 (0 représentant un pays totalement corrompu et 100 
 		<td>Université de Goteberg, V-Dem institue et Université de Notre Damee</td>
 		</tr>
 		
-	
-
-		</div>
-		<div>
+		
+		
+		
 				</table>
+				</div>
+				
 		<table class="TableauIndice">
 		<tr>
 		<th>Pays totalement corrompu</th>
@@ -330,22 +395,21 @@ Son score varie de 0 à 100 (0 représentant un pays totalement corrompu et 100 
 		<th>Pays sans corruption</th>
 		</tr>
 		<tr>
-		<td class="Vert1">90 à 100</td>
-		<td class="Vert2">80 à 90</td>
-		<td class="VertJaune">70 à 80</td>
-		<td class="Jaune">60 à 70</td>
-		<td class="JauneFonce">50 à 60</td>
-		<td class="Orange">40 à 50</td>
-		<td class="Rouge">30 à 40</td>
-		<td class="RougeBrique">20 à 30</td>
 		<td class="RougeNoir">0 à 20</td>
-		
-		
+		<td class="RougeBrique">20 à 30</td>
+		<td class="Rouge">30 à 40</td>
+		<td class="Orange">40 à 50</td>
+		<td class="JauneFonce">50 à 60</td>
+		<td class="Jaune">60 à 70</td>
+		<td class="VertJaune">70 à 80</td>
+		<td class="Vert2">80 à 90</td>
+		<td class="Vert1">90 à 100</td>
 		</tr>
 		
 </table>
+
+		
 		</div>
-		</div>
 		
 		
 		
@@ -356,12 +420,14 @@ Son score varie de 0 à 100 (0 représentant un pays totalement corrompu et 100 
 		
 		
 		
-		<h2 onclick="cache('LibCiv');">Indice de Liberté Civile</h2>
+		<h2>  Indice de Liberté Civile 
+		<button onclick="cache('LibCiv');"> + </button> </h2>  
 		<div id="LibCiv">
 		<p>L'indice de liberté civil mesure la liberté des habitants d'un pays a exercer leurs droits tels que garantis par les lois du pays en question. 
 		Les valeurs de l’indice de liberté civile varie de 1 (libre) à 7 (non libre). Son calcul se base sur 15 indicateurs, groupés en 4 grandes catégories : </p>
 <ul>
-    <li onclick="cache('LibExpCroy');"> Liberté d’expression et de croyance (sur 16 points)</li>
+	<li> Liberté d’expression et de croyance (sur 16 points)
+				<button onclick="cache('LibExpCroy');"> ▼ </button> </li> 
 	<div id ="LibExpCroy">
 	<ul>
         <li> Y a-t-il des médias libres et indépendants ?</li>
@@ -372,7 +438,8 @@ Son score varie de 0 à 100 (0 représentant un pays totalement corrompu et 100 
 	
 	</div>
 	
-    <li onclick="cache('DroitAsOrg');">Droits associatifs et organisationnels (sur 12 points)</li>
+<li> Droits associatifs et organisationnels (sur 12 points)
+				<button onclick="cache('DroitAsOrg');"> ▼ </button> </li> 
 	
 	<div id="DroitAsOrg">
 	
@@ -386,7 +453,8 @@ Son score varie de 0 à 100 (0 représentant un pays totalement corrompu et 100 
 	
 	
 	
-    <li onclick="cache('RegleLois');">Règles de lois (sur 16 points)</li>
+	<li> Règles de lois (sur 16 points)
+				<button onclick="cache('RegleLois');"> ▼ </button> </li> 
 	<div id="RegleLois">
 	
 		<ul>
@@ -399,7 +467,8 @@ Son score varie de 0 à 100 (0 représentant un pays totalement corrompu et 100 
 	</div>
 	
 	
-    <li onclick="cache('AutoPersDroitInd');">Autonomie personnelle et droits individuels (sur 16 points)</li>
+	<li> Autonomie personnelle et droits individuels (sur 16 points)
+				<button onclick="cache('AutoPersDroitInd');"> ▼ </button> </li> 
 	<div id="AutoPersDroitInd">
 	
 	<ul>
@@ -426,28 +495,41 @@ Son score varie de 0 à 100 (0 représentant un pays totalement corrompu et 100 
 			</table>
 		<table class="TableauIndice">
 		<tr>
-		<th>Libre</th>
-		<th></th>
-		<th></th>
-		<th></th>
-		<th></th>
-		<th></th>
 		<th>Non libre</th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th>Libre</th>
 		</tr>
 		<tr>
-		<td class="Vert1">83,33 à 100</td>
-		<td class="Vert2">66,67 à 83,33</td>
-		<td class="Jaune">50 à 66,67</td>
-		
-		<td class="Orange">33,33 à 50</td>
-		<td class="Rouge">16,67 à 33,33</td>
-		<td class="RougeBrique">0 à 16,67</td>
 		<td class="RougeNoir">Egale à 0</td>
-		
-		
+		<td class="RougeBrique">0 à 16,67</td>
+		<td class="Rouge">16,67 à 33,33</td>
+		<td class="Orange">33,33 à 50</td>
+		<td class="Jaune">50 à 66,67</td>
+		<td class="Vert2">66,67 à 83,33</td>
+		<td class="Vert1">83,33 à 100</td>
 		</tr>
 		
 </table>
+<p> Nous avons normalisé les données selon la formule suivante :  
+<span class="math">
+ Valeur normalisée =
+  <span class="lrp">
+  1-
+    <span class="frac">
+      <span class="num">ValeurIndice -1</span><span class="fracbar">/</span><span class="den">6</span>
+    </span>
+   
+  </span>
+  &times;
+  100
+    </span>
+  </span>
+</span>
+</p>
 
 		
 		</div>
@@ -466,12 +548,14 @@ Son score varie de 0 à 100 (0 représentant un pays totalement corrompu et 100 
 		
 		
 		
-		<h2 onclick="cache('PaixGlob');">Indice de Paix Globale</h2>
+		<h2>  Indice de Paix Globale 
+		<button onclick="cache('PaixGlob');"> + </button> </h2>  
 		<div id="PaixGlob">
-		L’indice de paix globale est une mesure le degré de violence d'un pays. Ses valeurs vont de 1 (représentant un pays paisible) à 5 (représentant un pays violent). L'indice est calculé à l’aide de 23 indicateurs qualitatifs et quantitatifs selon trois domaines :
+		<p>L’indice de paix globale est une mesure le degré de violence d'un pays. Ses valeurs vont de 1 (représentant un pays paisible) à 5 (représentant un pays violent). L'indice est calculé à l’aide de 23 indicateurs qualitatifs et quantitatifs selon trois domaines : </p>
     <ul>
 	
-	<li onclick="cache('NivSurSecuSoc');">Le niveau de sûreté et de sécurité sociétales</li>
+		<li> Le niveau de sûreté et de sécurité sociétales
+				<button onclick="cache('NivSurSecuSoc');"> ▼ </button> </li> 
 	<div id="NivSurSecuSoc">
 	<ul>
 	<li>Niveau de perception de criminalité</li>
@@ -486,7 +570,9 @@ Son score varie de 0 à 100 (0 représentant un pays totalement corrompu et 100 
 	<li>Nombre de policiers et officiers pour 100 000 habitants</li>
 	</ul>
 	</div>
-    <li onclick="cache('EtenConf');">L’étendue des conflits nationaux et internationaux en cours</li>
+	
+	<li> L’étendue des conflits nationaux et internationaux en cours
+				<button onclick="cache('EtenConf');"> ▼ </button> </li> 
 	<div id="EtenConf">
 	<ul>
 	<li>Nombre et durée des conflits</li>
@@ -497,7 +583,9 @@ Son score varie de 0 à 100 (0 représentant un pays totalement corrompu et 100 
 	<li>Relation avec les pays voisins</li>
 	</ul>
 	</div>
-    <li onclick="cache('DegMili');">Le degré de militarisation</li>
+	
+	<li> Le degré de militarisation
+				<button onclick="cache('DegMili');"> ▼ </button> </li> 
 	<div id="DegMili">
 	<ul>
 	<li>Part des dépenses militaires dans le PIB</li>
@@ -513,7 +601,7 @@ Son score varie de 0 à 100 (0 représentant un pays totalement corrompu et 100 
 				</table>
 		<table class="TableauIndice">
 		<tr>
-		<th>Pays paisble</th>
+		<th>Pays violent</th>
 		<th></th>
 		<th></th>
 		<th></th>
@@ -521,26 +609,46 @@ Son score varie de 0 à 100 (0 représentant un pays totalement corrompu et 100 
 		<th></th>
 		<th></th>
 		
-		<th>Pays violent</th>
+		<th>Pays paisible</th>
 		</tr>
 		<tr>
-		<td class="Vert1">87,5 à 100</td>
-		<td class="VertJaune">75 à 87,5</td>
-		<td class="Jaune">62,5 à 75</td>
-		<td class="JauneFonce">50 à 62,5</td>
-		<td class="Orange">37,5 à 50</td>
-		<td class="Rouge">25 à 37,5</td>
-		<td class="RougeBrique">12,5 à 25</td>
 		<td class="RougeNoir">0 à 12,5</td>
+		<td class="RougeBrique">12,5 à 25</td>
+		<td class="Rouge">25 à 37,5</td>
+		<td class="Orange">37,5 à 50</td>
+		<td class="JauneFonce">50 à 62,5</td>
+		<td class="Jaune">62,5 à 75</td>
+		<td class="VertJaune">75 à 87,5</td>
+		<td class="Vert1">87,5 à 100</td>
+
+	
 		
 		
 		</tr>
 		
 </table>
+<p> Nous avons normalisé les données selon la formule suivante :
+<span class="math">
+ Valeur normalisée =
+  <span class="lrp">
+  1-
+    <span class="frac">
+      <span class="num">ValeurIndice -1</span><span class="fracbar">/</span><span class="den">4</span>
+    </span>
+   
+  </span>
+  &times;
+  100
+    </span>
+  </span>
+</span>
+</p>
+
 		</div>
 		
 		
-	<h2 onclick="cache('PariGouv');">Indice de Parité Gouvernementale</h2>
+<h2>  Indice de Parité Gouvernementale 
+		<button onclick="cache('PariGouv');"> + </button> </h2>  
 	<div id="PariGouv">
 	<p>L’indice de parité gouvernementale est un indice qui représente le pourcentage de sièges parlementaires nationaux occupés par des femmes (chambres basses et hautes combinées). 
 	Les données de cet indice ont été compilées par l’Union interparlementaire (l’IUP) grâce à des informations fournies par les parlements nationaux.</p>
@@ -548,6 +656,7 @@ Son score varie de 0 à 100 (0 représentant un pays totalement corrompu et 100 
 				</table>
 		<table class="TableauIndice">
 		<tr>
+		<th>Quasiment aucune femme élue à un poste</th>
 		<th></th>
 		<th></th>
 		<th></th>
@@ -555,29 +664,48 @@ Son score varie de 0 à 100 (0 représentant un pays totalement corrompu et 100 
 		<th></th>
 		<th></th>
 		<th></th>
-		<th></th>
-		<th></th>
+		<th>Les femmes ont occupé quasiment tous les postes éléctifs</th>
 		</tr>
 		<tr>
-		<td class="Vert1">90 à 100</td>
-		<td class="Vert2">80 à 90</td>
-		<td class="VertJaune">70 à 80</td>
-		<td class="Jaune">60 à 70</td>
-		<td class="JauneFonce">50 à 60</td>
-		<td class="Orange">40 à 50</td>
-		<td class="Rouge">30 à 40</td>
-		<td class="RougeBrique">20 à 30</td>
 		<td class="RougeNoir">0 à 20</td>
+		<td class="RougeBrique">20 à 30</td>
+		<td class="Rouge">30 à 40</td>
+		<td class="Orange">40 à 50</td>
+		<td class="JauneFonce">50 à 60</td>
+		<td class="Jaune">60 à 70</td>
+		<td class="VertJaune">70 à 80</td>
+		<td class="Vert2">80 à 90</td>
+		<td class="Vert1">90 à 100</td>
+
 		
 		
 		</tr>
 		
 </table>
+<p>Nous avons normalisé les données selon la formule suivante :
+<span class="math">
+ Valeur normalisée =
+  <span class="lrp">
+    <span class="frac">
+      <span class="num">(100 - |ValeurIndice -50| ) - 50</span><span class="fracbar">/</span><span class="den">50</span>
+    </span>
+   
+  </span>
+  &times;
+  100
+    </span>
+  </span>
+</span>
+</p>
+
+
+
 </div>
 
 
 
-<h2 onclick="cache('Bonh');">Indice du Bonheur</h2>
+<h2>  Indice de Bonheur 
+		<button onclick="cache('Bonh');"> + </button> </h2>  
 	<div id="Bonh">
 	<p>L'indice du bonheur mesure la sensation de bien être moyenne des habitants d'un pays donné. Pour se faire, les enqueteurs pose la question d'évaluation suivante : 
 	« Imaginez une échelle, avec des marches numérotées de 0 à 10. Le haut de l’échelle représente la meilleure vie possible pour vous et le bas de l’échelle représente la pire vie possible pour vous. 
@@ -585,26 +713,26 @@ Son score varie de 0 à 100 (0 représentant un pays totalement corrompu et 100 
 
 <table class="TableauIndice">
 		<tr>
-		<th>Meilleure vie possible</th>
-		<th></th>
-		<th></th>
-		<th></th>
-		<th></th>
-		<th></th>
-		<th></th>
-		<th></th>
 		<th>Pire vie possible</th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th>Meilleure vie possible</th>
 		</tr>
 		<tr>
-		<td class="Vert1">90 à 100</td>
-		<td class="Vert2">80 à 90</td>
-		<td class="VertJaune">70 à 80</td>
-		<td class="Jaune">60 à 70</td>
-		<td class="JauneFonce">50 à 60</td>
-		<td class="Orange">40 à 50</td>
-		<td class="Rouge">30 à 40</td>
-		<td class="RougeBrique">20 à 30</td>
 		<td class="RougeNoir">0 à 20</td>
+		<td class="RougeBrique">20 à 30</td>
+		<td class="Rouge">30 à 40</td>
+		<td class="Orange">40 à 50</td>
+		<td class="JauneFonce">50 à 60</td>
+		<td class="Jaune">60 à 70</td>
+		<td class="VertJaune">70 à 80</td>
+		<td class="Vert2">80 à 90</td>
+		<td class="Vert1">90 à 100</td>
 		
 		
 		</tr>
@@ -613,7 +741,8 @@ Son score varie de 0 à 100 (0 représentant un pays totalement corrompu et 100 
 </div>
 
 
-<h2 onclick="cache('LibMor');">Indice de Liberté Morale</h2>
+<h2>  Indice de Liberté Morale 
+		<button onclick="cache('LibMor');"> + </button> </h2>  
 	<div id="LibMor">
 	<p>L'indice de liberté morale, mesure liberté individuelle dont jouissent les citoyens de chaque pays face à des problèmes moraux particulièrement présent au 21ème siècle. 
 	
@@ -624,7 +753,8 @@ qu'elles coïncident ou non avec celles de la majorité ou celle de l'État. L'i
 
 
 <ul>
-	<li onclick="cache('rel');">Sous-indice relatif à la religion</li>
+	<li> Sous-indice relatif à la religion
+				<button onclick="cache('rel');"> ▼ </button> </li> 
 	<div id="rel">
 	<ul>
 	<li>Influence de la religion sur l'État, y compris son statut institutionnel formel et sa pratique gouvernementale (compte pour 37,5% du score final relatif à la religion)</li>
@@ -633,7 +763,9 @@ qu'elles coïncident ou non avec celles de la majorité ou celle de l'État. L'i
 	<li>Droits de l'Homme liés à la religion (en tenant compte du taux d'incarcération existant des prisonniers d'opinion dans chacun des pays) (compte pour 15% du score final relatif à la religion)</li>
 	</ul>
 	</div>
-	<li onclick="cache('bioeth');">Sous-indice relatif à la bioéthique</li>
+	
+	<li> Sous-indice relatif à la bioéthique
+				<button onclick="cache('bioeth');"> ▼ </button> </li> 
 	<div id="bioeth">
 	<ul>
 	<li>Droit à l'avortement (compte pour 62,5% du score final relatif à la bioéthique)</li>
@@ -641,7 +773,8 @@ qu'elles coïncident ou non avec celles de la majorité ou celle de l'État. L'i
 	<li>Maternité de substitution (compte pour 25% du score final relatif à la bioéthique)</li>
 	</ul>
 	</div>
-	<li onclick="cache('drug');">Sous-indice relatif aux drogues</li>
+	<li> Sous-indice relatif aux drogues
+				<button onclick="cache('drug');"> ▼ </button> </li> 
 	<div id="drug">
 	<ul>
 	<li>Légalisation du cannabis(compte pour 70% du score final relatif aux drogues)</li>
@@ -649,7 +782,8 @@ qu'elles coïncident ou non avec celles de la majorité ou celle de l'État. L'i
 	<li>Nombre estimé de détenus liés à la drogue dans les prisons (compte pour 15% du score final relatif aux drogues)</li>
 	</ul>
 	</div>
-	<li onclick="cache('sex');">Sous-indice relatif à la sexualité</li>
+		<li> Sous-indice relatif à la sexualité
+				<button onclick="cache('sex');"> ▼ </button> </li> 
 	<div id="sex">
 	<ul>
 	<li>Liberté de consommation de contenus pornographiques (compte pour 40% du score final relatif à la sexualité)</li>
@@ -657,7 +791,8 @@ qu'elles coïncident ou non avec celles de la majorité ou celle de l'État. L'i
 	<li>Age légal du consentement sexuel(compte pour 25% du score final relatif à la sexualité)</li>
 	</ul>
 	</div>
-	<li onclick="cache('genre');">Sous-indice relatif aux genres</li>
+	<li> Sous-indice relatif aux genres
+				<button onclick="cache('genre');"> ▼ </button> </li> 
 	<div id="genre">
 	<ul>
 	<li>Liberté des femmes, notamment de mouvement par rapport aux hommes (compte pour 20% du score final relatif aux genres)</li>
@@ -670,26 +805,26 @@ qu'elles coïncident ou non avec celles de la majorité ou celle de l'État. L'i
 
 <table class="TableauIndice">
 		<tr>
-		<th>Très élevé</th>
-		<th></th>
-		<th></th>
-		<th></th>
-		<th></th>
-		<th></th>
-		<th></th>
-		<th></th>
 		<th>Critique</th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th>Très élevé </th>
 		</tr>
 		<tr>
-		<td class="Vert1">90 à 100</td>
-		<td class="Vert2">80 à 90</td>
-		<td class="VertJaune">70 à 80</td>
-		<td class="Jaune">60 à 70</td>
-		<td class="JauneFonce">50 à 60</td>
-		<td class="Orange">40 à 50</td>
-		<td class="Rouge">30 à 40</td>
-		<td class="RougeBrique">20 à 30</td>
 		<td class="RougeNoir">0 à 20</td>
+		<td class="RougeBrique">20 à 30</td>
+		<td class="Rouge">30 à 40</td>
+		<td class="Orange">40 à 50</td>
+		<td class="JauneFonce">50 à 60</td>
+		<td class="Jaune">60 à 70</td>
+		<td class="VertJaune">70 à 80</td>
+		<td class="Vert2">80 à 90</td>
+		<td class="Vert1">90 à 100</td>
 		
 		
 		</tr>
