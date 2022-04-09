@@ -68,28 +68,28 @@
 			if($valeurIndice==NULL){
 				return('class="Vide"');
 			}
-			else if($valeurIndice>45 && $valeurIndice<=55){
+			else if($valeurIndice>90 && $valeurIndice<=100){
 			return ('class="Vert1"');
 			}
-			else if($valeurIndice>40 && $valeurIndice<=60){
+			else if($valeurIndice>80 && $valeurIndice<=90){
 			return ('class="Vert2"');
 			}
-			else if($valeurIndice>35 && $valeurIndice<=65){
+			else if($valeurIndice>70 && $valeurIndice<=80){
 			return ('class="VertJaune"');
 			}
-			else if($valeurIndice>30 && $valeurIndice<=70){
+			else if($valeurIndice>60 && $valeurIndice<=70){
 			return ('class="Jaune"');
 			}
-			else if($valeurIndice>25 && $valeurIndice<=75){
+			else if($valeurIndice>50 && $valeurIndice<=60){
 			return ('class="JauneFonce"');
 			}
-			else if($valeurIndice>20 && $valeurIndice<=80){
+			else if($valeurIndice>40 && $valeurIndice<=50){
 			return ('class="Orange"');
 			}
-			else if($valeurIndice>15 && $valeurIndice<=85){
+			else if($valeurIndice>30 && $valeurIndice<=40){
 			return ('class="Rouge"');
 			}
-			else if($valeurIndice>10 && $valeurIndice<=90){
+			else if($valeurIndice>20 && $valeurIndice<=30){
 			return ('class="RougeBrique"');
 			}
 			else{
@@ -132,25 +132,25 @@
 			if($valeurIndice==NULL){
 				return('class="Vide"');
 			}
-			else if($valeurIndice<2 && $valeurIndice>=1){
+			else if($valeurIndice>83.33 && $valeurIndice<=100){
 			return ('class="Vert1"');
 			}
-			else if($valeurIndice<3 && $valeurIndice>=2){
+			else if($valeurIndice>66.67 && $valeurIndice<=83.33){
 			return ('class="Vert2"');
 			}
-			else if($valeurIndice<4 && $valeurIndice>=3){
+			else if($valeurIndice>50 && $valeurIndice<=66.67){
 			return ('class="Jaune"');
 			}
-			else if($valeurIndice<5 && $valeurIndice>=4){
+			else if($valeurIndice>33.33 && $valeurIndice<=50){
 			return ('class="Orange"');
 			}
-			else if($valeurIndice<6 && $valeurIndice>=5){
+			else if($valeurIndice>16.67 && $valeurIndice<=33.33){
 			return ('class="Rouge"');
 			}
-			else if($valeurIndice<7 && $valeurIndice>=6){
+			else if($valeurIndice>0 && $valeurIndice<=16.67){
 			return ('class="RougeBrique"');
 			}
-			else if($valeurIndice==7){
+			else if($valeurIndice==0){
 			 return ('class="RougeNoir"');
 			}
 		}
@@ -158,25 +158,25 @@
 			if($valeurIndice==NULL){
 				return('class="Vide"');
 			}
-			else if($valeurIndice>=1 && $valeurIndice<=1.5){
+			else if($valeurIndice<=100 && $valeurIndice>87.5){
 			return ('class="Vert1"');
 			}
-			else if($valeurIndice>1.5 && $valeurIndice<=2){
+			else if($valeurIndice<=87.5 && $valeurIndice>75){
 			return ('class="VertJaune"');
 			}
-			else if($valeurIndice>2 && $valeurIndice<=2.5){
+			else if($valeurIndice<=75 && $valeurIndice>62.5){
 			return ('class="Jaune"');
 			}
-			else if($valeurIndice>2.5 && $valeurIndice<=3){
+			else if($valeurIndice<=62.5 && $valeurIndice>50){
 			return ('class="JauneFonce"');
 			}
-			else if($valeurIndice>3 && $valeurIndice<=3.5){
+			else if($valeurIndice<=50 && $valeurIndice>37.5){
 			return ('class="Orange"');
 			}
-			else if($valeurIndice>3.5 && $valeurIndice<=4){
+			else if($valeurIndice<=37.5 && $valeurIndice>25){
 			return ('class="Rouge"');
 			}
-			else if($valeurIndice>4 && $valeurIndice<=4.5){
+			else if($valeurIndice<=25 && $valeurIndice>12.5){
 			return ('class="RougeBrique"');
 			}
 			else{
