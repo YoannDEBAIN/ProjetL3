@@ -455,7 +455,7 @@ var simplemaps_worldmap_mapdata={
     },
     MK: {
       name: "Macedoine",
-      url: "../VersionPHP/accueil2.php?Pays=Macedoine+du+Nord"
+      url: "../VersionPHP/accueil2.php?Pays=Macedoine du Nord"
     },
     ML: {
       name: "Mali",
