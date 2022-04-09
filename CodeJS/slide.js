@@ -174,3 +174,4 @@ function jsSlide(aData){
 	me.Init(aData);
 	return me;
 }
+//source: https://www.blog.niap3d.com/fr/4,10,news-74-slider-javascript-gratuit-leger-autonome-avec-animations-css-3.html
