@@ -146,6 +146,7 @@ font-size:50px;
 
 #Drapeau{
 	max-width:550px;
+	max-height : 400px;
 	margin-left : auto;
 	display : block;
 	
