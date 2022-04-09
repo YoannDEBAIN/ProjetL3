@@ -230,7 +230,12 @@
 			<p>L’indice de corruption note les pays en fonction du degré de corruption présent dans le secteur public d’un pays tel qu’il est perçu par les experts et les chefs d’entreprise.
 			Cet indice utilise 13 sources de données qui décrivant un certain nombre de comportements corrompus dans le secteur public, et examinant également les mécanismes disponibles pour prévenir la corruption.
 			Son score varie de 0 à 100 (0 représentant un pays totalement corrompu et 100 représentant un pays sans corruption).</p> 
-			<p> Néanmoins, de part son nom il est plus naturel d'interpréter un haut indice de corruption comme un indicateur de forte corruption. Nous avons ainsi appliqué la transformation suivante sur les données : ............ </p>
+			<p> Néanmoins, de part son nom, il est plus naturel d'interpréter un haut indice de corruption comme un indicateur de forte corruption. Nous avons ainsi appliqué la transformation suivante sur les données : 
+				<span class="math"> Valeur normalisée =
+						<span class="lrp"> 100-ValeurIndice
+						</span>					
+				</span>
+			</p>
 			
 			<table class="TableauIndice">
 				<tr>
