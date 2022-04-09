@@ -2,7 +2,7 @@
 <html>
 
 	<head>
-		<title>CORRELATION</title>
+		<title>Index World - Correlation</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<link rel="stylesheet" href="../Style/Design.css" type="text/css" media="screen" />
 		<script type="text/javascript" src="../CodeJS/cache.js"> </script>

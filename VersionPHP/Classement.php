@@ -2,7 +2,7 @@
 <html>
 
 	<head>
-		<title>TITRE</title>
+		<title>Index World - Classement</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<link rel="stylesheet" href="../Style/Design.css" type="text/css" media="screen" />
 		<? require('ColFondTablInd.php');?>
