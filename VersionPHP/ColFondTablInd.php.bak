@@ -1,32 +1,32 @@
 <?
 function FondCase ($nomIndice, $valeurIndice){
-	if($valeurIndice==NULL){
-		return('class="Vide"');
-	}
-	else {
-		if ($nomIndice=="indlibercivile"){
-			if($valeurIndice>83.33 && $valeurIndice<=100){
-				return ('class="Vert1"');
+			if($valeurIndice==NULL){
+				return('class="Vide"');
 			}
-			else if($valeurIndice>66.67 && $valeurIndice<=83.33){
-				return ('class="Vert2"');
-			}
-			else if($valeurIndice>50 && $valeurIndice<=66.67){
-				return ('class="Jaune"');
-			}
-			else if($valeurIndice>33.33 && $valeurIndice<=50){
-				return ('class="Orange"');
-			}
-			else if($valeurIndice>16.67 && $valeurIndice<=33.33){
-				return ('class="Rouge"');
-			}
-			else if($valeurIndice>0 && $valeurIndice<=16.67){
-				return ('class="RougeBrique"');
-			}
-			else if($valeurIndice==0){
-				return ('class="RougeNoir"');
-			}
-		}		
+			else {
+				if ($nomIndice=="indlibercivile"){
+					if($valeurIndice>83.33 && $valeurIndice<=100){
+						return ('class="Vert1"');
+					}
+					else if($valeurIndice>66.67 && $valeurIndice<=83.33){
+						return ('class="Vert2"');
+					}
+					else if($valeurIndice>50 && $valeurIndice<=66.67){
+						return ('class="Jaune"');
+					}
+					else if($valeurIndice>33.33 && $valeurIndice<=50){
+						return ('class="Orange"');
+					}
+					else if($valeurIndice>16.67 && $valeurIndice<=33.33){
+						return ('class="Rouge"');
+					}
+					else if($valeurIndice>0 && $valeurIndice<=16.67){
+						return ('class="RougeBrique"');
+					}
+					else if($valeurIndice==0){
+						return ('class="RougeNoir"');
+					}
+				}		
 		else if ($nomIndice=="indpaixglobale"){
 
 			if($valeurIndice>87.5 && $valeurIndice<=100){
@@ -54,7 +54,7 @@ function FondCase ($nomIndice, $valeurIndice){
 				 return ('class="RougeNoir"');
 			}
 		}
-
+		
 		else if ($nomIndice=="indcorruption"){
 
 			if($valeurIndice>10 && $valeurIndice<=0){
@@ -85,9 +85,9 @@ function FondCase ($nomIndice, $valeurIndice){
 				 return ('class="RougeNoir"');
 			}
 		}
-
-		else{
 		
+		else{
+			
 			if($valeurIndice>90 && $valeurIndice<=100){
 			return ('class="Vert1"');
 			}
@@ -118,9 +118,13 @@ function FondCase ($nomIndice, $valeurIndice){
 			
 		}
 		
-	}		
+				
+			}
 			
-} 
+			
+			
+			
+		} 
 		
 		
 		
