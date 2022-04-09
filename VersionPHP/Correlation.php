@@ -21,6 +21,8 @@
 
 		<? $bdd = new PDO('mysql:host=localhost;dbname=projetl3bd;charset=utf8','root', 'root'); ?>
 	
+	<!--Création du rectangle avec les menus déroulants pour que l'utilisateur puisse faire le choix des indices pour mesurer le rapport de correlation-->
+	
 		<div id="rectangle">
 			<div class="centre">
 				<form action="Correlation.php" method="get" autocomplete="off">
@@ -48,6 +50,7 @@
 						</select>
 					</span> 
 					<div class="dropdown">
+		<!--Création du bouton d'aide avec l'affichage de l'explication d'une correlation en le survolant-->
 						<button class="styled" type="button"><span>?</span></button>
 						<div class="dropdown-content">
 							<p>La corrélation, notée "r", représente en statistique, la force de liaison entre deux variables (ici, les deux indices choisis).</p> 
@@ -61,6 +64,8 @@
 			</div>
 		</div>
 		<br />
+		<!--Création du bouton d'aide avec l'affichage de l'explication d'une correlation en le survolant-->
+
 		<? 
 		if ($_GET['annee']!=""){
 			if($_GET['Ind1']==$_GET['Ind2']){
@@ -72,7 +77,7 @@
 				<br />
 				<button class="button" onclick="cache('manqu','disp','Masquez', 'Affichez');"> <span id="disp"> Masquez </span></button>
 				<div id="manque1">
-				
+		<!--Gestion des donnéees manquantes en spécifiant la liste des pays avec donnéees manquantes-->
 					<? 
 					echo '<p>La liste des pays non pris en compte (par manque de données) : </p>';
 					$rep = $bdd->query('SELECT pays.NomPaysFR FROM pays WHERE pays.IdPays NOT IN (SELECT '.$_GET['Ind1'].'.IdPays FROM '.$_GET['Ind1'].' WHERE '.$_GET['Ind1'].'.Valeur IS NOT NULL AND '.$_GET['Ind1'].'.Annee='.$_GET['annee'].')');
@@ -83,24 +88,27 @@
 					echo '</ul>';
 				echo '</div>';
 			}else{
-
+		/* Calcul du rapport de correlation par requete SQL*/
+		
 				$rep = $bdd->query("SELECT round((avg(".$_GET['Ind1'].".Valeur*".$_GET['Ind2'].".Valeur)-(AVG(".$_GET['Ind1'].".Valeur)*avg(".$_GET['Ind2'].".Valeur)))/(STDDEV_SAMP(".$_GET['Ind1'].".Valeur)*STDDEV_SAMP(".$_GET['Ind2'].".Valeur)), 2) AS 'r'
 				FROM ".$_GET['Ind1'].", ".$_GET['Ind2']."
 				WHERE ".$_GET['Ind1'].".IdPays=".$_GET['Ind2'].".IdPays AND ".$_GET['Ind1'].".Valeur IS NOT NULL AND ".$_GET['Ind2'].".Valeur IS NOT NULL AND ".$_GET['Ind1'].".Annee=".$_GET['annee']." AND ".$_GET['Ind2'].".Annee=".$_GET['annee']);
 
 				$res=$rep->fetchAll();
-
+		/* Récuperation du graphique crée dans le fichier imgCorr.php*/
 				echo '<img class = "Graph" src="imgCorr.php?Ind1='.$_GET['Ind1'].'&Ind2='.$_GET['Ind2'].'&annee='.$_GET['annee'].'&cor='.$res[0]['r'].'" />';
 
 				echo '<br />';
 
 				?>
-
+		
+		<!-- Permettre de télécharger le graphique-->
 				<a href="<? echo 'imgCorr.php?Ind1='.$_GET['Ind1'].'&Ind2='.$_GET['Ind2'].'&annee='.$_GET['annee'].'&cor='.$res[0]['r']; ?>" download="cor.png">Télécharger le graphique</a>
 				<br />
 				<br />
 				<button class="button" onclick="cache('manque2','rien','Masquez', 'Affichez');"> <span id="rien"> Masquez </span></button>
 				<div id="manque2">
+		<!--Gestion des donnéees manquantes en spécifiant la liste des pays avec donnéees manquantes-->
 					<?
 					echo '<p>La liste des pays non pris en compte (par manque de données) : </p>';
 
