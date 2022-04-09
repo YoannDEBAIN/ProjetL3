@@ -46,11 +46,14 @@
 							<option value="indlibercivile" <? if ($_GET['Ind2']=="indlibercivile"){echo 'selected';}?>>libre</option>
 							<option value="indpaixglobale" <? if ($_GET['Ind2']=="indpaixglobale"){echo 'selected';}?>>paisible</option>
 						</select>
-					</span>
+					</span> 
 					<div class="dropdown">
 						<button class="styled" type="button"><span>?</span></button>
 						<div class="dropdown-content">
-							<p>La corrélation représente la relation entre deux variables............... Plus la corrélation est proche -1 ou 1, alors la liaison est forte. Mais attention, corrélation n'est pas causalité!</p>
+							<p>La corrélation, notée "r", représente en statistique, la force de liaison entre deux variables (ici, les deux indices choisis).</p> 
+							<p>Graphiquement, une forte liaison se traduira par un nuage de point dont l'aspect se rapproche d'une droite (on parle alors de liaison linéaire).</p>
+							<p>Plus la valeur de "r" est proche de -1 et 1, et plus la liaison (linéaire) entre les variables est forte. Si sa valeur est proche de 0, alors cela signifie que la liaison (linéaire) est inexistante.</p>
+							<p>Enfin, il est important de noter que l'existence d'une corrélation, n'implique pas toujours l'existence d'une causalité entre les deux variables</p>
 						</div>
 					</div>
 					<input type="submit" value="Envoyer">
