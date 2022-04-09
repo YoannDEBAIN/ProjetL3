@@ -39,9 +39,9 @@
 		
 		<br/>
 		
-		<? $nbInd=7; ?>
+		<? $nbInd=7; ?> <!--nombre d'indice -->
 		<form id="ChoixCla" action="Classement.php" method="get" autocomplete="off">
-			<? for ($i=1; $i<=$nbInd; $i++){
+			<? for ($i=1; $i<=$nbInd; $i++){ /* boucle permettant de créer autant de liste deroulante qu'il y a d'indice */
 
 				echo '<select name = "ClaInd'.$i.'">
 					<option value="indicedemocratie"'; if ($_GET['ClaInd'.$i]=="indicedemocratie"){echo 'selected';} echo '>Democratie</option>
@@ -65,14 +65,14 @@
 	
 		<br />
 		
-		<? if ( $_GET['annee']!="") {
+		<? if ( $_GET['annee']!="") { //verification de l'entrée d'une année
 			$bdd = new PDO('mysql:host=localhost;dbname=projetl3bd;charset=utf8','root', 'root'); ?>
 			<div class="ConTab">
 				<table>
 					<thead>
 						<tr>
 							<th>Nom pays</th>
-							<? for ($i=1; $i<=$nbInd; $i++){
+							<? for ($i=1; $i<=$nbInd; $i++){ /* Affichage du bon nom de l'indice  selon l'ordre choisis par l'utilisateur*/
 								echo '<th class="dropdown"> <span>'; 
 									if($_GET['ClaInd'.$i]=="indicedemocratie"){echo 'Indice de démocratie';} if ($_GET['ClaInd'.$i]=="indcorruption"){echo 'Indice de corruption';} if ($_GET['ClaInd'.$i]=="indbonheur"){echo 'Indice du bonheur';}
 									if ($_GET['ClaInd'.$i]=="indparite"){echo 'Indice de parite';} if ($_GET['ClaInd'.$i]=="indlibermorale"){echo 'Indice de liberte morale';} if ($_GET['ClaInd'.$i]=="indlibercivile"){echo 'Indice de liberte civile';}
@@ -87,7 +87,7 @@
 					</thead>
 					<tbody>
 						<? 
-						$sql="SELECT pays.NomPaysFR, ";
+						$sql="SELECT pays.NomPaysFR, "; //requete dans le but d'obtenir les valeurs normalisées triées selon l'ordre et l'année choisis pour les pays, les valeurs originales
 						for($i=1; $i<$nbInd; $i++){
 							$sql=$sql.$_GET['ClaInd'.$i].".Valeur AS 'Indice".$i."', ".$_GET['ClaInd'.$i].".ValeurOri AS 'IndiceOri".$i."', ";
 						}
@@ -101,7 +101,7 @@
 						$sql=$sql."Indice".$nbInd." ".$_GET['Ordre'.$nbInd];
 						$rep = $bdd->query($sql);
 						
-						while ($ligne = $rep->fetch()){ ?>
+						while ($ligne = $rep->fetch()){ ?> <!--Affichage des indices normalisés avec entre parenthèse les valeurs originales-->
 							<tr>
 								<td><? echo $ligne['NomPaysFR']; ?></td>
 								<? for($i=1; $i<=$nbInd; $i++){
@@ -121,7 +121,7 @@
 					<thead>
 						<tr class="Gras">
 							<th>Nom Continent</th>
-							<? for ($i=1; $i<=7; $i++){
+							<? for ($i=1; $i<=7; $i++){  /* Affichage du bon nom de l'indice  selon l'ordre choisis par l'utilisateur*/
 								echo '<th class="dropdown"> <span>'; 
 									if($_GET['ClaInd'.$i]=="indicedemocratie"){echo 'Indice de démocratie';} if ($_GET['ClaInd'.$i]=="indcorruption"){echo 'Indice de corruption';} if ($_GET['ClaInd'.$i]=="indbonheur"){echo 'Indice du bonheur';}
 									if ($_GET['ClaInd'.$i]=="indparite"){echo 'Indice de parite';} if ($_GET['ClaInd'.$i]=="indlibermorale"){echo 'Indice de liberte morale';} if ($_GET['ClaInd'.$i]=="indlibercivile"){echo 'Indice de liberte civile';}
@@ -137,7 +137,7 @@
 					</thead>
 					<tbody>
 						<? 
-						$sql2="SELECT continent.NomContinentFR, ";
+						$sql2="SELECT continent.NomContinentFR, "; //requete dans le but d'obtenir les valeurs normalisées triées selon l'ordre et l'année choisis pour les continents, les valeurs originales et le nombre de pays par continent
 						for($i=1; $i<=$nbInd; $i++){
 							$sql2=$sql2."round(avg(".$_GET['ClaInd'.$i].".Valeur),2) AS 'Indice".$i."' , round(avg(".$_GET['ClaInd'.$i].".ValeurOri),2) AS 'IndiceOri".$i."', ";
 						}
@@ -163,7 +163,7 @@
 								}?>
 								
 								<? 
-								$temp='Classement.php?annee='.$_GET['annee'].'&';
+								$temp='Classement.php?annee='.$_GET['annee'].'&'; //lien permettant d'afficher ou non les pays classées selon un continent
 								 for($k=1; $k<$nbInd; $k++){
 									$temp=$temp.'ClaInd'.$k.'='.$_GET['ClaInd'.$k].'&Ordre'.$k.'='.$_GET['Ordre'.$k].'&';
 								}
@@ -184,7 +184,7 @@
 								<td><a href="<? echo $temp;?>"><? echo $tab[$i]['NbrPays']; ?></a></td>
 							</tr>
 							<? 
-							if($_GET['Cont'.$i]=="ok"){
+							if($_GET['Cont'.$i]=="ok"){ //test si on affiche les pays du continent sélectionné
 
 								$sql3="SELECT pays.NomPaysFR, ";
 								for($k=1; $k<$nbInd; $k++){
@@ -211,7 +211,7 @@
 								<?}
 								$rep2->closeCursor();
 
-								$sql4="SELECT ";
+								$sql4="SELECT "; //requete pour compter le nombre de pays ayant des valeurs null et donc non pris en compte dans le calcul de l'indice pour le continent
 								for($k=1; $k<$nbInd; $k++){
 									$sql4=$sql4."SUM(CASE WHEN ".$_GET['ClaInd'.$k].".Valeur IS NULL THEN 1 ELSE 0 END) AS 'Indice".$k."', ";
 								}

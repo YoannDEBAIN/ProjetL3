@@ -122,9 +122,15 @@
 						<tr class="Gras">
 							<th>Nom Continent</th>
 							<? for ($i=1; $i<=7; $i++){
-								echo '<th>'; if($_GET['ClaInd'.$i]=="indicedemocratie"){echo 'Indice de démocratie';} if ($_GET['ClaInd'.$i]=="indcorruption"){echo 'Indice de corruption';} if ($_GET['ClaInd'.$i]=="indbonheur"){echo 'Indice du bonheur';}
-								if ($_GET['ClaInd'.$i]=="indparite"){echo 'Indice de parite';} if ($_GET['ClaInd'.$i]=="indlibermorale"){echo 'Indice de liberte morale';} if ($_GET['ClaInd'.$i]=="indlibercivile"){echo 'Indice de liberte civile';}
-								if ($_GET['ClaInd'.$i]=="indpaixglobale"){echo 'Indice de paix';} echo '</th>';
+								echo '<th class="dropdown"> <span>'; 
+									if($_GET['ClaInd'.$i]=="indicedemocratie"){echo 'Indice de démocratie';} if ($_GET['ClaInd'.$i]=="indcorruption"){echo 'Indice de corruption';} if ($_GET['ClaInd'.$i]=="indbonheur"){echo 'Indice du bonheur';}
+									if ($_GET['ClaInd'.$i]=="indparite"){echo 'Indice de parite';} if ($_GET['ClaInd'.$i]=="indlibermorale"){echo 'Indice de liberte morale';} if ($_GET['ClaInd'.$i]=="indlibercivile"){echo 'Indice de liberte civile';}
+									if ($_GET['ClaInd'.$i]=="indpaixglobale"){echo 'Indice de paix';} 
+								echo '</span>'; 
+								echo '<div class="dropdown-content">
+									<p>Valeur Normalisée (Valeur originale)</p>
+								</div>';
+							echo '</th>';
 							}?>
 							<th>Nombre de pays</th>
 						</tr> 

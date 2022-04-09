@@ -16,7 +16,6 @@ for($i=0;$i<count($col);$i++){
 	$datay[$i]=$col[$i][0];	
 	}
 
-}
 
 header("Content-type: image/png");
 require_once ('jpgraph/src/jpgraph.php');
