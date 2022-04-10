@@ -10,7 +10,6 @@ $rep=$bdd->query("SELECT ".$_GET['Indice'].".Valeur, ".$_GET['Indice'].".Annee F
 
 $col = $rep->fetchAll();
 
-}
 /* Récupération des données des indices choisies dans un tableau */
 
 $datax=array();

@@ -34,7 +34,10 @@
 				</div>
 			</form>
 		</div>
-		<? $rep = $bdd->query("SELECT pays.NomPaysFR, pays.UrlDrapeau, pays.IdPays FROM pays WHERE pays.NomPaysFR='".$_GET['Pays']."' ");
+		<? 
+		$rep=$bdd->prepare("SELECT pays.NomPaysFR, pays.UrlDrapeau, pays.IdPays FROM pays WHERE pays.NomPaysFR=?");
+		$rep->execute([$_GET['Pays']]);
+		//$rep = $bdd->query("SELECT pays.NomPaysFR, pays.UrlDrapeau, pays.IdPays FROM pays WHERE pays.NomPaysFR='".$_GET['Pays']."' ");
 		$ligne1=$rep->fetchAll();
 		echo "<h1 id='NomPays'>".$ligne1[0]['NomPaysFR']."</h1>"; 
 		echo "<div><img id='Drapeau' src='".$ligne1[0]['UrlDrapeau']."' /></div>"; ?>
@@ -127,6 +130,16 @@
 		
 		<button class="button" onclick="cache('d2','masque2','Masquez', 'Affichez');"> <span id="masque2"> Masquez </span></button>
 		<div id="d2">
+		
+			<?$lienALL="graphiqueAll.php?IdenPays=";
+			$lienALL.=$ligne1[0]['IdPays'];?>
+			
+			<img class="Graph" src="<? echo $lienALL; ?>"/> 
+			<br />
+			<a href="<? echo $lienALL; ?>" download="All.png">Télécharger le graphique</a>
+			<br />
+			<br />
+			<br />
 
 			<?$lienbonheur="graphiqueEvolution.php?Indice=indbonheur&IdenPays=";
 			$lienbonheur.=$ligne1[0]['IdPays'];?>
