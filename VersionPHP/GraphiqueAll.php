@@ -1,4 +1,4 @@
-<?php // content="text/plain; charset=utf-8" 
+<?php // content="text/plain; charset=utf-8"
 
 /* Connexion à la base de données du projet*/
 
@@ -44,21 +44,21 @@ $datax[$i-2000]=$i;
 header("Content-type: image/png");
 require_once ('jpgraph/src/jpgraph.php');
 require_once ('jpgraph/src/jpgraph_line.php');
+require_once ('jpgraph/src/jpgraph_plotline.php');
 
 /* Variable graph contient le graphique d'évolution */
  
 $graph = new Graph(800,450);
 
 /* Titre du graphique linéaire s'adaptant selon l'indice choisi par l'utilisateur */
-$titre="Evolution de l'";
-if ($_GET['Indice']=="indicedemocratie"&$_GET['Indice']=="indcorruption"&$_GET['Indice']=="indbonheur"&$_GET['Indice']=="indparite"&$_GET['Indice']=="indlibermorale"&$_GET['Indice']=="indlibercivile"&$_GET['Indice']=="indpaixglobale"){ $titre.='TOUT '; }
+
 
 /* Ajustement de la sortie graphique (titre, taille, echelle, polic)e */
 
 $graph->SetScale("linlin", 0, 100, 2000, 2020);
 $graph->yaxis->scale->ticks->Set(5);
 $graph->xaxis->scale->ticks->Set(1);
-$graph->img->SetMargin(40,40,40,40);        
+$graph->img->SetMargin(40,40,40,60);        
 $graph->SetShadow();
 $graph->xgrid->Show();
 $graph->title->Set("Evolution des differents indices au cours du temps");
@@ -66,54 +66,81 @@ $graph->title->SetFont(FF_FONT1,FS_BOLD);
 
 
 $sp1 = new LinePlot($Bonheur,$datax);
-$sp1->mark->SetType(MARK_FILLEDCIRCLE);
-$sp1->mark->SetFillColor("green");
-$sp1->SetColor("green");
-$sp1->SetCenter();
 
 $sp2 = new LinePlot($demo,$datax);
+
+
+$sp3 = new LinePlot($paix,$datax);
+
+$sp4 = new LinePlot($corrup,$datax);
+
+$sp5 = new LinePlot($civ,$datax);
+
+$sp6 = new LinePlot($morale,$datax);
+
+$sp7 = new LinePlot($parite,$datax);
+
+$graph->Add($sp1);
+$sp1->SetColor("#42A5F5");
+$sp1->SetWeight(2);
+$sp1->SetStyle('solid');
+$sp1->mark->SetType(MARK_FILLEDCIRCLE);
+$sp1->mark->SetFillColor("#42A5F5");
+$sp1->SetLegend ("Bonheur");
+
+$graph->Add($sp2);
 $sp2->mark->SetType(MARK_FILLEDCIRCLE);
 $sp2->mark->SetFillColor("red");
 $sp2->SetColor("red");
-$sp2->SetCenter();
+$sp2->SetLegend ("Demo");
+$sp2->SetWeight(2);
+$sp2->SetStyle('solid');
 
-$sp3 = new LinePlot($paix,$datax);
+$graph->Add($sp3);
 $sp3->mark->SetType(MARK_FILLEDCIRCLE);
 $sp3->mark->SetFillColor("black");
 $sp3->SetColor("black");
-$sp3->SetCenter();
+$sp3->SetWeight(2);
+$sp3->SetStyle('solid');
+$sp3->SetLegend ("paix");
 
-$sp4 = new LinePlot($corrup,$datax);
+
+
+$graph->Add($sp4);
 $sp4->mark->SetType(MARK_FILLEDCIRCLE);
 $sp4->mark->SetFillColor("gray");
 $sp4->SetColor("gray");
-$sp4->SetCenter();
+$sp4->SetLegend ("corrup");
+$sp4->SetWeight(2);
+$sp4->SetStyle('solid');
 
-$sp5 = new LinePlot($civ,$datax);
+$graph->Add($sp5);
 $sp5->mark->SetType(MARK_FILLEDCIRCLE);
-$sp5->mark->SetFillColor("yellow");
-$sp5->SetColor("yellow");
-$sp5->SetCenter();
+$sp5->mark->SetFillColor("purple");
+$sp5->SetColor("purple");
+$sp5->SetWeight(2);
+$sp5->SetStyle('solid');
+$sp5->SetLegend ("civ");
 
-$sp6 = new LinePlot($morale,$datax);
+$graph->Add($sp6);
 $sp6->mark->SetType(MARK_FILLEDCIRCLE);
 $sp6->mark->SetFillColor("blue");
 $sp6->SetColor("blue");
-$sp6->SetCenter();
+$sp6->SetWeight(2);
+$sp6->SetStyle('solid');
+$sp6->SetLegend ("morale");
 
-$sp7 = new LinePlot($parite,$datax);
-$sp7->mark->SetType(MARK_FILLEDCIRCLE);
-$sp7->mark->SetFillColor("orange");
-$sp7->SetColor("orange");
-$sp7->SetCenter();
 
-$graph->Add($sp1);
-$graph->Add($sp2);
-$graph->Add($sp3);
-$graph->Add($sp4);
-$graph->Add($sp5);
-$graph->Add($sp6);
 $graph->Add($sp7);
+$sp7->mark->SetType(MARK_FILLEDCIRCLE);
+$sp7->mark->SetFillColor("#18FFFF");
+$sp7->SetColor("#18FFFF");
+$sp7->SetWeight(2);
+$sp7->SetStyle('solid');
+$sp7->SetLegend ("parite");
+
+$graph ->legend->SetPos(0.5,0.98,'center','bottom');
+$graph ->legend->SetColumns(7);
 $graph->Stroke();
 
 /* Transforme la variable graph en image png*/

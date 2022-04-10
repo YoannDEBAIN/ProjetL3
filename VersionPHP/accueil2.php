@@ -24,7 +24,11 @@
 			</ul>
 		</div>
 		
+		<!-- Connexion à la base de données du projet -->
+		
 		<? $bdd = new PDO('mysql:host=localhost;dbname=projetl3bd;charset=utf8','root', 'root'); ?>
+		
+		<!-- Affichage des onglets -->
 		
 		<div id="BarreDeRecherche2">
 			<form action="../VersionPHP/accueil2.php" method="get" autocomplete="off">
@@ -34,16 +38,22 @@
 				</div>
 			</form>
 		</div>
+		
+		<!-- Affichage du nom du Pays et du drapeau -->
+
 		<? 
 		$rep=$bdd->prepare("SELECT pays.NomPaysFR, pays.UrlDrapeau, pays.IdPays FROM pays WHERE pays.NomPaysFR=?");
 		$rep->execute([$_GET['Pays']]);
-		//$rep = $bdd->query("SELECT pays.NomPaysFR, pays.UrlDrapeau, pays.IdPays FROM pays WHERE pays.NomPaysFR='".$_GET['Pays']."' ");
 		$ligne1=$rep->fetchAll();
 		echo "<h1 id='NomPays'>".$ligne1[0]['NomPaysFR']."</h1>"; 
 		echo "<div><img id='Drapeau' src='".$ligne1[0]['UrlDrapeau']."' /></div>"; ?>
 	
+		<!-- Bouton permettant de masquer/afficher le contenu de la DIV -->
+
 		<button class="button" onclick="cache('d1','masque1', 'Masquez', 'Affichez');"> <span id="masque1"> Masquez </span></button>
 		<div id="d1">
+		
+		<!-- Formulaire permettant à l'utilisateur de choisir une année afin d'afficher les indices associés -->
 
 			<form action="accueil2.php" method="get" autocomplete="off">
 				<select id="année" name = "Année">
@@ -72,7 +82,11 @@
 				<input type="hidden" name="Pays" value="<? echo $_GET['Pays'] ?>"/>
 				<input id="ok" type="submit" value="ok">   
 			</form>
+
 			</br>
+			
+			<!-- Affichage des indices de l'année choisie sous forme de tableau -->
+			
 			<table id="Tableau">
 				<tr>
 					<th>Indice du bonheur</th>
@@ -83,9 +97,12 @@
 					<th>Indice de liberté morale</th>
 					<th>Indice de parité gouvernementale</th>
 				</tr>
-		
+				
+
 				<? if($_GET['Année']!=""){ 
 				
+					/*Reqûete SQL permettant d'afficher les indices associées à l'année que l'utilisateur a choisi */
+
 					$rep=$bdd->query("SELECT indbonheur.Valeur AS indiceBonheur, indicedemocratie.Valeur AS indiceDemocratie, 
 					indpaixglobale.Valeur AS indicePaixGlobale, indcorruption.Valeur AS indiceCorruption, indlibercivile.Valeur 
 					AS indiceLiberteCivile, indlibermorale.Valeur AS indiceLiberteMorale, indparite.Valeur AS indicePariteGouv, 
@@ -103,6 +120,9 @@
 					$ligne = $rep->fetch();?>
 
 					<tr>
+					
+					<!--Affichage des indices avec couleurs de fond associées aux valeurs (Voir légende dans explication) -->
+
 						<td <? echo FondCase("indbonheur",$ligne['indiceBonheur']); ?>><? echo $ligne['indiceBonheur'].' ( '.$ligne['indiceBonheurOri'].' )'; ?></td>
 						<td <? echo FondCase("indicedemocratie",$ligne['indiceDemocratie']); ?>><? echo $ligne['indiceDemocratie'].' ( '.$ligne['indiceDemocratieOri'].' )'; ?></td>
 						<td <? echo FondCase("indpaixglobale",$ligne['indicePaixGlobale']); ?>><? echo $ligne['indicePaixGlobale'].' ( '.$ligne['indicePaixGlobaleOri'].' )'; ?></td>
@@ -113,6 +133,9 @@
 					</tr>
 					<? $rep->closeCursor();
 				} else {?>
+				
+				<!--Affichage d'un tableau vide si l'utilisateur n'a pas choisi d'année -->
+
 				<tr>
 					<td></td>
 					<td></td>
@@ -128,18 +151,28 @@
 
 		</br>
 		
+		<!-- Bouton permettant de masquer/afficher le contenu de la DIV -->
+
 		<button class="button" onclick="cache('d2','masque2','Masquez', 'Affichez');"> <span id="masque2"> Masquez </span></button>
 		<div id="d2">
+		
+		<!-- Affichage du graphique de l'évolution de tous les indices -->
 		
 			<?$lienALL="graphiqueAll.php?IdenPays=";
 			$lienALL.=$ligne1[0]['IdPays'];?>
 			
 			<img class="Graph" src="<? echo $lienALL; ?>"/> 
 			<br />
+			
+			<!-- Lien de téléchargement du graphique -->
+			
 			<a href="<? echo $lienALL; ?>" download="All.png">Télécharger le graphique</a>
 			<br />
 			<br />
 			<br />
+			
+		<!-- Affichage du graphique de chaque indice -->
+
 
 			<?$lienbonheur="graphiqueEvolution.php?Indice=indbonheur&IdenPays=";
 			$lienbonheur.=$ligne1[0]['IdPays'];?>
