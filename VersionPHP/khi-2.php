@@ -20,34 +20,28 @@
 			</ul>
 		</div>
 
-		<?php $bdd = new PDO('mysql:host=localhost;dbname=projetl3bd;charset=utf8','root', 'root'); 
-			//$rep = $bdd->query('SELECT pays.NomPaysFR FROM pays');
-			//var_dump($rep->fetchAll());
+
+		<?php 
+			//connection à la base de données
+			$bdd = new PDO('mysql:host=localhost;dbname=projetl3bd;charset=utf8','root', 'root'); 
+
+
 
 			if(isset($_GET['Ind1']) and !empty($_GET['Ind1']) and isset($_GET['Ind2']) and !empty($_GET['Ind2']) ){
 
+			//recuperation des valeurs de l'indice1, indice2 ainsi que le pays correspondant
+
 			$rep = $bdd->query("SELECT DISTINCT ind1.Valeur, ind2.Valeur, p.idPays from pays as p JOIN ".$_GET['Ind1']." as ind1 JOIN ".$_GET['Ind2']." as ind2 ON p.idPays = ind1.idPays and p.idPays = ind2.idPays WHERE ind1.Valeur IS NOT NULL and ind2.Valeur IS NOT NULL ORDER BY ind1.Valeur ASC, ind2.Valeur");
 
+			// recuperation avec année
 			if(isset($_GET['annee']) and !empty($_GET['annee'])){
 				$rep = $bdd->query("SELECT DISTINCT ind1.Valeur, ind2.Valeur, p.idPays from pays as p JOIN ".$_GET['Ind1']." as ind1 JOIN ".$_GET['Ind2']." as ind2 ON p.idPays = ind1.idPays and p.idPays = ind2.idPays WHERE ind1.Valeur IS NOT NULL and ind2.Valeur IS NOT NULL and ind1.Annee = ".$_GET['annee']." and ind2.Annee = ".$_GET['annee']." ORDER BY ind1.Valeur ASC, ind2.Valeur");
 			}
 
-			/*
-			$rep = $bdd->query("SELECT round((avg(".$_GET['Ind1'].".Valeur*".$_GET['Ind2'].".Valeur)-(AVG(".$_GET['Ind1'].".Valeur)*avg(".$_GET['Ind2'].".Valeur)))/(STDDEV_SAMP(".$_GET['Ind1'].".Valeur)*STDDEV_SAMP(".$_GET['Ind2'].".Valeur)), 2) AS 'r'
-				FROM ".$_GET['Ind1'].", ".$_GET['Ind2']."
-				WHERE ".$_GET['Ind1'].".IdPays=".$_GET['Ind2'].".IdPays AND ".$_GET['Ind1'].".Valeur IS NOT NULL AND ".$_GET['Ind2'].".Valeur IS NOT NULL AND ".$_GET['Ind1'].".Annee=".$_GET['annee']." AND ".$_GET['Ind2'].".Annee=".$_GET['annee']);
-			*/
 
 			$res=$rep->fetchAll();
-			//var_dump($res);
 
-			/*
-			var_dump($res[500]);
-			var_dump($res[500][0]);
-			var_dump($res[500][1]);
-			var_dump($res[500][2]);
-			*/
-
+			//mettre les valeurs d'indice1 dans un tableau
 			$listInd1 = array();
 			for ($i=0; $i <sizeof($res) ; $i++) { 
 				$listInd1[] = $res[$i][0];
@@ -55,52 +49,40 @@
 			}
 
 			
-
+			//enlever les doublons du tableau de valeurs d'indice1
 			$listInd1p = array_unique($listInd1);
 
+			//reecrire le tableau de valeurs d'indice1
 			$listInd1 = array();
 
 			foreach ($listInd1p as $key => $value) {
 				$listInd1[] = $value;
 			}
 
-			//var_dump($listInd1);
-			//var_dump($listInd1[1]);
-
+			
+			//lier les valeurs d'indice1 à des index pour les mettre dans une matrice
 			$maplistInd1 = array();
 
 			for ($i=0; $i <sizeof($listInd1) ; $i++) { 
-				//print_r($listInd1[$i]);
 				$maplistInd1[$listInd1[$i]] = $i;
-				//print_r($maplistInd1[$listInd1[$i]]."<br>");
 			}
 
-			/*
-			print_r(sizeof($listInd1) );
-
-			echo "<br><br>";
-
-			var_dump($listInd1);
-
-			echo "<br><br>";
-			*/
-
-			//var_dump($maplistInd1);
-
-
+			//mettre les valeurs d'indice2 dans un tableau
 			$listInd2 = array();
 			for ($i=0; $i <sizeof($res) ; $i++) { 
 				$listInd2[] = $res[$i][1];
 
 			}
-
+			//enlever les doublons du tableau de valeurs d'indice2
 			$listInd2p = array_unique($listInd2);
+
 
 			$listInd2 = array();
 			foreach ($listInd2p as $key => $value) {
 				$listInd2[] = $value;
 			}
 
+			//lier les valeurs d'indice2 à des index pour les mettre dans une matrice
 			$maplistInd2 = array();
 
 			for ($i=0; $i <sizeof($listInd2) ; $i++) { 
@@ -108,44 +90,60 @@
 
 			}
 			
-			//var_dump($maplistInd2);
-
+			
+			//créer la matrice de valeurs qui va permettre de calculer le chi-2, 
+			// les lignes correspondent aux valeurs des indice1
+			// les colonnes correspondent aux valeurs des indice2
+			// chaque case correspond au nombre de pays ayant la meme valeur d'indice1 et d'indice2
 			$field  = array();
 
 			$temp = array('colonne'=>sizeof($maplistInd1), 'ligne'=>sizeof($maplistInd2), 'dec'=> 1);
 
+			//limitation de la taille de la matrice pour avoir un degré de liberté égal à 100
 			$x = intval(sqrt(140));
 			$y = intval(sqrt(140));
 
 			$temp = array('colonne'=>sizeof($maplistInd1), 'ligne'=>sizeof($maplistInd2), 'dec'=> 1);
 
-			for ($i=0; $i <$temp['ligne'] ; $i++) { 
-				for ($j=0; $j <$temp['colonne'] ; $j++) { 
+			if ($x > $temp['ligne']) {
+				$x = $temp['ligne'];
+			}
+
+			if ($y > $temp['colonne']) {
+				$y = $temp['colonne'];
+			}
+
+			//préremplissage de la matrice par des valeurs 0
+			for ($i=0; $i <$x ; $i++) { 
+				for ($j=0; $j <$y; $j++) { 
 					$field[$i][$j] = 0;
 				}
 
 			}
 
 
-			
-			for ($i=0; $i <sizeof($res) ; $i++) { 
+			//remplissage de la mattrice: pour chaque valeur d'indice1 et d'indice2, on incrémente la valeur de la case correpondante dans la matrice de 1
+			for ($i=0; $i <$x ; $i++) { 
 				$ind1v =   $res[$i][0];
 				$ind2v =   $res[$i][1];
 				$ind1i =   $maplistInd1[$ind1v];
 				$ind2i =   $maplistInd2[$ind2v];
-				//print_r($ind2i."     ".$ind1i."<br>");
+
 				$field[$ind2i][$ind1i] = $field[$ind2i][$ind1i]+1;
 			}
 
-			//var_dump($field);
 
-
+			//données de tests utilisés lors de l'écriture des fonctions de calcul khi-2
 			//$temp = array('colonne'=>3, 'ligne'=>4, 'dec'=> 1);
 
 			//$field = [[33, 12, 147], [28, 15, 79], [63, 35, 203], [46, 37, 108]];
 
 
+			//calcul du khi-2 en PHP adapté du site web : https://codes-sources.commentcamarche.net/source/50763-teste-du-khi-deux-chi-deux-d-independance
 
+			//en 13 étapes
+
+			/* Etape 1: initialisation des variables*/
 			$carre = 0;
 	
 			$chi2 = $totaux_contingent = $totaux_theorique  = 0;
@@ -162,17 +160,16 @@
 			$valeur_chi = array();
 
 			
-			//var_dump($field);
 
-			/* Fournit le degré de liberté */	
+			/* Etape 2 : Fournit le degré de liberté */	
 			//$ddl = ($temp['ligne'] - 1)*($temp['colonne'] - 1); 
 			$ddl = ($x - 1)*($y - 1); 
 			
-			/* Fournit le Total des valeurs observés de chaque lignes */	
+			/* Etape 3 : Fournit le Total des valeurs observés de chaque lignes de la matrice*/	
 			
 			
-			for($i=0; $i<$temp['ligne']; $i++){
-					for($j=0; $j<$temp["colonne"]; $j++){
+			for($i=0; $i<$x; $i++){
+					for($j=0; $j<$y; $j++){
 						$total_lines_obs = $total_lines_obs +$field[$i][$j];
 				}
 				$Save_total_lines_obs[] = $total_lines_obs;
@@ -181,11 +178,9 @@
 			
 			
 
-			//var_dump($Save_total_lines_obs);
-
-			/* Fournit le Total des valeurs observés de chaque colonnes*/	
-			for($j=0; $j<$temp["colonne"]; $j++){
-				for($i=0; $i<$temp['ligne']; $i++){
+			/* Etape 4 : Fournit le Total des valeurs observés de chaque colonnes de la matrice*/	
+			for($j=0; $j<$x; $j++){
+				for($i=0; $i<$y; $i++){
 					
 						$total_colums_obs = $total_colums_obs +$field[$i][$j];
 				}
@@ -193,22 +188,8 @@
 				$total_colums_obs = 0;
 			}
 			
-			//var_dump($Save_total_colums_obs);
 
-			/*
-			for($j=0; $j<$temp["colonne"]; $j++)
-			{
-				$key = $j;
-					for($i=0; $i<$temp['ligne']; $i++)
-					{
-						$total_colums_obs = $field[$key] + $total_colums_obs;
-						$key += $temp['colonne'];
-					}	
-				$Save_total_colums_obs[] = $total_colums_obs;
-				$total_colums_obs = 0;
-			}	*/
-
-			/* Fournit le Total des Totaux des valeurs observés */	
+			/*Etape 5 :  Fournit le Total des Totaux des valeurs observés calculés ci-dessus */	
 			if( array_sum($Save_total_lines_obs) == array_sum($Save_total_colums_obs) )
 			{	
 				$totaux_contingent = round(array_sum($Save_total_lines_obs), $temp['dec']);
@@ -216,22 +197,22 @@
 			else
 			{
 				print 'Le Total des totaux par colonnes et par lignes des valeurs observés, semblent ne pas correspondre ! ';
-				//exit();
+				
 			}	
 
-			//var_dump($totaux_contingent);
+		
 
 			$valeur_theorique_matrice = array();
 			
-			/* Fournit les valeurs théoriques */	
+			/* Etape 6 : Fournit une nouvelle matrice des valeurs théoriques */	
 			if($totaux_contingent != 0)	
 			{	
 				
 
-				for($i=0; $i<$temp['ligne']; $i++)
+				for($i=0; $i<$x; $i++)
 					{
 					$valeur_theorique_ligne = array();
-					for($j=0; $j<$temp['colonne']; $j++)
+					for($j=0; $j<$y; $j++)
 						{
 						$valeur_theorique[] = round((($Save_total_lines_obs[$i]*$Save_total_colums_obs[$j])/$totaux_contingent), $temp['dec']); 
 						$valeur_theorique_ligne[] = round((($Save_total_lines_obs[$i]*$Save_total_colums_obs[$j])/$totaux_contingent), $temp['dec']); 
@@ -242,71 +223,53 @@
 			else
 			{ 
 				print 'Le Total général des valeurs observés est null, la suite des calculs ne peut être effectuer ! '; 
-				//exit; 
 			}
 
-			//var_dump($valeur_theorique);
-			//var_dump($valeur_theorique_matrice);
 
-
-			/* Fournit le Total des valeurs théoriques de chaque lignes */	
+			/* Etape 7 : Fournit le Total des valeurs théoriques de chaque lignes de la matrice des valeurs théoriques */	
 			$i=0;
 			foreach($valeur_theorique as $value)
 			{
-				if($i<$temp['ligne'])
+				if($i<$x)
 				{
 					$total_lines_theor = $value + $total_lines_theor;
 					$i++;
 				}
-					if($i==$temp['ligne'])
+					if($i==$x)
 					{
 						$Save_total_lines_theor[] = $total_lines_theor;
 						$i = $total_lines_theor = 0;
 					}
 			}
 
-			//var_dump($Save_total_lines_theor);
-
-			/* Fournit le Total des valeurs théoriques de chaque colonnes*/	
-			for($j=0; $j<$temp['colonne']; $j++)
+			/* Etape 8 : Fournit le Total des valeurs théoriques de chaque colonnes de la matrice des valeurs théoriques */	
+			for($j=0; $j<$y; $j++)
 			{
 				$key = $j;
-					for($i=0; $i<$temp['ligne']; $i++)
+					for($i=0; $i<$y; $i++)
 					{
 						$total_colums_theor = $valeur_theorique[$key] + $total_colums_theor;
-						$key += $temp['colonne'];
+						$key += $y;
 					}	
 				$Save_total_colums_theor[] = $total_colums_theor;
 				$total_colums_theor = 0;
 			}	
-
-			//var_dump($Save_total_colums_theor);
 		
-			/* Fournit le Total des Totaux des valeurs théoriques */	
-			/*
-			if( array_sum($Save_total_lines_theor) == array_sum($Save_total_colums_theor) )
-			{	
-				$totaux_theorique = round(array_sum($Save_total_lines_theor), $temp['dec']);
-			}	
-			else
-			{
-				print 'Le Total des totaux par colonnes et par lignes des valeurs théoriques, semblent ne pas correspondre ! ';
-				//exit();
-			}	
-			*/
+			/* Etape 9 : Fournit le Total des Totaux des valeurs théoriques calculés ci-dessus*/	
+
 			$totaux_theorique = round(array_sum($Save_total_lines_theor), $temp['dec']);
 
-			//var_dump($totaux_theorique);
 
-
-		/* Fournit les valeurs chis partiels */	
+		/* Etape 10 : Fournit les valeurs chis partiels: 
+			valeur de chi par case de la matrice
+		 */	
 
 			$valeur_chi_matrice = array();
-			for($i=0; $i<$temp['ligne']; $i++){
+			for($i=0; $i<$x; $i++){
 
 				$valeur_chi_ligne  = array();
 
-				for($j=0; $j<$temp["colonne"]; $j++){
+				for($j=0; $j<$y; $j++){
 					
 					if($valeur_theorique_matrice[$i][$j]!=0)
 				{
@@ -323,28 +286,28 @@
 				$valeur_chi_matrice[] = $valeur_chi_ligne;
 				
 			}
-			//var_dump($valeur_chi_matrice);
 			
 			
-		/* Fournit le Total des valeurs chis de chaque lignes */	
+			
+		/* Etape 11 : Fournit le Total des valeurs chis de chaque lignes */	
 
 			
-			for($i=0; $i<$temp['ligne']; $i++){
-				for($j=0; $j<$temp["colonne"]; $j++){
+			for($i=0; $i<$x; $i++){
+				for($j=0; $j<$y; $j++){
 					
 						$total_lines_chi = $valeur_chi_matrice[$i][$j] + $total_lines_chi;
 				}
 				$Save_total_lines_chi[] = $total_lines_chi;
 				$total_lines_chi=0;
 			}
-			//var_dump($Save_total_lines_chi);
+
 			echo "<br>";
 			
 			
-		/* Fournit le Total des valeurs chis de chaque colonnes*/
+		/* Etape 12 : Fournit le Total des valeurs chis de chaque colonnes*/
 
-			for($j=0; $j<$temp["colonne"]; $j++){
-				for($i=0; $i<$temp['ligne']; $i++){
+			for($j=0; $j<$y; $j++){
+				for($i=0; $i<$x; $i++){
 				
 					
 						$total_colums_chi  = $valeur_chi_matrice[$i][$j] + $total_colums_chi ;
@@ -353,26 +316,15 @@
 				$total_colums_chi = 0;	
 			}
 			
-			//var_dump($Save_total_colums_chi);
 
-		/* Fournit le Total des Totaux des valeurs chis soit le CHI2 */	
-			/*
-			if( array_sum($Save_total_lines_chi) == array_sum($Save_total_colums_chi) )
-				{	
-					$chi2 = round(array_sum($Save_total_lines_chi), $temp['dec']);
-				}	
-				else
-				{
-					print 'Le Total des totaux par colonnes et par lignes des valeurs chis, semblent ne pas correspondre ! ';
-					//exit();
-				}
-			*/
+		/* Etape 13 :  Fournit le Total des Totaux des valeurs chis soit le CHI2 */	
+			
 			$chi2 = round(array_sum($Save_total_lines_chi), $temp['dec']);
 
 
 			}
 
-			//var_dump($ddl, $chi2);
+
 ?>
 
 			
@@ -391,7 +343,7 @@
 							<option value="indbonheur" <?php if (isset($_GET['Ind1']) and $_GET['Ind1']=="indbonheur"){echo 'selected';}?>>heureux</option>
 							<option value="indparite" <?php if (isset($_GET['Ind1']) and $_GET['Ind1']=="indparite"){echo 'selected';}?>>paritaire</option>
 							<option value="indlibermorale" <?php if (isset($_GET['Ind1']) and $_GET['Ind1']=="indlibermorale"){echo 'selected';}?>>morale</option>
-							<option value="indlibercivile" <?php if (isset($_GET['Ind1']) and $_GET['Ind1']=="indlibercivile"){echo 'selected';}?>>libre</option>
+							<!--option value="indlibercivile" <?php if (isset($_GET['Ind1']) and $_GET['Ind1']=="indlibercivile"){echo 'selected';}?>>libre</option-->
 							<option value="indpaixglobale" <?php if (isset($_GET['Ind1']) and $_GET['Ind1']=="indpaixglobale"){echo 'selected';}?>>paisible</option>
 						</select>
 					</span> etait-il un pays plus 
@@ -402,26 +354,21 @@
 							<option value="indbonheur" <?php if (isset($_GET['Ind2']) and $_GET['Ind2']=="indbonheur"){echo 'selected';}?>>heureux</option>
 							<option value="indparite" <?php if (isset($_GET['Ind2']) and $_GET['Ind2']=="indparite"){echo 'selected';}?>>paritaire</option>
 							<option value="indlibermorale" <?php if (isset($_GET['Ind2']) and $_GET['Ind2']=="indlibermorale"){echo 'selected';}?>>morale</option>
-							<option value="indlibercivile" <?php if (isset($_GET['Ind2']) and $_GET['Ind2']=="indlibercivile"){echo 'selected';}?>>libre</option>
+							<!--option value="indlibercivile" <?php if (isset($_GET['Ind2']) and $_GET['Ind2']=="indlibercivile"){echo 'selected';}?>>libre</option-->
 							<option value="indpaixglobale" <?php if (isset($_GET['Ind2']) and $_GET['Ind2']=="indpaixglobale"){echo 'selected';}?>>paisible</option>
 						</select>
 					</span> 
 					<div class="dropdown">
 		<!--Création du bouton d'aide avec l'affichage de l'explication d'une correlation en le survolant-->
-						<button class="styled" type="button"><span>?</span></button>
-						<div class="dropdown-content">
-							<p>La corrélation, notée "r", représente en statistique, la force de liaison entre deux variables (ici, les deux indices choisis).</p> 
-							<p>Graphiquement, une forte liaison se traduira par un nuage de point dont l'aspect se rapproche d'une droite (on parle alors de liaison linéaire).</p>
-							<p>Plus la valeur de "r" est proche de -1 et 1, et plus la liaison (linéaire) entre les variables est forte. Si sa valeur est proche de 0, alors cela signifie que la liaison (linéaire) est inexistante.</p>
-							<p>Enfin, il est important de noter que l'existence d'une corrélation, n'implique pas toujours l'existence d'une causalité entre les deux variables</p>
-						</div>
+
+						
 					</div>
 					<input type="submit" value="Envoyer">
 				</form>
 			</div>
 		</div>
 		<br />
-		<!--Création du bouton d'aide avec l'affichage de l'explication d'une correlation en le survolant-->
+		<!--Affichage des informations degré de liberté et khi-2 -->
 
 		<?php 
 
@@ -432,11 +379,67 @@
 		<h1  class="centre"><?php echo 'Le degré de liberté est de '.$ddl.' et la valeur du Khi-2 est : '.$chi2; ?></h1>
 
 		<?php
-			//var_dump($field);
-			//var_dump($valeur_theorique_matrice);
+			
 
 
 		?>
+
+		<h2 class="centre">Interprétation : </h2>
+
+		<h3 class="centre">Cette affirmation est vraie avec une chance de </h3>
+
+
+
+		<?php
+
+			// definitions du tableau khi-2 pour la ligne de degré de liberté 100 pris dans : https://archimede.mat.ulaval.ca/stt1920/STT-1920-Loi-du-khi-deux.pdf
+
+			$ligne100TableChi = array(67.33,70.06, 74.22, 77.93,
+			 82.36, 99.33, 118.50, 124.34, 129.56, 135.81, 140.17);
+
+			$colonnesTableChi2 = array(0.995,0.990,0.975,0.950,0.900,
+				0.500,0.100,0.050,0.025,0.010,0.005);
+
+			$ligne100TableChi2 = array();
+			$ligne100TableChi2[67.33] = 0;
+			$ligne100TableChi2[70.06] = 1;
+			$ligne100TableChi2[74.22] = 2;
+			$ligne100TableChi2[77.93] = 3;
+			$ligne100TableChi2[82.36] = 4;
+			$ligne100TableChi2[99.33] = 5;
+			$ligne100TableChi2[118.50] = 6;
+			$ligne100TableChi2[124.34] = 7;
+			$ligne100TableChi2[129.56] = 8;
+			$ligne100TableChi2[135.81] = 9;
+			$ligne100TableChi2[140.17] = 10;
+			$position = -1;
+
+			//recherche de la position du chi-2 dans le tableau
+
+			for ($i=0; $i < sizeof($ligne100TableChi)-1; $i++) { 
+				if ($chi2 > $ligne100TableChi[$i] and $chi2 < $ligne100TableChi[$i+1]) {
+					$position = $i;
+				}
+			}
+
+			if ($position == -1) {
+				if ($chi2 < 67.33) {
+					$position = 0;
+				}
+				if ($chi2 > 140.17) {
+					$position = 10;
+				}
+			}
+
+
+
+			
+
+		//Affichage de l'interprétation: 
+		// La position du chi-2 dans le tableau est liée à la probabilité que les indice1 et indice2 soient correlés. 
+		?>
+
+		<h4 class="centre"> <?php echo (($colonnesTableChi2[$position])*100)." %"; ?></h4>
 
 	<?php } ?>
 	</body>
