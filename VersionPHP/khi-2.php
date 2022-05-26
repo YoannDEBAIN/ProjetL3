@@ -11,7 +11,7 @@
 	<body id="BODY_FondUni">
 		<div id="menu">
 			<ul id="onglets">
-				<li  class="active"><a href="Correlation.php"> Khi-2</a></li>
+				<li  class="active"><a href="khi-2.php"> Khi-2</a></li>
 				<li><a href="../PagesHTML/Explications.html"> Explications </a></li>
 				<li><a href="Classement.php"> Classement </a></li>
 				<li><a href="Correlation.php"> Correlation </a></li>
@@ -24,8 +24,126 @@
 			//$rep = $bdd->query('SELECT pays.NomPaysFR FROM pays');
 			//var_dump($rep->fetchAll());
 
+			if(isset($_GET['Ind1']) and !empty($_GET['Ind1']) and isset($_GET['Ind2']) and !empty($_GET['Ind2']) ){
 
-			$temp = array(array('colonne'=>3, 'ligne'=>4, 'dec'=> 1));
+			$rep = $bdd->query("SELECT DISTINCT ind1.Valeur, ind2.Valeur, p.idPays from pays as p JOIN ".$_GET['Ind1']." as ind1 JOIN ".$_GET['Ind2']." as ind2 ON p.idPays = ind1.idPays and p.idPays = ind2.idPays WHERE ind1.Valeur IS NOT NULL and ind2.Valeur IS NOT NULL ORDER BY ind1.Valeur ASC, ind2.Valeur");
+
+			if(isset($_GET['annee']) and !empty($_GET['annee'])){
+				$rep = $bdd->query("SELECT DISTINCT ind1.Valeur, ind2.Valeur, p.idPays from pays as p JOIN ".$_GET['Ind1']." as ind1 JOIN ".$_GET['Ind2']." as ind2 ON p.idPays = ind1.idPays and p.idPays = ind2.idPays WHERE ind1.Valeur IS NOT NULL and ind2.Valeur IS NOT NULL and ind1.Annee = ".$_GET['annee']." and ind2.Annee = ".$_GET['annee']." ORDER BY ind1.Valeur ASC, ind2.Valeur");
+			}
+
+			/*
+			$rep = $bdd->query("SELECT round((avg(".$_GET['Ind1'].".Valeur*".$_GET['Ind2'].".Valeur)-(AVG(".$_GET['Ind1'].".Valeur)*avg(".$_GET['Ind2'].".Valeur)))/(STDDEV_SAMP(".$_GET['Ind1'].".Valeur)*STDDEV_SAMP(".$_GET['Ind2'].".Valeur)), 2) AS 'r'
+				FROM ".$_GET['Ind1'].", ".$_GET['Ind2']."
+				WHERE ".$_GET['Ind1'].".IdPays=".$_GET['Ind2'].".IdPays AND ".$_GET['Ind1'].".Valeur IS NOT NULL AND ".$_GET['Ind2'].".Valeur IS NOT NULL AND ".$_GET['Ind1'].".Annee=".$_GET['annee']." AND ".$_GET['Ind2'].".Annee=".$_GET['annee']);
+			*/
+
+			$res=$rep->fetchAll();
+			//var_dump($res);
+
+			/*
+			var_dump($res[500]);
+			var_dump($res[500][0]);
+			var_dump($res[500][1]);
+			var_dump($res[500][2]);
+			*/
+
+			$listInd1 = array();
+			for ($i=0; $i <sizeof($res) ; $i++) { 
+				$listInd1[] = $res[$i][0];
+
+			}
+
+			
+
+			$listInd1p = array_unique($listInd1);
+
+			$listInd1 = array();
+
+			foreach ($listInd1p as $key => $value) {
+				$listInd1[] = $value;
+			}
+
+			//var_dump($listInd1);
+			//var_dump($listInd1[1]);
+
+			$maplistInd1 = array();
+
+			for ($i=0; $i <sizeof($listInd1) ; $i++) { 
+				//print_r($listInd1[$i]);
+				$maplistInd1[$listInd1[$i]] = $i;
+				//print_r($maplistInd1[$listInd1[$i]]."<br>");
+			}
+
+			/*
+			print_r(sizeof($listInd1) );
+
+			echo "<br><br>";
+
+			var_dump($listInd1);
+
+			echo "<br><br>";
+			*/
+
+			//var_dump($maplistInd1);
+
+
+			$listInd2 = array();
+			for ($i=0; $i <sizeof($res) ; $i++) { 
+				$listInd2[] = $res[$i][1];
+
+			}
+
+			$listInd2p = array_unique($listInd2);
+
+			$listInd2 = array();
+			foreach ($listInd2p as $key => $value) {
+				$listInd2[] = $value;
+			}
+
+			$maplistInd2 = array();
+
+			for ($i=0; $i <sizeof($listInd2) ; $i++) { 
+				$maplistInd2[$listInd2[$i]] = $i;
+
+			}
+			
+			//var_dump($maplistInd2);
+
+			$field  = array();
+
+			$temp = array('colonne'=>sizeof($maplistInd1), 'ligne'=>sizeof($maplistInd2), 'dec'=> 1);
+
+			$x = intval(sqrt(140));
+			$y = intval(sqrt(140));
+
+			$temp = array('colonne'=>sizeof($maplistInd1), 'ligne'=>sizeof($maplistInd2), 'dec'=> 1);
+
+			for ($i=0; $i <$temp['ligne'] ; $i++) { 
+				for ($j=0; $j <$temp['colonne'] ; $j++) { 
+					$field[$i][$j] = 0;
+				}
+
+			}
+
+
+			
+			for ($i=0; $i <sizeof($res) ; $i++) { 
+				$ind1v =   $res[$i][0];
+				$ind2v =   $res[$i][1];
+				$ind1i =   $maplistInd1[$ind1v];
+				$ind2i =   $maplistInd2[$ind2v];
+				//print_r($ind2i."     ".$ind1i."<br>");
+				$field[$ind2i][$ind1i] = $field[$ind2i][$ind1i]+1;
+			}
+
+			//var_dump($field);
+
+
+			//$temp = array('colonne'=>3, 'ligne'=>4, 'dec'=> 1);
+
+			//$field = [[33, 12, 147], [28, 15, 79], [63, 35, 203], [46, 37, 108]];
+
 
 
 			$carre = 0;
@@ -43,18 +161,18 @@
 			$valeur_theorique = array();
 			$valeur_chi = array();
 
-			$field = [[33, 12, 147], [28, 15, 79], [63, 35, 203], [46, 37, 108]];
+			
 			//var_dump($field);
 
 			/* Fournit le degré de liberté */	
-			$ddl = ($temp[0]['ligne'] - 1)*($temp[0]['colonne'] - 1); 
-			
+			//$ddl = ($temp['ligne'] - 1)*($temp['colonne'] - 1); 
+			$ddl = ($x - 1)*($y - 1); 
 			
 			/* Fournit le Total des valeurs observés de chaque lignes */	
 			
 			
-			for($i=0; $i<$temp[0]['ligne']; $i++){
-					for($j=0; $j<$temp[0]["colonne"]; $j++){
+			for($i=0; $i<$temp['ligne']; $i++){
+					for($j=0; $j<$temp["colonne"]; $j++){
 						$total_lines_obs = $total_lines_obs +$field[$i][$j];
 				}
 				$Save_total_lines_obs[] = $total_lines_obs;
@@ -66,8 +184,8 @@
 			//var_dump($Save_total_lines_obs);
 
 			/* Fournit le Total des valeurs observés de chaque colonnes*/	
-			for($j=0; $j<$temp[0]["colonne"]; $j++){
-				for($i=0; $i<$temp[0]['ligne']; $i++){
+			for($j=0; $j<$temp["colonne"]; $j++){
+				for($i=0; $i<$temp['ligne']; $i++){
 					
 						$total_colums_obs = $total_colums_obs +$field[$i][$j];
 				}
@@ -78,13 +196,13 @@
 			//var_dump($Save_total_colums_obs);
 
 			/*
-			for($j=0; $j<$temp[0]["colonne"]; $j++)
+			for($j=0; $j<$temp["colonne"]; $j++)
 			{
 				$key = $j;
-					for($i=0; $i<$temp[0]['ligne']; $i++)
+					for($i=0; $i<$temp['ligne']; $i++)
 					{
 						$total_colums_obs = $field[$key] + $total_colums_obs;
-						$key += $temp[0]['colonne'];
+						$key += $temp['colonne'];
 					}	
 				$Save_total_colums_obs[] = $total_colums_obs;
 				$total_colums_obs = 0;
@@ -93,7 +211,7 @@
 			/* Fournit le Total des Totaux des valeurs observés */	
 			if( array_sum($Save_total_lines_obs) == array_sum($Save_total_colums_obs) )
 			{	
-				$totaux_contingent = round(array_sum($Save_total_lines_obs), $temp[0]['dec']);
+				$totaux_contingent = round(array_sum($Save_total_lines_obs), $temp['dec']);
 			}	
 			else
 			{
@@ -110,13 +228,13 @@
 			{	
 				
 
-				for($i=0; $i<$temp[0]['ligne']; $i++)
+				for($i=0; $i<$temp['ligne']; $i++)
 					{
 					$valeur_theorique_ligne = array();
-					for($j=0; $j<$temp[0]['colonne']; $j++)
+					for($j=0; $j<$temp['colonne']; $j++)
 						{
-						$valeur_theorique[] = round((($Save_total_lines_obs[$i]*$Save_total_colums_obs[$j])/$totaux_contingent), $temp[0]['dec']); 
-						$valeur_theorique_ligne[] = round((($Save_total_lines_obs[$i]*$Save_total_colums_obs[$j])/$totaux_contingent), $temp[0]['dec']); 
+						$valeur_theorique[] = round((($Save_total_lines_obs[$i]*$Save_total_colums_obs[$j])/$totaux_contingent), $temp['dec']); 
+						$valeur_theorique_ligne[] = round((($Save_total_lines_obs[$i]*$Save_total_colums_obs[$j])/$totaux_contingent), $temp['dec']); 
 					}
 					$valeur_theorique_matrice[] = $valeur_theorique_ligne;
 				}
@@ -135,12 +253,12 @@
 			$i=0;
 			foreach($valeur_theorique as $value)
 			{
-				if($i<$temp[0]['ligne'])
+				if($i<$temp['ligne'])
 				{
 					$total_lines_theor = $value + $total_lines_theor;
 					$i++;
 				}
-					if($i==$temp[0]['ligne'])
+					if($i==$temp['ligne'])
 					{
 						$Save_total_lines_theor[] = $total_lines_theor;
 						$i = $total_lines_theor = 0;
@@ -150,13 +268,13 @@
 			//var_dump($Save_total_lines_theor);
 
 			/* Fournit le Total des valeurs théoriques de chaque colonnes*/	
-			for($j=0; $j<$temp[0]['colonne']; $j++)
+			for($j=0; $j<$temp['colonne']; $j++)
 			{
 				$key = $j;
-					for($i=0; $i<$temp[0]['ligne']; $i++)
+					for($i=0; $i<$temp['ligne']; $i++)
 					{
 						$total_colums_theor = $valeur_theorique[$key] + $total_colums_theor;
-						$key += $temp[0]['colonne'];
+						$key += $temp['colonne'];
 					}	
 				$Save_total_colums_theor[] = $total_colums_theor;
 				$total_colums_theor = 0;
@@ -165,15 +283,18 @@
 			//var_dump($Save_total_colums_theor);
 		
 			/* Fournit le Total des Totaux des valeurs théoriques */	
+			/*
 			if( array_sum($Save_total_lines_theor) == array_sum($Save_total_colums_theor) )
 			{	
-				$totaux_theorique = round(array_sum($Save_total_lines_theor), $temp[0]['dec']);
+				$totaux_theorique = round(array_sum($Save_total_lines_theor), $temp['dec']);
 			}	
 			else
 			{
 				print 'Le Total des totaux par colonnes et par lignes des valeurs théoriques, semblent ne pas correspondre ! ';
 				//exit();
 			}	
+			*/
+			$totaux_theorique = round(array_sum($Save_total_lines_theor), $temp['dec']);
 
 			//var_dump($totaux_theorique);
 
@@ -181,17 +302,17 @@
 		/* Fournit les valeurs chis partiels */	
 
 			$valeur_chi_matrice = array();
-			for($i=0; $i<$temp[0]['ligne']; $i++){
+			for($i=0; $i<$temp['ligne']; $i++){
 
 				$valeur_chi_ligne  = array();
 
-				for($j=0; $j<$temp[0]["colonne"]; $j++){
+				for($j=0; $j<$temp["colonne"]; $j++){
 					
 					if($valeur_theorique_matrice[$i][$j]!=0)
 				{
 					$carre = pow(($field[$i][$j] - $valeur_theorique_matrice[$i][$j]),2)/$valeur_theorique_matrice[$i][$j];
-					$valeur_chi[] = round($carre, $temp[0]['dec']);
-					$valeur_chi_ligne[] = round($carre, $temp[0]['dec']);
+					$valeur_chi[] = round($carre, $temp['dec']);
+					$valeur_chi_ligne[] = round($carre, $temp['dec']);
 				}
 				else
 				{
@@ -208,8 +329,8 @@
 		/* Fournit le Total des valeurs chis de chaque lignes */	
 
 			
-			for($i=0; $i<$temp[0]['ligne']; $i++){
-				for($j=0; $j<$temp[0]["colonne"]; $j++){
+			for($i=0; $i<$temp['ligne']; $i++){
+				for($j=0; $j<$temp["colonne"]; $j++){
 					
 						$total_lines_chi = $valeur_chi_matrice[$i][$j] + $total_lines_chi;
 				}
@@ -222,8 +343,8 @@
 			
 		/* Fournit le Total des valeurs chis de chaque colonnes*/
 
-			for($j=0; $j<$temp[0]["colonne"]; $j++){
-				for($i=0; $i<$temp[0]['ligne']; $i++){
+			for($j=0; $j<$temp["colonne"]; $j++){
+				for($i=0; $i<$temp['ligne']; $i++){
 				
 					
 						$total_colums_chi  = $valeur_chi_matrice[$i][$j] + $total_colums_chi ;
@@ -235,18 +356,21 @@
 			//var_dump($Save_total_colums_chi);
 
 		/* Fournit le Total des Totaux des valeurs chis soit le CHI2 */	
-			
+			/*
 			if( array_sum($Save_total_lines_chi) == array_sum($Save_total_colums_chi) )
 				{	
-					$chi2 = round(array_sum($Save_total_lines_chi), $temp[0]['dec']);
+					$chi2 = round(array_sum($Save_total_lines_chi), $temp['dec']);
 				}	
 				else
 				{
-					print '<br>Le Total des totaux par colonnes et par lignes des valeurs chis, semblent ne pas correspondre ! ';
+					print 'Le Total des totaux par colonnes et par lignes des valeurs chis, semblent ne pas correspondre ! ';
 					//exit();
 				}
-				
-			
+			*/
+			$chi2 = round(array_sum($Save_total_lines_chi), $temp['dec']);
+
+
+			}
 
 			//var_dump($ddl, $chi2);
 ?>
@@ -255,31 +379,31 @@
 
 	
 	<!--Création du rectangle avec les menus déroulants pour que l'utilisateur puisse faire le choix des indices pour mesurer le rapport de correlation-->
-	
+
 		<div id="rectangle">
 			<div class="centre">
 				<form action="khi-2.php" method="get" autocomplete="off">
 					En <input name="annee" type="number" value="<?php echo $_GET['annee'];?>" min="2000" max ="2020" step="1"> , un pays plus 
 					<span class="custom-dropdown custom-dropdown--white">
 						<select class="custom-dropdown__select custom-dropdown__select--white" name = "Ind1">
-							<option value="indicedemocratie" <?php if ($_GET['Ind1']=="indicedemocratie"){echo 'selected';}?>>democratique</option>
-							<option value="indcorruption" <?php if ($_GET['Ind1']=="indcorruption"){echo 'selected';}?>>corrompu</option>
-							<option value="indbonheur" <?php if ($_GET['Ind1']=="indbonheur"){echo 'selected';}?>>heureux</option>
-							<option value="indparite" <?php if ($_GET['Ind1']=="indparite"){echo 'selected';}?>>paritaire</option>
-							<option value="indlibermorale" <?php if ($_GET['Ind1']=="indlibermorale"){echo 'selected';}?>>morale</option>
-							<option value="indlibercivile" <?php if ($_GET['Ind1']=="indlibercivile"){echo 'selected';}?>>libre</option>
-							<option value="indpaixglobale" <?php if ($_GET['Ind1']=="indpaixglobale"){echo 'selected';}?>>paisible</option>
+							<option value="indicedemocratie" <?php if (isset($_GET['Ind1']) and $_GET['Ind1']=="indicedemocratie"){echo 'selected';}?>>democratique</option>
+							<option value="indcorruption" <?php if (isset($_GET['Ind1']) and $_GET['Ind1']=="indcorruption"){echo 'selected';}?>>corrompu</option>
+							<option value="indbonheur" <?php if (isset($_GET['Ind1']) and $_GET['Ind1']=="indbonheur"){echo 'selected';}?>>heureux</option>
+							<option value="indparite" <?php if (isset($_GET['Ind1']) and $_GET['Ind1']=="indparite"){echo 'selected';}?>>paritaire</option>
+							<option value="indlibermorale" <?php if (isset($_GET['Ind1']) and $_GET['Ind1']=="indlibermorale"){echo 'selected';}?>>morale</option>
+							<option value="indlibercivile" <?php if (isset($_GET['Ind1']) and $_GET['Ind1']=="indlibercivile"){echo 'selected';}?>>libre</option>
+							<option value="indpaixglobale" <?php if (isset($_GET['Ind1']) and $_GET['Ind1']=="indpaixglobale"){echo 'selected';}?>>paisible</option>
 						</select>
 					</span> etait-il un pays plus 
 					<span class="custom-dropdown custom-dropdown--white">
 						<select class="custom-dropdown__select custom-dropdown__select--white" name = "Ind2">
-							<option value="indicedemocratie" <?php if ($_GET['Ind2']=="indicedemocratie"){echo 'selected';}?>>democratique</option>
-							<option value="indcorruption" <?php if ($_GET['Ind2']=="indcorruption"){echo 'selected';}?>>corrompu</option>
-							<option value="indbonheur" <?php if ($_GET['Ind2']=="indbonheur"){echo 'selected';}?>>heureux</option>
-							<option value="indparite" <?php if ($_GET['Ind2']=="indparite"){echo 'selected';}?>>paritaire</option>
-							<option value="indlibermorale" <?php if ($_GET['Ind2']=="indlibermorale"){echo 'selected';}?>>morale</option>
-							<option value="indlibercivile" <?php if ($_GET['Ind2']=="indlibercivile"){echo 'selected';}?>>libre</option>
-							<option value="indpaixglobale" <?php if ($_GET['Ind2']=="indpaixglobale"){echo 'selected';}?>>paisible</option>
+							<option value="indicedemocratie" <?php if (isset($_GET['Ind2']) and $_GET['Ind2']=="indicedemocratie"){echo 'selected';}?>>democratique</option>
+							<option value="indcorruption" <?php if (isset($_GET['Ind2']) and $_GET['Ind2']=="indcorruption"){echo 'selected';}?>>corrompu</option>
+							<option value="indbonheur" <?php if (isset($_GET['Ind2']) and $_GET['Ind2']=="indbonheur"){echo 'selected';}?>>heureux</option>
+							<option value="indparite" <?php if (isset($_GET['Ind2']) and $_GET['Ind2']=="indparite"){echo 'selected';}?>>paritaire</option>
+							<option value="indlibermorale" <?php if (isset($_GET['Ind2']) and $_GET['Ind2']=="indlibermorale"){echo 'selected';}?>>morale</option>
+							<option value="indlibercivile" <?php if (isset($_GET['Ind2']) and $_GET['Ind2']=="indlibercivile"){echo 'selected';}?>>libre</option>
+							<option value="indpaixglobale" <?php if (isset($_GET['Ind2']) and $_GET['Ind2']=="indpaixglobale"){echo 'selected';}?>>paisible</option>
 						</select>
 					</span> 
 					<div class="dropdown">
@@ -300,63 +424,20 @@
 		<!--Création du bouton d'aide avec l'affichage de l'explication d'une correlation en le survolant-->
 
 		<?php 
-		if ($_GET['annee']!=""){
-			if($_GET['Ind1']==$_GET['Ind2']){
-				echo '<img class = "Graph" src="imgCorr.php?Ind1='.$_GET['Ind1'].'&Ind2='.$_GET['Ind2'].'&annee='.$_GET['annee'].'&cor=1" />';
-				echo '<br />';
-				?>
-				<a href="<?php echo 'imgCorr.php?Ind1='.$_GET['Ind1'].'&Ind2='.$_GET['Ind2'].'&annee='.$_GET['annee'].'&cor=1'; ?>" download="cor.png">Télécharger le graphique</a>
-				<br />
-				<br />
-				<button class="button" onclick="cache('manqu','disp','Masquez', 'Affichez');"> <span id="disp"> Masquez </span></button>
-				<div id="manque1">
-		<!--Gestion des donnéees manquantes en spécifiant la liste des pays avec donnéees manquantes-->
-					<?php 
-					echo '<p>La liste des pays non pris en compte (par manque de données) : </p>';
-					$rep = $bdd->query('SELECT pays.NomPaysFR FROM pays WHERE pays.IdPays NOT IN (SELECT '.$_GET['Ind1'].'.IdPays FROM '.$_GET['Ind1'].' WHERE '.$_GET['Ind1'].'.Valeur IS NOT NULL AND '.$_GET['Ind1'].'.Annee='.$_GET['annee'].')');
-					echo '<ul>';
-						while($ligne=$rep->fetch()){
-							echo '<li>'.$ligne['NomPaysFR'].'</li>';
-						}
-					echo '</ul>';
-				echo '</div>';
-			}else{
-		/* Calcul du rapport de correlation par requete SQL*/
-		
-				$rep = $bdd->query("SELECT round((avg(".$_GET['Ind1'].".Valeur*".$_GET['Ind2'].".Valeur)-(AVG(".$_GET['Ind1'].".Valeur)*avg(".$_GET['Ind2'].".Valeur)))/(STDDEV_SAMP(".$_GET['Ind1'].".Valeur)*STDDEV_SAMP(".$_GET['Ind2'].".Valeur)), 2) AS 'r'
-				FROM ".$_GET['Ind1'].", ".$_GET['Ind2']."
-				WHERE ".$_GET['Ind1'].".IdPays=".$_GET['Ind2'].".IdPays AND ".$_GET['Ind1'].".Valeur IS NOT NULL AND ".$_GET['Ind2'].".Valeur IS NOT NULL AND ".$_GET['Ind1'].".Annee=".$_GET['annee']." AND ".$_GET['Ind2'].".Annee=".$_GET['annee']);
 
-				$res=$rep->fetchAll();
-
-		/* Récuperation du graphique crée dans le fichier imgCorr.php*/
-				echo '<img class = "Graph" src="imgCorr.php?Ind1='.$_GET['Ind1'].'&Ind2='.$_GET['Ind2'].'&annee='.$_GET['annee'].'&cor='.$res[0]['r'].'" />';
-
-				echo '<br />';
-
-				?>
-		
-		<!-- Permettre de télécharger le graphique-->
-				<a href="<?php echo 'imgCorr.php?Ind1='.$_GET['Ind1'].'&Ind2='.$_GET['Ind2'].'&annee='.$_GET['annee'].'&cor='.$res[0]['r']; ?>" download="cor.png">Télécharger le graphique</a>
-				<br />
-				<br />
-				<button class="button" onclick="cache('manque2','rien','Masquez', 'Affichez');"> <span id="rien"> Masquez </span></button>
-				<div id="manque2">
-		<!--Gestion des donnéees manquantes en spécifiant la liste des pays avec donnéees manquantes-->
-					<?php
-					echo '<p>La liste des pays non pris en compte (par manque de données) : </p>';
-
-					$rep = $bdd->query('SELECT pays.NomPaysFR FROM pays WHERE pays.IdPays NOT IN (SELECT pays.IdPays FROM '.$_GET['Ind1'].' , '.$_GET['Ind2'].' , pays WHERE '.$_GET['Ind1'].'.IdPays=pays.IdPays AND pays.IdPays='.$_GET['Ind2'].'.IdPays AND '.$_GET['Ind1'].'.Valeur IS NOT NULL AND '.$_GET['Ind2'].'.Valeur IS NOT NULL AND '.$_GET['Ind1'].'.Annee='.$_GET['annee'].' AND '.$_GET['Ind2'].'.Annee='.$_GET['annee'].' )');
-					echo '<ul>';
-						while($ligne=$rep->fetch()){
-							echo '<li>'.$ligne['NomPaysFR'].'</li>';
-						}
-					echo '</ul>';
-				echo '</div>';
-			}
-		}?>
+		if(isset($_GET['Ind1']) and !empty($_GET['Ind1']) and isset($_GET['Ind2']) and !empty($_GET['Ind2']) ){
+		?>
 
 
+		<h1  class="centre"><?php echo 'Le degré de liberté est de '.$ddl.' et la valeur du Khi-2 est : '.$chi2; ?></h1>
 
+		<?php
+			//var_dump($field);
+			//var_dump($valeur_theorique_matrice);
+
+
+		?>
+
+	<?php } ?>
 	</body>
 </html>

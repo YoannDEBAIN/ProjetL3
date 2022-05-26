@@ -29,6 +29,7 @@
 	<body id="BODY_FondUni">
 		<div id="menu">
 			<ul id="onglets">
+				<li ><a href="khi-2.php"> Khi-2</a></li>
 				<li><a href="../PagesHTML/Explications.html"> Explications </a></li>
 				<li  class="active"><a href="Classement.php"> Classement </a></li>
 				<li><a href="Correlation.php"> Correlation </a></li>

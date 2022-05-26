@@ -11,6 +11,7 @@
 	<body id="BODY_FondUni">
 		<div id="menu">
 			<ul id="onglets">
+				<li ><a href="khi-2.php"> Khi-2</a></li>
 				<li><a href="../PagesHTML/Explications.html"> Explications </a></li>
 				<li><a href="Classement.php"> Classement </a></li>
 				<li  class="active"><a href="Correlation.php"> Correlation </a></li>
@@ -19,7 +20,7 @@
 			</ul>
 		</div>
 
-		<? $bdd = new PDO('mysql:host=localhost;dbname=projetl3bd;charset=utf8','root', 'root'); ?>
+		<?php $bdd = new PDO('mysql:host=localhost;dbname=projetl3bd;charset=utf8','root', 'root'); ?>
 	
 	<!--Création du rectangle avec les menus déroulants pour que l'utilisateur puisse faire le choix des indices pour mesurer le rapport de correlation-->
 	
