@@ -361,6 +361,14 @@
 					<div class="dropdown">
 		<!--Création du bouton d'aide avec l'affichage de l'explication d'une correlation en le survolant-->
 
+					<button class="styled" type="button"><span>?</span></button>
+						<div class="dropdown-content">
+							<p>Le test du khi-2 permet de dire avec une certaine probabilité que deux variables statistiques sont indépendantes ou non. </p>
+							<p>
+								Le degré de liberté et la valeur calculée du khi-2 permettent, grace au tableau de khi-2, de déterminer cette probabilité d'indépendance.
+							</p>
+						</div>
+
 						
 					</div>
 					<input type="submit" value="Envoyer">
